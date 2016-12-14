@@ -1,4 +1,4 @@
-var request = require('superagent');
+var request = require('supertest');
 var chai = require('chai');
 var chaiHttp = require('chai-http');
 var server = require('../fg_api_server');
@@ -6,18 +6,9 @@ var server = require('../fg_api_server');
 var user = request.agent();
 var should = chai.should();
 
-chai.use(chaiHttp);
+var authToken = null;
 
-/*
- * user
- *   .post('http://localhost:3500/api/v1/login')
- *   .send({ user: 'test@test.com', password: 'pw' })
- *   .end(function(err, res) {
- *     if (err) {
- *       return err;
- *     }
- *   });
- */
+chai.use(chaiHttp);
 
 describe('People', function() {
 /*
@@ -35,13 +26,33 @@ describe('People', function() {
         done();
       });
   });
+
+  it('login', loginUser());
+
   it('should return ALL people on /people GET', function(done) {
     chai.request(server)
       .get('/people')
+      .set('x-access-token', authToken)
       .end(function(err, res) {
+        if (err) return done(err);
         res.should.have.status(200);
-        done();
+        done()
       });
-  });
+    });
   // it('should list a SINGLE person on /people/<id> GET');
 })
+
+function loginUser() {
+  return function(done) {
+    chai.request(server)
+      .post('/api/v1/login')
+      .send({username: 'test@test.com', password: 'pw'})
+      .end(onResponse);
+
+      function onResponse(err, res) {
+        if (err) return done(err);
+        authToken = res.body.token;
+        return done();
+      }
+  }
+}
