@@ -4,9 +4,11 @@ var mongoose = require('mongoose');
 module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel) {
 	app.post('/api/v2/update', auth.isAuthenticated, function(req, res){
     console.log("in update with:", req.body.objectType);
-		// console.log("req.body.object._id",req.body.object._id);
+		
 		var id = req.body.object._id;
 		var user = req.decoded._doc.userName;
+		const set = {};
+		set[req.body.object.field] = req.body.object.value;
 
 		if (req.body.objectType === "person") {
 			PersonModel.findOneAndUpdate(
@@ -14,18 +16,9 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
 					_id: id,
 					user_id: user
 				},
-				{$set: {
-					fName : req.body.object.fName,
-					mName: req.body.object.mName,
-					lName: req.body.object.lName,
-					sexAtBirth: req.body.object.sexAtBirth,
-					birthDate: req.body.object.birthDate,
-					birthPlace: req.body.object.birthPlace,
-					deathDate: req.body.object.deathDate,
-					deathPlace: req.body.object.deathPlace,
-					notes: req.body.object.notes,
-					user_id: user
-				}},
+				{$set: set
+					// todo: validate the heck out of this. make sure it is not _id that we are updating, at a min
+				},
 				{new: true},
 				function(err, data) {
 					if(err) {
