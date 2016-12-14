@@ -66,3 +66,5 @@ app.use(function(req, res, next) {
 app.listen(3500, function() {
 	console.log("Ready to go: 3500");
 });
+
+module.exports = app;
