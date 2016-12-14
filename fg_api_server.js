@@ -29,7 +29,7 @@ var app = express();
 // the following are for passport.js
 app.set('jwtSecret', config.jwtSecret);
 app.use(passport.initialize());
-// trying to get flash to work, I needed to 
+// trying to get flash to work, I needed to
 // app.use(cookieParser());
 // app.use(session({ cookie: { maxAge: 60000 }}));
 app.use(flash());
@@ -47,12 +47,17 @@ app.use(function(req, res, next) {
 });
 
 require("./passport/passport.routes")(app,passport);
+require("./gedcom/gedcom.js")(app, mongoose, bodyParser, passport);
+require("./api_calls/person-api")(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel);
 
+/**********
+Old api files
+************/
 require("./api_calls/get-api")(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel);
 require("./api_calls/create-api")(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel);
 require("./api_calls/update-api")(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel);
 require("./api_calls/delete-api")(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel);
-require("./gedcom/gedcom.js")(app, mongoose, bodyParser, passport);
+
 
 /*app.get('*', function(req, res){
    res.sendFile('../familygenie-angular/index.html');

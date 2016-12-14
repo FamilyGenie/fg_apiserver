@@ -2,35 +2,15 @@ var auth = require('../authentication');
 var mongoose = require('mongoose');
 
 module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel) {
-	app.post('/api/v2/update', auth.isAuthenticated, function(req, res){
+	app.post('/update', auth.isAuthenticated, function(req, res){
     console.log("in update with:", req.body.objectType);
-		
+
 		var id = req.body.object._id;
 		var user = req.decoded._doc.userName;
 		const set = {};
 		set[req.body.object.field] = req.body.object.value;
 
-		if (req.body.objectType === "person") {
-			PersonModel.findOneAndUpdate(
-				{
-					_id: id,
-					user_id: user
-				},
-				{$set: set
-					// todo: validate the heck out of this. make sure it is not _id that we are updating, at a min
-				},
-				{new: true},
-				function(err, data) {
-					if(err) {
-						res.status(500);
-						res.send("Error updating person data");
-						return;
-					}
-					console.log("****Updated record being returned", data);
-					res.send(data);
-				}
-			);
-		} else if (req.body.objectType === "parentalRel") {
+		if (req.body.objectType === "parentalRel") {
 			ParentalRelModel.findOneAndUpdate(
 				{
 					_id: id,
