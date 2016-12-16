@@ -43,6 +43,7 @@ describe('Authentication', function() {
     // logoutUser();
     chai.request(server)
       .get('/people')
+      .set('x-access-token')
       .end(function(err, res) {
         res.should.have.status(403);
         done();
@@ -69,7 +70,7 @@ describe('People', function() {
    * });
    */
 
-  it('login', loginUser());
+  // it('login', loginUser());
 
   it('should return ALL people on /people GET', function(done) {
     chai.request(server)
@@ -109,7 +110,7 @@ describe('People', function() {
  *       deathDate : null,
  *       deathPlace : null,
  *       notes : null,
- *       user_id : "test@user.com" 
+ *       user_id : "test@user.com"
  *     }
  *     chai.request(server)
  *       .post('/create')
@@ -117,7 +118,7 @@ describe('People', function() {
  *       .set('req.body.objectType', 'person')
  *       .end(function(err, res) {
  *         if (err) return done(err);
- * 
+ *
  *       });
  *     done();
  *   });
@@ -139,25 +140,25 @@ describe('People', function() {
 
 /*
  * describe('PairBondRel', function() {
- *   
+ *
  * });
  */
 
 /*
  * describe('ParentalRel', function() {
- * 
+ *
  * });
  */
 
 /*
  * describe('ParentalRelType', function() {
- *   
+ *
  * });
  */
 
 /*
  * describe('PersonChangeModel', function() {
- * 
+ *
  * });
  */
 
@@ -174,9 +175,9 @@ describe('People', function() {
  *       notes: null,
  *       deathPlace: '',
  *       deathDate: '2007-03-12T00:00:00.000Z',
- *       user_id: 'test@test.com' 
+ *       user_id: 'test@test.com'
  *     });
- * 
+ *
  *     newPerson.save(function(err, data) {
  *       chai.request(server)
  *         .get('/people/' + data.id)
@@ -185,7 +186,7 @@ describe('People', function() {
  *           res.should.have.status(200);
  *           // res.should.be.json;
  *           // res.text.should.be.a('object');
- * 
+ *
  *         });
  *     });
  *   });
@@ -242,7 +243,7 @@ function loginUser() {
  *       .post('/api/v1/login')
  *       .send({})
  *       .end(onResponse);
- * 
+ *
  *       function onResponse(err,res) {
  *         if (err) return done(err);
  *         authToken = null;
