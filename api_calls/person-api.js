@@ -4,7 +4,8 @@ var mongoose = require('mongoose');
 
 module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel) {
 	app.get('/api/v2/people', auth.isAuthenticated, function(req, res) {
-		var user = req.decoded._doc.userName;
+		// this console.log is meant to be here - to keep a log of activities in the node server log
+		console.log("in get people");var user = req.decoded._doc.userName;
 		PersonModel.find(
 			{
 				user_id: user
@@ -22,8 +23,11 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
 	});
 
 	app.post('/api/v2/person/update', auth.isAuthenticated, function(req, res) {
-		var _id = req.body.object._id;
+		// this console.log is meant to be here - to keep a log of activities in the node server log
+		console.log("in person update");
+		// passport inserts the user into req.decoded._doc.userName
 		var user = req.decoded._doc.userName;
+		var _id = req.body.object._id;
 		const set = {};
 		set[req.body.object.field] = req.body.object.value;
 		PersonModel.findOneAndUpdate(
@@ -48,11 +52,11 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
 	})
 
 	app.post('/api/v2/person/delete', auth.isAuthenticated, function(req, res) {
+		// this console.log is meant to be here - to keep a log of activities in the node server log
 		console.log("in person delete");
-		var _id = req.body.object._id;
+		// passport inserts the user into req.decoded._doc.userName
 		var user = req.decoded._doc.userName;
-		const set = {};
-		set[req.body.object.field] = req.body.object.value;
+		var _id = req.body.object._id;
 		PersonModel.remove(
 			{
 				_id: _id,
@@ -84,11 +88,10 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
 	})
 
 	app.post('/api/v2/person/create', auth.isAuthenticated, function(req, res) {
+		// this console.log is meant to be here - to keep a log of activities in the node server log
 		console.log("in person create");
+		// passport inserts the user into req.decoded._doc.userName
 		var user = req.decoded._doc.userName;
-		// var _id = req.body.object._id;
-		// const set = {};
-		// set[req.body.object.field] = req.body.object.value;
 		object = {
 				fName : req.body.object.fName,
 				mName: req.body.object.mName,
