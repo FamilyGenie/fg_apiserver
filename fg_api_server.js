@@ -15,6 +15,18 @@ var session = require('express-session');
 // var cookieParser = require('cookie-parser');
 var user;
 
+/* // For testing
+ * var config = require('./test/_config');
+ * mongoose.connect(config.mongoURI[app.settings.env], function(err, res) {
+ *   if(err) {
+ *     console.log('Error connecting to the database: ', err);
+ *   }
+ *   else {
+ *     console.log('Connected to Database: ', config.mongoURI[app.settings.env]);
+ *   }
+ * });
+ */
+
 mongoose.connect('mongodb://localhost');
 
 var PersonModel = require('./models/person.model.js')(mongoose);
@@ -42,7 +54,7 @@ app.use(bodyParser.urlencoded({
 app.use(cors());
 
 app.use(function(req, res, next) {
-	console.log("Request recieved for:", req.url);
+	// console.log("Request recieved for:", req.url);
 	next();
 });
 

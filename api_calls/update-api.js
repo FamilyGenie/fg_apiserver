@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel) {
 	app.post('/api/v2/update', auth.isAuthenticated, function(req, res){
-    console.log("in update with:", req.body.objectType);
+    // console.log("in update with:", req.body.objectType);
 		// console.log("req.body.object._id",req.body.object._id);
 		var id = req.body.object._id;
 		var user = req.decoded._doc.userName;
@@ -33,7 +33,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
 						res.send("Error updating person data");
 						return;
 					}
-					console.log("****Updated record being returned", data);
+					// console.log("****Updated record being returned", data);
 					res.send(data);
 				}
 			);
@@ -113,7 +113,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
 				}
 			);
 		} else if (req.body.objectType === "event") {
-      console.log('object: ', req.body.object)
+      // console.log('object: ', req.body.object)
 			EventsModel.findOneAndUpdate(
 				{
 					_id: id,

@@ -22,11 +22,14 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
+    "sinon": "^1.17.6",
     "superagent": "^3.3.0",
     "supertest": "^2.0.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "mongod --dbpath test/data-test --fork --syslog",
+    "test": "mocha",
+    "posttest": "killall mongod"
   },
   "author": "",
   "license": "ISC"
