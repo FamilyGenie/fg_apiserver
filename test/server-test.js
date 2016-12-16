@@ -24,12 +24,12 @@ describe('Authentication', function() {
       .get('/people')
       .end(function(err, res) {
         res.should.have.status(403);
+        JSON.parse(res.text).success.should.equal(false);
         done();
       });
   });
 
   it('should return a successful login', function(done) {
-    // loginUser()
     chai.request(server)
     .get('/people')
     .set('x-access-token', authToken)
@@ -40,10 +40,9 @@ describe('Authentication', function() {
   });
 
   it('should return a successful logout', function(done) {
-    // logoutUser();
     chai.request(server)
       .get('/people')
-      .set('x-access-token')
+      .set('x-access-token', null)
       .end(function(err, res) {
         res.should.have.status(403);
         done();
@@ -70,7 +69,7 @@ describe('People', function() {
    * });
    */
 
-  // it('login', loginUser());
+  it('login', loginUser());
 
   it('should return ALL people on /people GET', function(done) {
     chai.request(server)

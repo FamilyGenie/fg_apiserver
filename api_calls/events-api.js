@@ -1,7 +1,7 @@
 var auth = require('../authentication');
-varl mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
-module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel) {
+module.exports = function(app, EventsModel) {
   app.get('/api/v2/events', auth.isAuthenticated, function(req, res) {
     var user = req.decoded._doc.userName;
     var _id = req.body.object._id;
@@ -10,7 +10,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
         user_id: user
       },
       function(err, data) {
-        if)err {
+        if (err) {
           res.status(500);
           res.send("Error getting all Events", err);
           return;
@@ -87,7 +87,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
       details: req.body.object.details,
       user_id: user
     };
-    new EventsModel(object).(function(err, data) {
+    new EventsModel(object)(function(err, data) {
       if (err) {
         res.status(500);
         res.send("Error creating event", err);

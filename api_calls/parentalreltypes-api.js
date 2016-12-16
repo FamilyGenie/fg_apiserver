@@ -1,7 +1,7 @@
 var auth = require('../authentication');
 var mongoose = require('mongoose');
 
-module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel) {
+module.exports = function(app, ParentalRelTypeModel) {
   app.get('/api/v2/parentalreltypes', auth.isAuthenticated, function(req, res) {
     ParentalRelTypeModel.find(
       {},

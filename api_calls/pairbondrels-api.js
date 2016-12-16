@@ -1,7 +1,7 @@
 var auth = require('../authentication');
 var mongoose = require('mongoose');
 
-module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel) {
+module.exports = function(app, PairBondRelModel) {
   app.get('api/v2/pairbondrels', auth.isAuthenticated, function(req,res) {
     var user = req.decoded._doc.userName;
     PairBondRelModel.find(
@@ -43,7 +43,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
       function(err, data) {
         if(err) {
           res.status(500);
-        res.send("Error updating pair bond relationship data", err);\
+        res.send("Error updating pair bond relationship data", err);
         return;
         }
         res.send(data);
@@ -93,5 +93,5 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
       res.send(JSON.stringify(data));
     });
   });
-  
+
 }

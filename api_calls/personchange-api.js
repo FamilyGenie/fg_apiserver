@@ -1,7 +1,7 @@
 var auth = require('../authentication');
 var mongoose = require('mongoose');
 
-module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel) {
+module.exports = function(app, PersonChangeModel) {
   app.get('/api/v2/peoplechanges', auth.isAuthenticated, function(req, res) {
     var user = req.decoded._doc.userName;
     PersonChangeModel.find(
@@ -20,7 +20,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
     );
   });
 
-  app.post('/api/v2/peoplchanges/update', auth.isAuthenticated, function(req, res) {
+  app.post('/api/v2/peoplechanges/update', auth.isAuthenticated, function(req, res) {
     PersonChangeModel.findOneAndUpdate(
       {
         _id: id,
@@ -34,7 +34,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
       lName: req.body.object.lName,
       sex: req.body.object.sex,
       user_id: user
-    }},
+      }},
       {new: true},
       function(err, data) {
         if(err) {
@@ -47,7 +47,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
     );
   });
 
-  app.post('/api/v2/personchanges/delete', auth.isAuthenticathed, function(req, res) {
+  app.post('/api/v2/peoplechanges/delete', auth.isAuthenticathed, function(req, res) {
     PersonChangeModel.remove(
       {
         _id: req.body._id,
@@ -76,7 +76,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
     );
   });
 
-  app.post('/api/v2/personchanges/create', auth.isAuthenticated, function(req, res) {
+  app.post('/api/v2/peoplechanges/create', auth.isAuthenticated, function(req, res) {
     object = {
       person_id: req.body.object.person_id,
       dateChange: req.body.object.dateChange,
