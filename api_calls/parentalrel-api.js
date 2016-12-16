@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 module.exports = function(app, ParentalRelModel) {
   app.get('/api/v2/parentalrels', auth.isAuthenticated, function(req, res) {
     console.log("in get parentalrels");
-    var user = req.decodfed._doc.userName;
+    var user = req.decoded._doc.userName;
     ParentalRelModel.find(
       {
         user_id: user
