@@ -5,7 +5,8 @@ var mongoose = require('mongoose');
 module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel) {
 	app.get('/api/v2/people', auth.isAuthenticated, function(req, res) {
 		// this console.log is meant to be here - to keep a log of activities in the node server log
-		console.log("in get people");var user = req.decoded._doc.userName;
+		console.log("in get people");
+		var user = req.decoded._doc.userName;
 		PersonModel.find(
 			{
 				user_id: user
@@ -60,7 +61,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
 		PersonModel.remove(
 			{
 				_id: _id,
-			user_id: user
+				user_id: user
 			},
 			function(err) {
 				if (err) {
