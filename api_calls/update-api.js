@@ -4,13 +4,38 @@ var mongoose = require('mongoose');
 module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel) {
 	app.post('/update', auth.isAuthenticated, function(req, res){
     console.log("in update with:", req.body.objectType);
-
 		var id = req.body.object._id;
 		var user = req.decoded._doc.userName;
-		const set = {};
-		set[req.body.object.field] = req.body.object.value;
-
-		if (req.body.objectType === "parentalRel") {
+		if (req.body.objectType === "person") {
+			PersonModel.findOneAndUpdate(
+				{
+					_id: id,
+					user_id: user
+				},
+				{$set: {
+					fName : req.body.object.fName,
+					mName: req.body.object.mName,
+					lName: req.body.object.lName,
+					sexAtBirth: req.body.object.sexAtBirth,
+					birthDate: req.body.object.birthDate,
+					birthPlace: req.body.object.birthPlace,
+					deathDate: req.body.object.deathDate,
+					deathPlace: req.body.object.deathPlace,
+					notes: req.body.object.notes,
+					user_id: user
+				}},
+				{new: true},
+				function(err, data) {
+					if(err) {
+						res.status(500);
+						res.send("Error updating person data");
+						return;
+					}
+					// console.log("****Updated record being returned", data);
+					res.send(data);
+				}
+			);
+		} else if (req.body.objectType === "parentalRel") {
 			ParentalRelModel.findOneAndUpdate(
 				{
 					_id: id,
@@ -86,7 +111,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
 				}
 			);
 		} else if (req.body.objectType === "event") {
-      console.log('object: ', req.body.object)
+      // console.log('object: ', req.body.object)
 			EventsModel.findOneAndUpdate(
 				{
 					_id: id,
