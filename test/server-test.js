@@ -50,26 +50,14 @@ describe('Authentication', function() {
   });
 
   it('should return a successful logout', function(done) {
-    // logoutUser();
     chai.request(server)
-      .get('/people')
+      .get('/api/v2/people')
       .set('x-access-token', null)
       .end(function(err, res) {
         res.should.have.status(403);
         done();
       });
   });
-
-  // it('should return a successful logout', function(done) {
-  //   chai.request(server)
-  //     .get('/api/v2/people')
-  //     .set('x-access-token', authToken)
-  //     .end(function(err, res) {
-  //       // res.should.have.status(403);
-  //       done();
-  //     });
-  // });
-
 
   // TODO: signup tests
 
@@ -121,11 +109,11 @@ describe('People', function() {
       chai.request(server)
         .post('api/v2/person/create')
         .set('x-access-token', authToken)
-        .send(newPerson)
+        .set('Content-Type', 'application/json')
+        .send({object: newPerson})
         .end(function(err, res) {
-          console.log('err', err)
+          console.log("res", res)
           res.should.have.status(200);
-
         });
       done();
     });
