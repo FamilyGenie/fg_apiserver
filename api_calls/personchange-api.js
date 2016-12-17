@@ -1,8 +1,8 @@
 var auth = require('../authentication');
 var mongoose = require('mongoose');
 
-module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel) {
-  app.get('/api/v2/peoplechanges', auth.isAuthenticated, function(req, res) {
+module.exports = function(app, PersonChangeModel) {
+  app.get('/api/v2/personchanges', auth.isAuthenticated, function(req, res) {
     var user = req.decoded._doc.userName;
     PersonChangeModel.find(
       {
@@ -20,7 +20,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
     );
   });
 
-  app.post('/api/v2/peoplchanges/update', auth.isAuthenticated, function(req, res) {
+  app.post('/api/v2/personchanges/update', auth.isAuthenticated, function(req, res) {
     PersonChangeModel.findOneAndUpdate(
       {
         _id: id,

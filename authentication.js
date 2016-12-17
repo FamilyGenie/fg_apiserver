@@ -8,17 +8,18 @@ Authentication.isAuthenticated = function(req, res, next) {
    if (token) {
        jwt.verify(token, config.jwtSecret, function(err, decoded) {
            if (err) {
-               return res.json({ success: false, message: 'Failed to authenticate token.' });
+               res.status(403);
+               res.json({ success: false, message: 'Failed to authenticate token.' });
+               return;
            } else {
                req.decoded = decoded;
                next();
            }
        });
    } else {
-       return res.status(403).send({
-           success: false,
-           message: 'No token provided.'
-       });
+        res.status(403)
+        res.send({success: false, message: 'No token provided.'});
+        return;
    }
 };
 
