@@ -53,7 +53,7 @@ describe('Authentication', function() {
     // logoutUser();
     chai.request(server)
       .get('/people')
-      .set('x-access-token')
+      .set('x-access-token', null)
       .end(function(err, res) {
         res.should.have.status(403);
         done();
@@ -255,56 +255,6 @@ describe('Parental Relationship Type', function() {
       done();
     });
 });
-
-
-
-
-describe('Person Change', function() {
-
-  it('login', loginUser());
-
-  it('should retrieve all person changes on /api/v2/personchanges GET', function(done) {
-    chai.request(server)
-      .get('/api/v2/personchanges')
-      .set('x-access-token', authToken)
-      .end(function(err, res) {
-        if (err) return done(err);
-        var resTextJson = JSON.parse(res.text);
-        res.should.have.status(200);
-        res.text.should.be.a('string');
-        resTextJson.should.be.a('array');
-        resTextJson[0].should.be.a('object');
-        resTextJson[0].should.have.property('person_id');
-        resTextJson[0].should.have.property('dateChange');
-        resTextJson[0].should.have.property('fName');
-        resTextJson[0].should.have.property('lName');
-        resTextJson[0].should.have.property('sex');
-        resTextJson[0].should.have.property('user_id');
-        // resTextJson[0].person_id.should.equal('');
-        // resTextJson[0].dateChange.should.equal('');
-        // resTextJson[0].fName.should.equal('');
-        // resTextJson[0].lName.should.equal('');
-        // resTextJson[0].sex.should.equal('');
-        // resTextJson[0].user_id.should.equal('');
-      })
-    done();
-  });
-
-  it('should create a single person change on /api/v2/personchanges/create CREATE', function(done) {
-    done();
-  });
-
-  it('should update a single person change on /api/v2/personchanges/update UPDATE', function(done) {
-    done();
-  });
-
-  it('should delete a single person change on /api/v2/personchanges/delete DELETE', function(done) {
-    done();
-  });
-
-});
-
-
 
 describe('Events', function() {
 
