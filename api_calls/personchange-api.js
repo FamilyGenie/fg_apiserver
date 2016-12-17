@@ -64,7 +64,7 @@ module.exports = function(app, PersonChangeModel) {
             user_id: user
           }, // filter object - empty filter catches everything
           function(err, data) {
-            if(err) {
+            if (err) {
               res.status(500);
               res.send("Error getting all pairBondRels after delete", err);
               return;

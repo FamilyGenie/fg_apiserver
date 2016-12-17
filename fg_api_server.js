@@ -76,8 +76,7 @@ require("./api_calls/person-api")(app, PersonModel);
 require("./api_calls/pairbondrels-api")(app, PairBondRelModel);
 require("./api_calls/parentalrel-api")(app, ParentalRelModel);
 require("./api_calls/parentalreltypes-api")(app, ParentalRelTypeModel);
-// require("./api_calls/personchange-api")(app, PersonChangeModel);
-// require("./api_calls/events-api")(app, EventsModel);
+require("./api_calls/events-api")(app, EventsModel);
 
 
 /*app.get('*', function(req, res){
