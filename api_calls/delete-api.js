@@ -34,7 +34,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
 				);
 			});
 		} else if (req.body.objectType === "parentalRel") {
-			console.log("delete parentalRel._id ", req.body.id);
+			// console.log("delete parentalRel._id ", req.body.id);
 			ParentalRelModel.remove(
 				{
 					_id: req.body._id,
@@ -61,7 +61,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
 				);
 			});
 		} else if (req.body.objectType === "pairBondRel") {
-			console.log("delete pairBondRel._id ", req.body.id);
+			// console.log("delete pairBondRel._id ", req.body.id);
 			PairBondRelModel.remove(
 				{
 					_id: req.body._id,
@@ -88,7 +88,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
 				);
 			});
 		} else if (req.body.objectType === "personChange") {
-			console.log("delete personChange._id ", req.body.id);
+			// console.log("delete personChange._id ", req.body.id);
 			PersonChangeModel.remove(
 				{
 					_id: req.body._id,
@@ -115,7 +115,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
 				);
 			});
 		} else if (req.body.objectType === "event") {
-			console.log("delete events ", req.body._id);
+			// console.log("delete events ", req.body._id);
 			EventsModel.remove(
 				{
 					_id: req.body._id,

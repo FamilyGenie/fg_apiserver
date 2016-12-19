@@ -98,7 +98,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
         eventDate: req.body.object.eventDate,
         place: req.body.object.place,
         details: req.body.object.details,
-		user_id: user
+				user_id: user
       };
       new EventsModel(object).save(function(err, data){
         if (err) {
