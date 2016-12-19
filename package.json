@@ -2,7 +2,7 @@
   "name": "familygenie",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "fg_api_server.js",
   "dependencies": {
     "bcrypt": "^0.8.7",
     "bcrypt-nodejs": "0.0.3",
