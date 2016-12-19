@@ -45,7 +45,7 @@ module.exports = function(app, EventsModel) {
     );
   });
 
-  app.post('/api/v2/events/delete', auth.isAuthenticathed, function(req, res) {
+  app.post('/api/v2/events/delete', auth.isAuthenticated, function(req, res) {
     console.log("In events delete");
     var user = req.decoded._doc.userName;
     var _id = req.body.object._id;
