@@ -2,7 +2,7 @@
 var auth = require('../authentication');
 var mongoose = require('mongoose');
 
-module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel) {
+module.exports = function(app, PersonModel) {
 	app.get('/api/v2/people', auth.isAuthenticated, function(req, res) {
 		// this console.log is meant to be here - to keep a log of activities in the node server log
 		console.log("in get people");
