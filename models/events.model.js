@@ -1,6 +1,6 @@
 module.exports = function(mongoose) {
 
-  ObjectId = mongoose.Schema.ObjectId;
+  // ObjectId = mongoose.Schema.ObjectId;
 
   var EventsModel = mongoose.model("Events", {
     person_id : String,

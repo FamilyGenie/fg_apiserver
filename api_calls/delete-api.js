@@ -20,7 +20,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
 					return;
 				}
 				PersonModel.find(
-					{ 
+					{
 						user_id: user
 					}, // filter object - empty filter catches everything
 					function(err, data) {
@@ -47,7 +47,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
 					return;
 				}
 				ParentalRelModel.find(
-					{ 
+					{
 						user_id: user
 					}, // filter object - empty filter catches everything
 					function(err, data) {
@@ -74,7 +74,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
 					return;
 				}
 				PairBondRelModel.find(
-					{ 
+					{
 						user_id: user
 					}, // filter object - empty filter catches everything
 					function(err, data) {
@@ -101,7 +101,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
 					return;
 				}
 				PersonChangeModel.find(
-					{ 
+					{
 						user_id: user
 					}, // filter object - empty filter catches everything
 					function(err, data) {
@@ -128,7 +128,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
 					return;
 				}
 				EventsModel.find(
-					{ 
+					{
 						user_id: user
 					}, // filter object - empty filter catches everything
 					function(err, data) {

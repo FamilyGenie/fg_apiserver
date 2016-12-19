@@ -1,16 +1,15 @@
 var auth = require('../authentication');
-varl mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
-module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel) {
+module.exports = function(app, EventsModel) {
   app.get('/api/v2/events', auth.isAuthenticated, function(req, res) {
     var user = req.decoded._doc.userName;
-    var _id = req.body.object._id;
     EventsModel.find(
       {
         user_id: user
       },
       function(err, data) {
-        if)err {
+        if (err) {
           res.status(500);
           res.send("Error getting all Events", err);
           return;
@@ -21,18 +20,21 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
   });
 
   app.post('/api/v2/events/update', auth.isAuthenticated, function(req, res) {
+    // this console.log is meant to be here - to keep a log of activities in the node server log
+    console.log("in events update");
+    // passport inserts the user into req.decoded._doc.userName
+    var user = req.decoded._doc.userName;
+    var _id = req.body.object._id;
+    const set = {};
+    set[req.body.object.field] = req.body.object.value;
     EventsModel.findOneAndUpdate(
       {
         _id: _id,
         user_id: user
       },
-      {$set: {
-        person_id: req.body.object.person_id,
-        type: req.body.object.type,
-        eventDate: req.body.object.eventDate,
-        place: req.body.object.place,
-        details: req.body.object.details
-      }},
+      {$set: set
+        // todo: validate the heck out of this. make sure it is not _id that we are updating, at a min
+      },
       {new: true},
       function(err, data) {
         if(err) {
@@ -45,18 +47,19 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
     );
   });
 
-  app.post('/api/v2/events/delete', auth.isAuthenticathed, function(req, res) {
+
+  app.post('/api/v2/events/delete', auth.isAuthenticated, function(req, res) {
     console.log("In events delete");
     var user = req.decoded._doc.userName;
     var _id = req.body.object._id;
     EventsModel.remove(
       {
-        _id: req.body._id,
+        _id: _id,
         user_id: user
       },
       function(err) {
         if (err) {
-          rces.status(500);
+          res.status(500);
           res.send("Error deleting events", err);
           return;
         }
@@ -76,8 +79,9 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
       });
   });
 
+
   app.post('/api/v2/events/create', auth.isAuthenticated, function(req, res) {
-    console.log("in events create");
+    console.log("in events create", req.body);
     var user = req.decoded._doc.userName;
     object = {
       person_id: req.body.object.person_id,
@@ -87,7 +91,7 @@ module.exports = function(app, PersonModel, PairBondRelModel, ParentalRelModel, 
       details: req.body.object.details,
       user_id: user
     };
-    new EventsModel(object).(function(err, data) {
+    new EventsModel(object).save(function(err, data) {
       if (err) {
         res.status(500);
         res.send("Error creating event", err);
