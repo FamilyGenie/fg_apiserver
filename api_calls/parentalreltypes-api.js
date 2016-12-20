@@ -14,6 +14,4 @@ module.exports = function(app, ParentalRelTypeModel) {
         res.send(JSON.stringify(data));
       });
   });
-
-  // todo: Is there more?
 }
