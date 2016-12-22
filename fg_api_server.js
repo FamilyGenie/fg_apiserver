@@ -66,6 +66,7 @@ require("./api_calls/pairbondrels-api")(app, PairBondRelModel);
 require("./api_calls/parentalrel-api")(app, ParentalRelModel);
 require("./api_calls/parentalreltypes-api")(app, ParentalRelTypeModel);
 
+
 /**********
 Old api files
 ************/
@@ -73,7 +74,6 @@ Old api files
 // require("./api_calls/create-api")(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel);
 // require("./api_calls/update-api")(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel);
 // require("./api_calls/delete-api")(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel);
-
 
 /*app.get('*', function(req, res){
    res.sendFile('../familygenie-angular/index.html');

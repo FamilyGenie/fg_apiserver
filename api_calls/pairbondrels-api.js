@@ -2,7 +2,7 @@ var auth = require('../authentication');
 var mongoose = require('mongoose');
 
 module.exports = function(app, PairBondRelModel) {
-  app.get('api/v2/pairbondrels', auth.isAuthenticated, function(req,res) {
+  app.get('/api/v2/pairbondrels', auth.isAuthenticated, function(req,res) {
     var user = req.decoded._doc.userName;
     PairBondRelModel.find(
       {
@@ -10,11 +10,10 @@ module.exports = function(app, PairBondRelModel) {
       }, // filter object empty - to return all
       function(err, data) {
         if(err) {
-          res.status(500);
-          res.send("Error getting all pairbonds", err);
+          res.status(500).send("Error getting all pairbonds", err);
           return;
         }
-        res.send(JSON.stringify(data));
+        res.status(200).send(JSON.stringify(data));
       }
     );
   });
@@ -27,26 +26,18 @@ module.exports = function(app, PairBondRelModel) {
     set[req.body.object.field] = req.body.object.value;
     PairBondRelModel.findOneAndUpdate(
       {
-        _id: id,
+        _id: _id,
         user_id: user
       },
-      {$set: {
-        personOne_id: req.body.object.personOne_id,
-        personTwo_id: req.body.object.personTwo_id,
-        relationshipType: req.body.object.relationshipType,
-        subType: req.body.object.subType,
-        startDate: req.body.object.startDate,
-        endDate: req.body.object.endDate,
-        user_id: user
-      }},
+      {$set: set
+      },
       {new: true},
       function(err, data) {
         if(err) {
-          res.status(500);
-        res.send("Error updating pair bond relationship data", err);
-        return;
+          res.status(500).send("Error updating pair bond relationship data", err);
+          return;
         }
-        res.send(data);
+        res.status(200).send(data);
       }
     );
   })
@@ -60,13 +51,12 @@ module.exports = function(app, PairBondRelModel) {
         _id: _id,
         user_id: user
       },
-      function(err){
+      function(err, data){
         if(err) {
-          res.status(500);
-          res.send("Error getting all pairBondRels after delete", err);
+          res.status(500).send("Error getting all pairBondRels after delete", err);
           return;
         }
-        res.send(JSON.stringify(data));
+        res.status(200).send(JSON.stringify(data));
       }
     );
   });
@@ -86,11 +76,10 @@ module.exports = function(app, PairBondRelModel) {
     },
     new PairBondRelModel(object).save(function(err, data) {
       if(err) {
-        res.status(500);
-        res.send("Error creating PairBondRel", err);
+        res.status(500).send("Error creating PairBondRel" + err);
         return;
       }
-      res.send(JSON.stringify(data));
+      res.status(200).send(JSON.stringify(data));
     });
   });
 

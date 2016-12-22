@@ -13,12 +13,11 @@ module.exports = function(app, PersonModel) {
 			}, // filter object empty - to return all
 			function(err, data) {
 				if(err) {
-					res.status(500);
-					res.send("Error getting all people");
+					res.status(500).send("Error getting all people");
 					return;
 				}
 				// return all people
-				res.send(JSON.stringify(data));
+				res.status(200).send(JSON.stringify(data));
 			}
 		);
 	});
@@ -42,12 +41,11 @@ module.exports = function(app, PersonModel) {
 			{new: true},
 			function(err, data) {
 				if(err) {
-					res.status(500);
-					res.send("Error updating person data");
+					res.status(500).send("Error updating person data");
 					return;
 				}
 				// return the updated person object
-				res.send(data);
+				res.status(200).send(data);
 			}
 		);
 	})
@@ -65,10 +63,7 @@ module.exports = function(app, PersonModel) {
 			},
 			function(err) {
 				if (err) {
-					res.status(500);
-					// got this error when calling delete on a person:
-					// express deprecated res.send(status, body): Use res.status(status).send(body) instead
-					res.send("Error deleting person", err);
+					res.status(500).send("Error deleting person", err);
 					return;
 				}
 				PersonModel.find(
@@ -77,12 +72,11 @@ module.exports = function(app, PersonModel) {
 				}, // filter object - empty filter catches everything
 				function(err, data) {
 					if(err) {
-						res.status(500);
-						res.send("Error getting all persons after delete", err);
+						res.status(500).send("Error getting all persons after delete", err);
 						return;
 					}
 					// return the full array of all people. Can we send just success, and then on the client side, just remove the deleted person?
-					res.send(JSON.stringify(data));
+					res.status(200).send(JSON.stringify(data));
 				}
 			);
 		});
@@ -109,8 +103,7 @@ module.exports = function(app, PersonModel) {
 		new PersonModel(object).save(function(err, data){
 			if (err) {
 				console.log("Create Person error:", err);
-				res.status(500);
-				res.send("Error creating line item");
+				res.status(500).send("Error creating line item");
 				return;
 			}
 			// return just the created record

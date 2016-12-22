@@ -29,6 +29,7 @@ describe('Authentication', function() {
       .set('x-access-token', null)
       .end(function(err, res) {
         res.should.have.status(403);
+        JSON.parse(res.text).success.should.equal(false);
         res.body.should.have.property('success');
         res.body.success.should.equal(false);
         done();
@@ -38,7 +39,6 @@ describe('Authentication', function() {
   it('login', loginUser());
 
   it('should return a successful login', function(done) {
-    // loginUser()
     chai.request(server)
     .get('/api/v2/people')
     .set('x-access-token', authToken)
