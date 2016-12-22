@@ -7,11 +7,10 @@ module.exports = function(app, ParentalRelTypeModel) {
       {},
       function(err, data) {
         if(err) {
-          res.status(500);
-          res.send("Error getting all parentalRelTypes", err);
+          res.status(500).send("Error getting all parentalRelTypes", err);
           return;
         }
-        res.send(JSON.stringify(data));
+        res.status(200).send(JSON.stringify(data));
       });
   });
 }
