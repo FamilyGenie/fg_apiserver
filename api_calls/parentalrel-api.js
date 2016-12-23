@@ -19,7 +19,7 @@ module.exports = function(app, ParentalRelModel) {
     );
   });
 
-  app.post('/api/v2/parentalrels/update', auth.isAuthenticated, function(req, res) {
+  app.post('/api/v2/parentalrel/update', auth.isAuthenticated, function(req, res) {
     console.log("in parentalrel update");
 
     var _id = req.body.object._id;
@@ -45,7 +45,7 @@ module.exports = function(app, ParentalRelModel) {
     );
   });
 
-  app.post('/api/v2/parentalrels/delete', auth.isAuthenticated, function(req, res) {
+  app.post('/api/v2/parentalrel/delete', auth.isAuthenticated, function(req, res) {
     var user = req.decoded._doc.userName;
     var _id = req.body.object._id;
     ParentalRelModel.remove(
@@ -63,7 +63,7 @@ module.exports = function(app, ParentalRelModel) {
     );
   });
 
-  app.post('/api/v2/parentalrels/create', auth.isAuthenticated, function(req, res) {
+  app.post('/api/v2/parentalrel/create', auth.isAuthenticated, function(req, res) {
     console.log("in parentalrel create");
     var user = req.decoded._doc.userName;
     object = {

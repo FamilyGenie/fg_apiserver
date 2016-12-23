@@ -18,7 +18,7 @@ module.exports = function(app, PairBondRelModel) {
     );
   });
 
-  app.post('/api/v2/pairbondrels/update', auth.isAuthenticated, function(req,res) {
+  app.post('/api/v2/pairbondrel/update', auth.isAuthenticated, function(req,res) {
     console.log('in parbondrels update');
     var user = req.decoded._doc.userName;
     var _id = req.body.object._id;
@@ -42,7 +42,7 @@ module.exports = function(app, PairBondRelModel) {
     );
   })
 
-  app.post('/api/v2/pairbondrels/delete', auth.isAuthenticated, function(req, res) {
+  app.post('/api/v2/pairbondrel/delete', auth.isAuthenticated, function(req, res) {
     console.log("in person delete");
     var user = req.decoded._doc.userName;
     var _id = req.body.object._id;
@@ -61,14 +61,14 @@ module.exports = function(app, PairBondRelModel) {
     );
   });
 
-  app.post('/api/v2/pairbondrels/create', auth.isAuthenticated,
+  app.post('/api/v2/pairbondrel/create', auth.isAuthenticated,
   function(req,res){
     console.log("in pairbondrel create");
     var user = req.decoded._doc.userName;
     object = {
       personOne_id: req.body.object.personOne_id,
       personTwo_id: req.body.object.personTwo_id,
-      resationshipType: req.body.object.relationshipType,
+      relationshipType: req.body.object.relationshipType,
       subType: req.body.object.subType,
       startDate: req.body.object.startDate,
       endDate: req.body.object.endDate,

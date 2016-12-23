@@ -22,7 +22,7 @@ module.exports = function(app, PersonModel) {
 		);
 	});
 
-	app.post('/api/v2/people/update', auth.isAuthenticated, function(req, res) {
+	app.post('/api/v2/person/update', auth.isAuthenticated, function(req, res) {
 		// this console.log is meant to be here - to keep a log of activities in the node server log
 		console.log("in person update");
 		// passport inserts the user into req.decoded._doc.userName
@@ -50,7 +50,7 @@ module.exports = function(app, PersonModel) {
 		);
 	})
 
-	app.post('/api/v2/people/delete', auth.isAuthenticated, function(req, res) {
+	app.post('/api/v2/person/delete', auth.isAuthenticated, function(req, res) {
 		// this console.log is meant to be here - to keep a log of activities in the node server log
 		console.log("in person delete");
 		// passport inserts the user into req.decoded._doc.userName
@@ -82,7 +82,7 @@ module.exports = function(app, PersonModel) {
 		});
 	})
 
-	app.post('/api/v2/people/create', auth.isAuthenticated, function(req, res) {
+	app.post('/api/v2/person/create', auth.isAuthenticated, function(req, res) {
 		// this console.log is meant to be here - to keep a log of activities in the node server log
 		console.log("in person create");
 		// passport inserts the user into req.decoded._doc.userName
