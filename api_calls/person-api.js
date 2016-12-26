@@ -76,7 +76,7 @@ module.exports = function(app, PersonModel) {
 						return;
 					}
 					// return the full array of all people. Can we send just success, and then on the client side, just remove the deleted person?
-					res.status(200).send(JSON.stringify(data));
+					res.status(200).send(data);
 				}
 			);
 		});

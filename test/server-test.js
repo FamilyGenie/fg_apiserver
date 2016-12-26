@@ -11,6 +11,7 @@ var PersonModel = require('../models/person.model');
 var user = request.agent();
 var should = chai.should();
 var expect = chai.expect;
+var assert = chai.assert;
 
 var authToken = null;
 
@@ -67,6 +68,9 @@ describe('Authentication', function() {
 
 describe('People', function() {
 
+  var newPersonId;
+  var userPersonId;
+
   it('login', loginUser());
 
   it('should return ALL people on /api/v2/people GET', function(done) {
@@ -75,7 +79,11 @@ describe('People', function() {
       .set('x-access-token', authToken)
       .end(function(err, res) {
         if (err) return done(err);
-        // not sure if this is appropriate
+        try {
+          var resTextJson = JSON.parse(res.text);
+        } catch(SyntaxError) {
+          assert.fail(res.text, 'all pairbonds', 'all pairbonds could not be parsed to JSON')
+        }
         var resTextJson = JSON.parse(res.text);
         res.should.have.status(200);
         res.text.should.be.a('string');
@@ -98,24 +106,26 @@ describe('People', function() {
 
     it('should create a NEW person on /api/v2/people/create POST', function(done) {
       newPerson = {
-        fName : "Jane",
-        mName : "Mary",
-        lName : "Doe",
-        sexAtBirth : "F",
-        birthDate : "1985-01-01",
-        birthPlace : "Hollywood, CA",
-        deathDate : null,
-        deathPlace : null,
-        notes : null,
-        user_id : "test@test.com"
+        object : {
+          fName : "Jane",
+          mName : "Mary",
+          lName : "Doe",
+          sexAtBirth : "F",
+          birthDate : "1985-01-01",
+          birthPlace : "Hollywood, CA",
+          deathDate : null,
+          deathPlace : null,
+          notes : null,
+          user_id : "test@test.com"
+        }
       };
 
     chai.request(server)
       .post('/api/v2/person/create')
       .set('x-access-token', authToken)
-      .send({object: newPerson})
+      .send(newPerson)
       .end(function(err, res) {
-          if (err) return done(err);
+        if (err) return done(err);
         var resTextJson = JSON.parse(res.text);
         res.status.should.equal(200);
         res.text.should.be.a('string');
@@ -130,6 +140,9 @@ describe('People', function() {
         resTextJson.fName.should.equal('Jane');
         resTextJson.lName.should.equal('Doe');
 
+        newPersonId = resTextJson._id;
+        userPersonId = resTextJson.user_id;
+
         done();
       });
     });
@@ -137,7 +150,11 @@ describe('People', function() {
 
     it('should update a SINGLE person on /api/v2/person/update UPDATE', function(done) {
       set = {
-        birthDate : "1972-01-01"
+        object : {
+          _id : newPersonId,
+          field : "birthDate",
+          value : "1972-01-02"
+        }
       }
       chai.request(server)
         .post('/api/v2/person/update')
@@ -145,77 +162,114 @@ describe('People', function() {
         .send(set)
         .end(function(err, res) {
           if (err) return done(err);
+          res.status.should.equal(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('fName');
+          res.body.should.have.property('lName');
+          res.body.should.have.property('sexAtBirth');
+          res.body.should.have.property('birthDate');
+          res.body.should.have.property('birthPlace');
+          res.body.should.have.property('deathDate');
+          res.body.should.have.property('deathPlace');
+          res.body.should.have.property('user_id');
+          res.body.birthDate.should.equal(set.object.value + "T00:00:00.000Z");
 
-        done();
+          done();
         });
     });
 
     it('should delete a SINGLE person on /api/v2/person/delete DELETE', function(done) {
-      done();
-    });
-
-});
-
-
-describe('PairBond Relationship', function() {
-
-  it('login', loginUser());
-
-  it('should return all pairbond relationships on /api/v2/pairbondrels GET', function(done) {
-    chai.request(server)
-      .get('/api/v2/pairbondrels')
-      .set('x-access-token', authToken)
-      .end(function(err, res) {
-        if (err) return done(err);
-        try {
-          var resTextJson = JSON.parse(res.text);
-        } catch {
-          // something
+      personRemoval = {
+        object : {
+          _id : newPersonId,
+          user_id : userPersonId
         }
-        res.should.have.status(200);
-        res.text.should.be.a('string');
-        resTextJson.should.be.a('array');
-        resTextJson[0].should.be.a('object');
-        resTextJson[0].should.have.property('personOne_id');
-        resTextJson[0].should.have.property('personTwo_id');
-        resTextJson[0].should.have.property('relationshipType');
-        resTextJson[0].should.have.property('subType');
-        resTextJson[0].should.have.property('user_id');
-        resTextJson[0].relationshipType.should.equal('Marriage');
-        done();
-      });
-  });
-
-  it('should create a single pairbond relationship on /api/v2/pairbondrels/create CREATE', function(done) {
-    newPairBond = {
-      personOne_id : "58584d8efe953b166408bf4f"
-      personTwo_id : "58584drefe9r3b166r08bf4f",
-      relationshipType : "Marriage",
-      subType : null,
-      startDate : "1995-01-01",
-      endDate : null,
-      user_id : "test@test.com"
-    }
-    chai.request(server)
-      .post('/api/v2/pairbondrel/create')
+      }
+      chai.request(server)
+      .post('/api/v2/person/delete')
       .set('x-access-token', authToken)
-      .send({object : newPairBond})
+      .send(personRemoval)
       .end(function(err, res) {
         if (err) return done(err);
+        res.status.should.equal(200);
+        res.text.should.be.a('string');
+
+        // do we need more than this for delete?
 
         done();
       });
-  });
-
-  // it('should update a single pairbond relationship on /api/v2/pairbondrels/update UPDATE', function(done) {
-  //   done();
-  // });
-  //
-  // it('should delete a single pairbond relationship on /api/v2/pairbondrels/delete', function(done) {
-  //   done();
-  // })
-
+    });
 });
+
+
+// describe('PairBond Relationship', function() {
+//
+//   var newPairBondId;
+//   var userPairBondId;
+//
+//   it('login', loginUser());
+//
+//   it('should return all pairbond relationships on /api/v2/pairbondrels GET', function(done) {
+//     chai.request(server)
+//       .get('/api/v2/pairbondrels')
+//       .set('x-access-token', authToken)
+//       .end(function(err, res) {
+//         if (err) return done(err);
+//         try {
+//           var resTextJson = JSON.parse(res.text);
+//         } catch(SyntaxError) {
+//           assert.fail(res.text, 'all pairbonds', 'all pairbonds could not be parsed to JSON')
+//         }
+//         res.should.have.status(200);
+//         res.text.should.be.a('string');
+//         resTextJson.should.be.a('array');
+//         resTextJson[0].should.be.a('object');
+//         resTextJson[0].should.have.property('personOne_id');
+//         resTextJson[0].should.have.property('personTwo_id');
+//         resTextJson[0].should.have.property('relationshipType');
+//         resTextJson[0].should.have.property('subType');
+//         resTextJson[0].should.have.property('user_id');
+//         resTextJson[0].relationshipType.should.equal('Marriage');
+//
+//         done();
+//       });
+//   });
+//
+//   it('should create a single pairbond relationship on /api/v2/pairbondrel/create CREATE', function(done) {
+//     newPairBond = {
+//       object : {
+//         personOne_id : "58584d8efe953b166408bf4f",
+//         personTwo_id : "58584drefe9r3b166r08bf4f",
+//         relationshipType : "Marriage",
+//         subType : null,
+//         startDate : "1995-01-01",
+//         endDate : null,
+//         user_id : "test@test.com"
+//       }
+//     }
+//     chai.request(server)
+//       .post('/api/v2/pairbondrel/create')
+//       .set('x-access-token', authToken)
+//       .send(newPairBond)
+//       .end(function(err, res) {
+//         if (err) return done(err);
+//         var resTextJson = JSON.parse(res.text);
+//         console.log(res)
+//
+//         newPairBondId = resTextJson._id;
+//         done();
+//       });
+//   });
+//
+//   // it('should update a single pairbond relationship on /api/v2/pairbondrels/update UPDATE', function(done) {
+//   //   done();
+//   // });
+//   //
+//   // it('should delete a single pairbond relationship on /api/v2/pairbondrels/delete', function(done) {
+//   //   done();
+//   // })
+//
+// });
 
 
 //
