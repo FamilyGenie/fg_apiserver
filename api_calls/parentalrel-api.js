@@ -11,7 +11,7 @@ module.exports = function(app, ParentalRelModel) {
       },
       function(err, data) {
         if(err) {
-          res.status(500).send("Error getting all parental relationships", err);
+          res.status(500).send("Error getting all parental relationships" + err);
           return;
         }
         res.status(200).send(JSON.stringify(data));
@@ -55,7 +55,7 @@ module.exports = function(app, ParentalRelModel) {
       },
       function(err, data) {
         if(err) {
-          res.status(500).send("Error getting all parentalRels after delete", err);
+          res.status(500).send("Error getting all parentalRels after delete" + err);
           return;
         }
         res.status(200).send(JSON.stringify(data));
