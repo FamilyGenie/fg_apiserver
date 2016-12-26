@@ -10,16 +10,15 @@ module.exports = function(app, PairBondRelModel) {
       }, // filter object empty - to return all
       function(err, data) {
         if(err) {
-          res.status(500);
-          res.send("Error getting all pairbonds", err);
+          res.status(500).send("Error getting all pairbonds", err);
           return;
         }
-        res.send(JSON.stringify(data));
+        res.status(200).send(JSON.stringify(data));
       }
     );
   });
 
-  app.post('/api/v2/pairbondrels/update', auth.isAuthenticated, function(req,res) {
+  app.post('/api/v2/pairbondrel/update', auth.isAuthenticated, function(req,res) {
     console.log('in parbondrels update');
     var user = req.decoded._doc.userName;
     var _id = req.body.object._id;
@@ -35,16 +34,15 @@ module.exports = function(app, PairBondRelModel) {
       {new: true},
       function(err, data) {
         if(err) {
-          res.status(500);
-        res.send("Error updating pair bond relationship data", err);
-        return;
+          res.status(500).send("Error updating pair bond relationship data", err);
+          return;
         }
-        res.send(data);
+        res.status(200).send(data);
       }
     );
   })
 
-  app.post('/api/v2/pairbondrels/delete', auth.isAuthenticated, function(req, res) {
+  app.post('/api/v2/pairbondrel/delete', auth.isAuthenticated, function(req, res) {
     console.log("in person delete");
     var user = req.decoded._doc.userName;
     var _id = req.body.object._id;
@@ -55,23 +53,22 @@ module.exports = function(app, PairBondRelModel) {
       },
       function(err, data){
         if(err) {
-          res.status(500);
-          res.send("Error getting all pairBondRels after delete", err);
+          res.status(500).send("Error getting all pairBondRels after delete", err);
           return;
         }
-        res.send(JSON.stringify(data));
+        res.status(200).send(JSON.stringify(data));
       }
     );
   });
 
-  app.post('/api/v2/pairbondrels/create', auth.isAuthenticated,
+  app.post('/api/v2/pairbondrel/create', auth.isAuthenticated,
   function(req,res){
     console.log("in pairbondrel create");
     var user = req.decoded._doc.userName;
     object = {
       personOne_id: req.body.object.personOne_id,
       personTwo_id: req.body.object.personTwo_id,
-      resationshipType: req.body.object.relationshipType,
+      relationshipType: req.body.object.relationshipType,
       subType: req.body.object.subType,
       startDate: req.body.object.startDate,
       endDate: req.body.object.endDate,
@@ -82,7 +79,7 @@ module.exports = function(app, PairBondRelModel) {
         res.status(500).send("Error creating PairBondRel" + err);
         return;
       }
-      res.send(JSON.stringify(data));
+      res.status(200).send(JSON.stringify(data));
     });
   });
 

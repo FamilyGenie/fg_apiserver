@@ -11,16 +11,15 @@ module.exports = function(app, ParentalRelModel) {
       },
       function(err, data) {
         if(err) {
-          res.status(500);
-          res.send("Error getting all parental relationships", err);
+          res.status(500).send("Error getting all parental relationships", err);
           return;
         }
-        res.send(JSON.stringify(data));
+        res.status(200).send(JSON.stringify(data));
       }
     );
   });
 
-  app.post('/api/v2/parentalrels/update', auth.isAuthenticated, function(req, res) {
+  app.post('/api/v2/parentalrel/update', auth.isAuthenticated, function(req, res) {
     console.log("in parentalrel update");
 
     var _id = req.body.object._id;
@@ -38,16 +37,15 @@ module.exports = function(app, ParentalRelModel) {
       {new: true},
       function(err, data) {
         if(err) {
-          res.status(500);
-          res.send("Error updating parental relationship data");
+          res.status(500).send("Error updating parental relationship data");
           return;
         }
-        res.send(data);
+        res.status(200).send(data);
       }
     );
   });
 
-  app.post('/api/v2/parentalrels/delete', auth.isAuthenticated, function(req, res) {
+  app.post('/api/v2/parentalrel/delete', auth.isAuthenticated, function(req, res) {
     var user = req.decoded._doc.userName;
     var _id = req.body.object._id;
     ParentalRelModel.remove(
@@ -57,16 +55,15 @@ module.exports = function(app, ParentalRelModel) {
       },
       function(err, data) {
         if(err) {
-          res.status(500);
-          res.send("Error getting all parentalRels after delete", err);
+          res.status(500).send("Error getting all parentalRels after delete", err);
           return;
         }
-        res.send(JSON.stringify(data));
+        res.status(200).send(JSON.stringify(data));
       }
     );
   });
 
-  app.post('/api/v2/parentalrels/create', auth.isAuthenticated, function(req, res) {
+  app.post('/api/v2/parentalrel/create', auth.isAuthenticated, function(req, res) {
     console.log("in parentalrel create");
     var user = req.decoded._doc.userName;
     object = {
@@ -84,7 +81,7 @@ module.exports = function(app, ParentalRelModel) {
         res.status(500).send('Error creating new parentalrel: ' + err);
         return;
       }
-      res.send(JSON.stringify(data));
+      res.status(200).send(JSON.stringify(data));
     });
   });
 }
