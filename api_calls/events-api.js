@@ -11,16 +11,15 @@ module.exports = function(app, EventsModel) {
       },
       function(err, data) {
         if (err) {
-          res.status(500);
-          res.send("Error getting all Events", err);
+          res.status(500).send("Error getting all Events", err);
           return;
         }
-        res.send(JSON.stringify(data));
+        res.status(200).send(JSON.stringify(data));
       }
     );
   });
 
-  app.post('/api/v2/events/update', auth.isAuthenticated, function(req, res) {
+  app.post('/api/v2/event/update', auth.isAuthenticated, function(req, res) {
     // this console.log is meant to be here - to keep a log of activities in the node server log
     console.log("in events update");
     // passport inserts the user into req.decoded._doc.userName
@@ -39,18 +38,16 @@ module.exports = function(app, EventsModel) {
       {new: true},
       function(err, data) {
         if(err) {
-          res.status(500);
-          res.send("Error updating event change", err);
+          res.status(500).send("Error updating event change", err);
           return;
         }
-        res.send(data);
+        res.status(200).send(data);
       }
     );
   });
 
-
-  app.post('/api/v2/events/delete', auth.isAuthenticated, function(req, res) {
-    console.log("In events delete");
+  app.post('/api/v2/event/delete', auth.isAuthenticated, function(req, res) {
+    console.log("In event delete");
     var user = req.decoded._doc.userName;
     var _id = req.body.object._id;
     EventsModel.remove(
@@ -60,8 +57,7 @@ module.exports = function(app, EventsModel) {
       },
       function(err) {
         if (err) {
-          res.status(500);
-          res.send("Error deleting events", err);
+          res.status(500).send("Error deleting events", err);
           return;
         }
         EventsModel.find(
@@ -70,19 +66,18 @@ module.exports = function(app, EventsModel) {
           },
           function(err, data) {
             if(err) {
-              res.status(500);
-              res.send("Error getting all events after delete", err);
+              res.status(500).send("Error getting all events after delete", err);
               return;
             }
-            res.send(JSON.stringify(data));
+            res.status(200).send(JSON.stringify(data));
           }
         );
       });
   });
 
 
-  app.post('/api/v2/events/create', auth.isAuthenticated, function(req, res) {
-    console.log("in events create", req.body);
+  app.post('/api/v2/event/create', auth.isAuthenticated, function(req, res) {
+    console.log("in event create", req.body);
     var user = req.decoded._doc.userName;
     object = {
       person_id: req.body.object.person_id,
@@ -94,11 +89,10 @@ module.exports = function(app, EventsModel) {
     };
     new EventsModel(object).save(function(err, data) {
       if (err) {
-        res.status(500);
-        res.send("Error creating event", err);
+        res.status(500).send("Error creating event", err);
         return;
       }
-      res.send(JSON.stringify(data));
+      res.status(200).send(JSON.stringify(data));
     });
   });
 }

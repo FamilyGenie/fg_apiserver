@@ -11,11 +11,10 @@ module.exports = function(app, PairBondRelModel) {
       }, // filter object empty - to return all
       function(err, data) {
         if(err) {
-          res.status(500);
-          res.send("Error getting all pairbonds", err);
+          res.status(500).send("Error getting all pairbonds", err);
           return;
         }
-        res.send(JSON.stringify(data));
+        res.status(200).send(JSON.stringify(data));
       }
     );
   });
@@ -36,11 +35,10 @@ module.exports = function(app, PairBondRelModel) {
       {new: true},
       function(err, data) {
         if(err) {
-          res.status(500);
-        res.send("Error updating pair bond relationship data", err);
-        return;
+          res.status(500).send("Error updating pair bond relationship data", err);
+          return;
         }
-        res.send(data);
+        res.status(200).send(data);
       }
     );
   })
@@ -56,11 +54,10 @@ module.exports = function(app, PairBondRelModel) {
       },
       function(err, data){
         if(err) {
-          res.status(500);
-          res.send("Error getting all pairBondRels after delete", err);
+          res.status(500).send("Error getting all pairBondRels after delete", err);
           return;
         }
-        res.send(JSON.stringify(data));
+        res.status(200).send(JSON.stringify(data));
       }
     );
   });
@@ -86,8 +83,7 @@ module.exports = function(app, PairBondRelModel) {
         res.status(500).send("Error creating PairBondRel" + err);
         return;
       }
-      console.log("created PairBondRel: ", data);
-      res.send(JSON.stringify(data));
+      res.status(200).send(JSON.stringify(data));
     });
   });
 
