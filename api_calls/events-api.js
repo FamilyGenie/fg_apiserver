@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 
 module.exports = function(app, EventsModel) {
   app.get('/api/v2/events', auth.isAuthenticated, function(req, res) {
+    console.log("In get events");
     var user = req.decoded._doc.userName;
     EventsModel.find(
       {
