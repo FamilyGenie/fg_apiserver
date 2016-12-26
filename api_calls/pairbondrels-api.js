@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 
 module.exports = function(app, PairBondRelModel) {
   app.get('/api/v2/pairbondrels', auth.isAuthenticated, function(req,res) {
+    console.log("In get pairBondRels");
     var user = req.decoded._doc.userName;
     PairBondRelModel.find(
       {
@@ -19,7 +20,7 @@ module.exports = function(app, PairBondRelModel) {
     );
   });
 
-  app.post('/api/v2/pairbondrels/update', auth.isAuthenticated, function(req,res) {
+  app.post('/api/v2/pairbondrel/update', auth.isAuthenticated, function(req,res) {
     console.log('in parbondrels update');
     var user = req.decoded._doc.userName;
     var _id = req.body.object._id;
@@ -44,7 +45,7 @@ module.exports = function(app, PairBondRelModel) {
     );
   })
 
-  app.post('/api/v2/pairbondrels/delete', auth.isAuthenticated, function(req, res) {
+  app.post('/api/v2/pairbondrel/delete', auth.isAuthenticated, function(req, res) {
     console.log("in person delete");
     var user = req.decoded._doc.userName;
     var _id = req.body.object._id;
@@ -64,24 +65,28 @@ module.exports = function(app, PairBondRelModel) {
     );
   });
 
-  app.post('/api/v2/pairbondrels/create', auth.isAuthenticated,
+  app.post('/api/v2/pairbondrel/create', auth.isAuthenticated,
   function(req,res){
-    console.log("in pairbondrel create");
+    console.log("in pairbondrel create with: ", req.body.object);
     var user = req.decoded._doc.userName;
     object = {
       personOne_id: req.body.object.personOne_id,
       personTwo_id: req.body.object.personTwo_id,
-      resationshipType: req.body.object.relationshipType,
+      relationshipType: req.body.object.relationshipType,
       subType: req.body.object.subType,
+      startDateUser: req.body.object.startDateUser,
       startDate: req.body.object.startDate,
+      endDateUser: req.body.object.endDateUser,
       endDate: req.body.object.endDate,
       user_id: user
     },
     new PairBondRelModel(object).save(function(err, data) {
       if(err) {
+        console.log("Error creating PairBondRel: ", err)
         res.status(500).send("Error creating PairBondRel" + err);
         return;
       }
+      console.log("created PairBondRel: ", data);
       res.send(JSON.stringify(data));
     });
   });
