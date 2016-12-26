@@ -69,7 +69,19 @@ module.exports = function(app, EventsModel) {
               res.status(500).send("Error getting all events after delete" + err);
               return;
             }
-            res.status(200).send(JSON.stringify(data));
+            EventsModel.find(
+              {
+                user_id: user
+              }, // filter object - empty filter catches everything
+              function(err, data) {
+                if(err) {
+                  res.status(500);
+                  res.send("Error getting all events after delete", err);
+                  return;
+                }
+                res.status(200).send(JSON.stringify(data));
+              }
+            );
           }
         );
       });
