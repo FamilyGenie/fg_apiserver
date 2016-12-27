@@ -43,7 +43,7 @@ module.exports = function(app, PairBondRelModel) {
   })
 
   app.post('/api/v2/pairbondrel/delete', auth.isAuthenticated, function(req, res) {
-    console.log("in person delete");
+    console.log("in pairbondrel delete");
     var user = req.decoded._doc.userName;
     var _id = req.body.object._id;
     PairBondRelModel.remove(

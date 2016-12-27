@@ -76,7 +76,7 @@ module.exports = function(app, EventsModel) {
 
 
   app.post('/api/v2/event/create', auth.isAuthenticated, function(req, res) {
-    console.log("in event create", req.body);
+    console.log("in event create");
     var user = req.decoded._doc.userName;
     object = {
       person_id: req.body.object.person_id,

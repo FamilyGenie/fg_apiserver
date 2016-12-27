@@ -2,6 +2,9 @@
 var auth = require('../authentication');
 var mongoose = require('mongoose');
 
+// deprecation fix for mpromise (mongoose's default promise library)
+mongoose.Promise = global.Promise; 
+
 module.exports = function(app, PersonModel) {
 	app.get('/api/v2/people', auth.isAuthenticated, function(req, res) {
 		// this console.log is meant to be here - to keep a log of activities in the node server log
