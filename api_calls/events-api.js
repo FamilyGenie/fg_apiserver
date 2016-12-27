@@ -69,19 +69,7 @@ module.exports = function(app, EventsModel) {
               res.status(500).send("Error getting all events after delete" + err);
               return;
             }
-            EventsModel.find(
-              {
-                user_id: user
-              }, // filter object - empty filter catches everything
-              function(err, data) {
-                if(err) {
-                  res.status(500);
-                  res.send("Error getting all events after delete", err);
-                  return;
-                }
-                res.status(200).send(JSON.stringify(data));
-              }
-            );
+            res.status(200).send(data);
           }
         );
       });
@@ -89,7 +77,7 @@ module.exports = function(app, EventsModel) {
 
 
   app.post('/api/v2/event/create', auth.isAuthenticated, function(req, res) {
-    console.log("in event create", req.body);
+    console.log("in event create");
     var user = req.decoded._doc.userName;
     object = {
       person_id: req.body.object.person_id,
