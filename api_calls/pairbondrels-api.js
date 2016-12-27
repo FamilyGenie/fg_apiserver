@@ -1,8 +1,16 @@
 var auth = require('../authentication');
 var mongoose = require('mongoose');
+var winston = require('winston');
+
+winston.level = 'debug'; // uncomment for development debugging
+var logLevel = 'debug';
+// var logLevel = 'info';
+
+var date = new Date();
 
 module.exports = function(app, PairBondRelModel) {
   app.get('/api/v2/pairbondrels', auth.isAuthenticated, function(req,res) {
+    winston.log(logLevel, date + ": in pairbondrels get");
     var user = req.decoded._doc.userName;
     PairBondRelModel.find(
       {
@@ -19,7 +27,7 @@ module.exports = function(app, PairBondRelModel) {
   });
 
   app.post('/api/v2/pairbondrel/update', auth.isAuthenticated, function(req,res) {
-    console.log('in parbondrels update');
+    winston.log(logLevel, date + ': in parbondrels update');
     var user = req.decoded._doc.userName;
     var _id = req.body.object._id;
     const set = {};
@@ -43,7 +51,7 @@ module.exports = function(app, PairBondRelModel) {
   })
 
   app.post('/api/v2/pairbondrel/delete', auth.isAuthenticated, function(req, res) {
-    console.log("in pairbondrel delete");
+    winston.log(logLevel, date + ": in pairbondrel delete");
     var user = req.decoded._doc.userName;
     var _id = req.body.object._id;
     PairBondRelModel.remove(
@@ -63,7 +71,7 @@ module.exports = function(app, PairBondRelModel) {
 
   app.post('/api/v2/pairbondrel/create', auth.isAuthenticated,
   function(req,res){
-    console.log("in pairbondrel create");
+    winston.log(logLevel, date + ": in pairbondrel create");
     var user = req.decoded._doc.userName;
     object = {
       personOne_id: req.body.object.personOne_id,
