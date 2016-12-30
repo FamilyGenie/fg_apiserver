@@ -8,9 +8,9 @@ module.exports = function(mongoose, PersonModel) {
 		relationshipType: String,
 		subType: String,
 		startDateUser: String,
-		startDate: String,
+		startDate: Date,
 		endDateUser: String,
-		endDate: String,
+		endDate: Date,
 		user_id: String
 	});
 
