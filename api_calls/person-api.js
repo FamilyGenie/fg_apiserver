@@ -13,7 +13,7 @@ module.exports = function(app, PersonModel) {
 			}, // filter object empty - to return all
 			function(err, data) {
 				if(err) {
-					res.status(500).send("Error getting all people");
+					res.status(500).send("Error getting all people" + err);
 					return;
 				}
 				// return all people
@@ -41,7 +41,7 @@ module.exports = function(app, PersonModel) {
 			{new: true},
 			function(err, data) {
 				if(err) {
-					res.status(500).send("Error updating person data");
+					res.status(500).send("Error updating person data" + err);
 					return;
 				}
 				// return the updated person object
@@ -102,8 +102,7 @@ module.exports = function(app, PersonModel) {
 
 		new PersonModel(object).save(function(err, data){
 			if (err) {
-				console.log("Create Person error:" + err);
-				res.status(500).send("Error creating line item");
+				res.status(500).send("Error creating line item" + err);
 				return;
 			}
 			// return just the created record
