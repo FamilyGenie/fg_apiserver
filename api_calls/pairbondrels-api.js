@@ -20,7 +20,7 @@ module.exports = function(app, PairBondRelModel) {
   });
 
   app.post('/api/v2/pairbondrel/update', auth.isAuthenticated, function(req,res) {
-    console.log('in parbondrels update');
+    console.log('in parbondrels update with: ', req.body.object);
     var user = req.decoded._doc.userName;
     var _id = req.body.object._id;
     const set = {};
