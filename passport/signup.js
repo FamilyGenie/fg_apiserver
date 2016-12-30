@@ -16,12 +16,12 @@ module.exports = function(passport){
                 User.findOne({ 'userName' :  username }, function(err, user) {
                     // In case of any error, return using the done method
                     if (err){
-                        console.log('Error in SignUp: '+err);
+                        console.log('Error in SignUp: ' + err);
                         return done(err);
                     }
                     // already exists
                     if (user) {
-                        console.log('User already exists with username: '+username);
+                        console.log('User already exists with username: ' + username);
                         throw err;
                         return done(err);
                     } else {
@@ -38,8 +38,8 @@ module.exports = function(passport){
                         // save the user
                         newUser.save(function(err) {
                             if (err){
-                                console.log('Error in Saving user: '+err);  
-                                throw err;  
+                                console.log('Error in Saving user: ' + err);
+                                throw err;
                             }
 
                             return done(null, newUser);
