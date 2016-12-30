@@ -37,7 +37,7 @@ module.exports = function(app, ParentalRelModel) {
       {new: true},
       function(err, data) {
         if(err) {
-          res.status(500).send("Error updating parental relationship data");
+          res.status(500).send("Error updating parental relationship data" + err);
           return;
         }
         res.status(200).send(data);
