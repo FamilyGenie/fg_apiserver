@@ -73,7 +73,7 @@ module.exports = function(app, PersonModel) {
 			},
 			function(err) {
 				if (err) {
-					res.status(500).send("Error deleting person", err);
+					res.status(500).send("Error deleting person" + err);
 					return;
 				}
 				PersonModel.find(
@@ -82,7 +82,7 @@ module.exports = function(app, PersonModel) {
 				}, // filter object - empty filter catches everything
 				function(err, data) {
 					if(err) {
-						res.status(500).send("Error getting all persons after delete", err);
+						res.status(500).send("Error getting all persons after delete" + err);
 						return;
 					}
 					// return the full array of all people. Can we send just success, and then on the client side, just remove the deleted person?
@@ -112,7 +112,7 @@ module.exports = function(app, PersonModel) {
 
 		new PersonModel(object).save(function(err, data){
 			if (err) {
-				console.log("Create Person error:", err);
+				console.log("Create Person error:" + err);
 				res.status(500).send("Error creating line item");
 				return;
 			}

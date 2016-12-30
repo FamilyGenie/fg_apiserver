@@ -18,7 +18,7 @@ module.exports = function(app, PairBondRelModel) {
       }, // filter object empty - to return all
       function(err, data) {
         if(err) {
-          res.status(500).send("Error getting all pairbonds", err);
+          res.status(500).send("Error getting all pairbonds" + err);
           return;
         }
         res.status(200).send(JSON.stringify(data));
@@ -42,7 +42,7 @@ module.exports = function(app, PairBondRelModel) {
       {new: true},
       function(err, data) {
         if(err) {
-          res.status(500).send("Error updating pair bond relationship data", err);
+          res.status(500).send("Error updating pair bond relationship data" + err);
           return;
         }
         res.status(200).send(data);
@@ -61,10 +61,22 @@ module.exports = function(app, PairBondRelModel) {
       },
       function(err, data){
         if(err) {
-          res.status(500).send("Error getting all pairBondRels after delete", err);
+          res.status(500).send("Error deleting pairBondRel" + err);
           return;
         }
-        res.status(200).send(JSON.stringify(data));
+        PairBondRelModel.find(
+          {
+            user_id: user
+          }, // filter object - empty filter catches everything
+          function(err, data) {
+            if(err) {
+              res.status(500);
+              res.send("Error getting all pairBondRels after delete" + err);
+              return;
+            }
+            res.status(200).send(JSON.stringify(data));
+          }
+        );
       }
     );
   });
@@ -78,12 +90,15 @@ module.exports = function(app, PairBondRelModel) {
       personTwo_id: req.body.object.personTwo_id,
       relationshipType: req.body.object.relationshipType,
       subType: req.body.object.subType,
+      startDateUser: req.body.object.startDateUser,
       startDate: req.body.object.startDate,
+      endDateUser: req.body.object.endDateUser,
       endDate: req.body.object.endDate,
       user_id: user
     },
     new PairBondRelModel(object).save(function(err, data) {
       if(err) {
+        console.log("Error creating PairBondRel: " + err)
         res.status(500).send("Error creating PairBondRel" + err);
         return;
       }

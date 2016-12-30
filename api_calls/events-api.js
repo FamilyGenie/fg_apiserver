@@ -18,7 +18,7 @@ module.exports = function(app, EventsModel) {
       },
       function(err, data) {
         if (err) {
-          res.status(500).send("Error getting all Events", err);
+          res.status(500).send("Error getting all Events" + err);
           return;
         }
         res.status(200).send(JSON.stringify(data));
@@ -45,7 +45,7 @@ module.exports = function(app, EventsModel) {
       {new: true},
       function(err, data) {
         if(err) {
-          res.status(500).send("Error updating event change", err);
+          res.status(500).send("Error updating event change" + err);
           return;
         }
         res.status(200).send(data);
@@ -64,7 +64,7 @@ module.exports = function(app, EventsModel) {
       },
       function(err) {
         if (err) {
-          res.status(500).send("Error deleting events", err);
+          res.status(500).send("Error deleting events" + err);
           return;
         }
         EventsModel.find(
@@ -73,10 +73,10 @@ module.exports = function(app, EventsModel) {
           },
           function(err, data) {
             if(err) {
-              res.status(500).send("Error getting all events after delete", err);
+              res.status(500).send("Error getting all events after delete" + err);
               return;
             }
-            res.status(200).send(JSON.stringify(data));
+            res.status(200).send(data);
           }
         );
       });
@@ -85,6 +85,7 @@ module.exports = function(app, EventsModel) {
 
   app.post('/api/v2/event/create', auth.isAuthenticated, function(req, res) {
     winston.log(logLevel, date + ": in event create");
+
     var user = req.decoded._doc.userName;
     object = {
       person_id: req.body.object.person_id,
@@ -96,7 +97,7 @@ module.exports = function(app, EventsModel) {
     };
     new EventsModel(object).save(function(err, data) {
       if (err) {
-        res.status(500).send("Error creating event", err);
+        res.status(500).send("Error creating event" + err);
         return;
       }
       res.status(200).send(JSON.stringify(data));
