@@ -16,10 +16,11 @@ module.exports = function(app, mongoose, bodyParser, passport) {
   // });
 
   // I couldn't figure out how to change the filename that is sent over, and saw that the action from the client side was sending the name "filename", so using that name here.
-  app.post("/uploads", auth.isAuthenticated, multer({dest: "./gedcom/uploads/"}).single("gedcom"), function(req, res) {
+  app.post("/uploads", auth.isAuthenticated, multer({dest: "./uploads/"}).single("gedcom"), function(req, res) {
+    console.log(req)
     var user_id = req.decoded._doc.userName;
-    console.log("inside getcom parse and import for user: ", user_id);
-    res.send(req.files);
+    console.log("inside gedcom parse and import for user: ", user_id);
+    res.status(200).send(req.files);
 
     // parse and import people
     exec('python ./gedcom/gedcomparse.py ./gedcom/uploads/' + req.file.filename + ' ./gedcom/jsonfiles/' + req.file.filename + 'indi.json ' + user_id,  // run the python program on the info
@@ -30,7 +31,7 @@ module.exports = function(app, mongoose, bodyParser, passport) {
     else {
       console.log('gedcom saved and parsed to json with python');
       // this call imports the file that was just uploaded into mongoDB
-      exec('mongoimport --db test --collection gedcom_people --type json --file ./gedcom/jsonfiles/' + req.file.filename + 'indi.json --jsonArray', function(err) { 
+      exec('mongoimport --db test --collection gedcom_people --type json --file ./gedcom/jsonfiles/' + req.file.filename + 'indi.json --jsonArray', function(err) {
         if(err) {
           console.log('mongo import failed', err);
         }

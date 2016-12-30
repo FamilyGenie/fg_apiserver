@@ -1,9 +1,16 @@
 var auth = require('../authentication');
 var mongoose = require('mongoose');
+var winston = require('winston');
+
+winston.level = 'debug'; // uncomment for development debugging
+var logLevel = 'debug';
+// var logLevel = 'info';
+
+var date = new Date();
 
 module.exports = function(app, ParentalRelModel) {
   app.get('/api/v2/parentalrels', auth.isAuthenticated, function(req, res) {
-    console.log("in get parentalrels");
+    winston.log(logLevel, date + ": in get parentalrels");
     var user = req.decoded._doc.userName;
     ParentalRelModel.find(
       {
@@ -20,7 +27,7 @@ module.exports = function(app, ParentalRelModel) {
   });
 
   app.post('/api/v2/parentalrel/update', auth.isAuthenticated, function(req, res) {
-    console.log("in parentalrel update");
+    winston.log(logLevel, date + ": in parentalrel update");
 
     var _id = req.body.object._id;
     var user = req.decoded._doc.userName;
@@ -46,6 +53,7 @@ module.exports = function(app, ParentalRelModel) {
   });
 
   app.post('/api/v2/parentalrel/delete', auth.isAuthenticated, function(req, res) {
+    winston.log(logLevel, date + ": in parentalrel delete")
     var user = req.decoded._doc.userName;
     var _id = req.body.object._id;
     ParentalRelModel.remove(
@@ -65,7 +73,7 @@ module.exports = function(app, ParentalRelModel) {
           function(err, data) {
             if(err) {
               res.status(500);
-              res.send("Error getting all parentalRels after delete", err);
+              res.send("Error getting all parentalRels after delete" + err);
               return;
             }
             res.status(200).send(JSON.stringify(data));
@@ -76,7 +84,7 @@ module.exports = function(app, ParentalRelModel) {
   });
 
   app.post('/api/v2/parentalrel/create', auth.isAuthenticated, function(req, res) {
-    console.log("in parentalrel create");
+    winston.log(logLevel, date + ": in parentalrel create");
     var user = req.decoded._doc.userName;
     object = {
       child_id: req.body.object.child_id,

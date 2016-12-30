@@ -1,11 +1,21 @@
 // Person Get, Update is in
 var auth = require('../authentication');
 var mongoose = require('mongoose');
+var winston = require('winston');
+
+winston.level = 'debug'; // uncomment for development debugging
+var logLevel = 'debug';
+// var logLevel = 'info';
+
+var date = new Date();
+
+// deprecation fix for mpromise (mongoose's default promise library)
+mongoose.Promise = global.Promise;
 
 module.exports = function(app, PersonModel) {
 	app.get('/api/v2/people', auth.isAuthenticated, function(req, res) {
 		// this console.log is meant to be here - to keep a log of activities in the node server log
-		console.log("in get people");
+		winston.log(logLevel, date + ": in get people ");
 		var user = req.decoded._doc.userName;
 		PersonModel.find(
 			{
@@ -13,7 +23,7 @@ module.exports = function(app, PersonModel) {
 			}, // filter object empty - to return all
 			function(err, data) {
 				if(err) {
-					res.status(500).send("Error getting all people");
+					res.status(500).send("Error getting all people" + err);
 					return;
 				}
 				// return all people
@@ -24,7 +34,7 @@ module.exports = function(app, PersonModel) {
 
 	app.post('/api/v2/person/update', auth.isAuthenticated, function(req, res) {
 		// this console.log is meant to be here - to keep a log of activities in the node server log
-		console.log("in person update");
+		winston.log(logLevel, date + ": in person update");
 		// passport inserts the user into req.decoded._doc.userName
 		var user = req.decoded._doc.userName;
 		var _id = req.body.object._id;
@@ -41,7 +51,7 @@ module.exports = function(app, PersonModel) {
 			{new: true},
 			function(err, data) {
 				if(err) {
-					res.status(500).send("Error updating person data");
+					res.status(500).send("Error updating person data" + err);
 					return;
 				}
 				// return the updated person object
@@ -52,7 +62,7 @@ module.exports = function(app, PersonModel) {
 
 	app.post('/api/v2/person/delete', auth.isAuthenticated, function(req, res) {
 		// this console.log is meant to be here - to keep a log of activities in the node server log
-		console.log("in person delete");
+		winston.log(logLevel, date + ": in person delete");
 		// passport inserts the user into req.decoded._doc.userName
 		var user = req.decoded._doc.userName;
 		var _id = req.body.object._id;
@@ -84,7 +94,7 @@ module.exports = function(app, PersonModel) {
 
 	app.post('/api/v2/person/create', auth.isAuthenticated, function(req, res) {
 		// this console.log is meant to be here - to keep a log of activities in the node server log
-		console.log("in person create");
+		winston.log(logLevel, date + ": in person create");
 		// passport inserts the user into req.decoded._doc.userName
 		var user = req.decoded._doc.userName;
 		object = {
@@ -102,8 +112,7 @@ module.exports = function(app, PersonModel) {
 
 		new PersonModel(object).save(function(err, data){
 			if (err) {
-				console.log("Create Person error:" + err);
-				res.status(500).send("Error creating line item");
+				res.status(500).send("Error creating line item" + err);
 				return;
 			}
 			// return just the created record

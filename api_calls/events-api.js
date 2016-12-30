@@ -1,9 +1,16 @@
 var auth = require('../authentication');
 var mongoose = require('mongoose');
+var winston = require('winston');
+
+winston.level = 'debug'; // uncomment for development debugging
+var logLevel = 'debug';
+// var logLevel = 'info';
+
+var date = new Date();
 
 module.exports = function(app, EventsModel) {
   app.get('/api/v2/events', auth.isAuthenticated, function(req, res) {
-    console.log("In get events");
+    winston.log(logLevel, date + ": in events get")
     var user = req.decoded._doc.userName;
     EventsModel.find(
       {
@@ -21,7 +28,7 @@ module.exports = function(app, EventsModel) {
 
   app.post('/api/v2/event/update', auth.isAuthenticated, function(req, res) {
     // this console.log is meant to be here - to keep a log of activities in the node server log
-    console.log("in events update");
+    winston.log(logLevel, date + ": in events update");
     // passport inserts the user into req.decoded._doc.userName
     var user = req.decoded._doc.userName;
     var _id = req.body.object._id;
@@ -47,7 +54,7 @@ module.exports = function(app, EventsModel) {
   });
 
   app.post('/api/v2/event/delete', auth.isAuthenticated, function(req, res) {
-    console.log("In event delete");
+    winston.log(logLevel, date + ": In event delete");
     var user = req.decoded._doc.userName;
     var _id = req.body.object._id;
     EventsModel.remove(
@@ -69,19 +76,7 @@ module.exports = function(app, EventsModel) {
               res.status(500).send("Error getting all events after delete" + err);
               return;
             }
-            EventsModel.find(
-              {
-                user_id: user
-              }, // filter object - empty filter catches everything
-              function(err, data) {
-                if(err) {
-                  res.status(500);
-                  res.send("Error getting all events after delete", err);
-                  return;
-                }
-                res.status(200).send(JSON.stringify(data));
-              }
-            );
+            res.status(200).send(data);
           }
         );
       });
@@ -89,7 +84,8 @@ module.exports = function(app, EventsModel) {
 
 
   app.post('/api/v2/event/create', auth.isAuthenticated, function(req, res) {
-    console.log("in event create", req.body);
+    winston.log(logLevel, date + ": in event create");
+
     var user = req.decoded._doc.userName;
     object = {
       person_id: req.body.object.person_id,
