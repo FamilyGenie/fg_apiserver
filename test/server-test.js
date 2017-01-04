@@ -708,6 +708,29 @@ describe('Events', function() {
 
 });
 
+describe('Gedcom Imports', function() {
+
+  it('login', loginUser);
+
+});
+
+describe('Staging Gedcom Imports', function() {
+
+  it('login', loginUser);
+
+  it('should get ALL people on /api/staging/people', function(done) {
+      chai.request(server)
+        .get('/api/staging/people')
+        .set('x-access-token', authToken)
+        .end(function(err, res) {
+
+          if (err) return done(err);
+
+          res.status.should.equal(200);
+        })
+  });
+});
+
 // login as a test user for testing after authentication
 function loginUser() {
   return function(done) {
