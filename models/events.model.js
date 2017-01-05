@@ -5,10 +5,12 @@ module.exports = function(mongoose) {
   var EventsModel = mongoose.model("Events", {
     person_id : String,
     type : String,
+    eventDateUser: String,
     eventDate : Date,
-    approxDate : String,
     place : String,
-    details : String,
+    familyContext : String,
+    localContext : String,
+    worldContext : String,
     user_id: String
   });
 
