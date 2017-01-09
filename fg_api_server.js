@@ -35,6 +35,7 @@ var ParentalRelModel = require('./models/parental-relationship.model.js')(mongoo
 var ParentalRelTypeModel = require('./models/parentalreltype.model.js')(mongoose, PersonModel);
 var PersonChangeModel = require('./models/personchange.model.js')(mongoose, PersonModel);
 var EventsModel = require('./models/events.model.js')(mongoose);
+var StagedPersonModel = require('./models/staged-person.model.js')(mongoose);
 
 var app = express();
 
@@ -58,13 +59,15 @@ app.use(function(req, res, next) {
 	next();
 });
 
-require("./passport/passport.routes")(app,passport);
-require("./gedcom/gedcom.js")(app, mongoose, bodyParser, passport);
-require("./api_calls/person-api")(app, PersonModel);
-require("./api_calls/events-api")(app, EventsModel);
-require("./api_calls/pairbondrels-api")(app, PairBondRelModel);
-require("./api_calls/parentalrel-api")(app, ParentalRelModel);
-require("./api_calls/parentalreltypes-api")(app, ParentalRelTypeModel);
+require('./passport/passport.routes')(app,passport);
+// this is gedcom uploads page
+require('./gedcom/gedcom.js')(app, mongoose, bodyParser, passport);
+require('./api_calls/person-api')(app, PersonModel);
+require('./api_calls/events-api')(app, EventsModel);
+require('./api_calls/pairbondrels-api')(app, PairBondRelModel);
+require('./api_calls/parentalrel-api')(app, ParentalRelModel);
+require('./api_calls/parentalreltypes-api')(app, ParentalRelTypeModel);
+require('./api_calls/stagedpeople-api')(app, StagedPersonModel);
 
 
 /**********

@@ -89,9 +89,9 @@ module.exports = function(app, EventsModel) {
     var user = req.decoded._doc.userName;
     object = {
       person_id: req.body.object.person_id,
-      type: req.body.object.type,
+      eventType: req.body.object.type,
       eventDate: req.body.object.eventDate,
-      place: req.body.object.place,
+      eventPlace: req.body.object.place,
       details: req.body.object.details,
       user_id: user
     };
