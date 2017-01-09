@@ -9,8 +9,6 @@ var jwt    = require('jsonwebtoken');
 var initPassport = require('./passport/init');
 var config = require('./config');
 var flash = require('connect-flash');
-// This not needed here, it is required in the individual files that need it
-// var auth = require('./authentication');
 var session = require('express-session');
 // var cookieParser = require('cookie-parser');
 var user;
@@ -36,6 +34,7 @@ var ParentalRelTypeModel = require('./models/parentalreltype.model.js')(mongoose
 var PersonChangeModel = require('./models/personchange.model.js')(mongoose, PersonModel);
 var EventsModel = require('./models/events.model.js')(mongoose);
 var StagedPersonModel = require('./models/staged-person.model.js')(mongoose);
+var StagedParentalRelModel = require('./models/staged-parentalrel.model.js')(mongoose, PersonModel);
 
 var app = express();
 
@@ -55,7 +54,6 @@ app.use(bodyParser.urlencoded({
 app.use(cors());
 
 app.use(function(req, res, next) {
-	// console.log("Request recieved for:", req.url);
 	next();
 });
 
@@ -68,8 +66,14 @@ require('./api_calls/pairbondrels-api')(app, PairBondRelModel);
 require('./api_calls/parentalrel-api')(app, ParentalRelModel);
 require('./api_calls/parentalreltypes-api')(app, ParentalRelTypeModel);
 require('./api_calls/stagedpeople-api')(app, StagedPersonModel);
+require('./api_calls/stagedparentalrel-api')(app, StagedParentalRelModel);
 
 
+/**********************/
+
+require('./api_calls/import-person')(app, PersonModel, EventsModel);
+
+/**********************/
 /**********
 Old api files
 ************/

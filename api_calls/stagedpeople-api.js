@@ -4,8 +4,8 @@ var mongoose = require('mongoose');
 var winston = require('winston');
 
 winston.level = 'debug'; // uncomment for development debugging
-var logLevel = 'debug';
-// var logLevel = 'info';
+//var logLevel = 'debug';
+var logLevel = 'info';
 var date = new Date();
 
 // deprecation fix for mpromise (mongoose's default promise library)
