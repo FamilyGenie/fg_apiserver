@@ -4,8 +4,8 @@ var mongoose = require('mongoose');
 var winston = require('winston');
 
 winston.level = 'debug'; // uncomment for development debugging
-//var logLevel = 'debug';
-var logLevel = 'info';
+var logLevel = 'debug';
+// var logLevel = 'info';
 var date = new Date();
 
 // deprecation fix for mpromise (mongoose's default promise library)
@@ -22,12 +22,12 @@ module.exports = function(app, StagedPersonModel) {
 			}, // filter object empty - to return all
 			function(err, data) {
 				if(err) {
-					console.log('Staged people error', err)
+					winston.log(logLevel, date + ': staged people error')
 					res.status(500).send("Error getting all staged people" + err);
 					return;
 				}
 				// return all people
-				console.log('Staged people success', data)
+				winston.log(logLevel, date + ': staged people success')
 				res.status(200).send(JSON.stringify(data));
 			}
 		);

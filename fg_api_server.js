@@ -65,6 +65,7 @@ require('./api_calls/pairbondrels-api')(app, PairBondRelModel);
 require('./api_calls/parentalrel-api')(app, ParentalRelModel);
 require('./api_calls/parentalreltypes-api')(app, ParentalRelTypeModel);
 require('./api_calls/stagedpeople-api')(app, StagedPersonModel);
+require('./api_calls/newperson-api.js')(app, PersonModel, EventsModel, ParentalRelModel);
 
 /**********
 Old api files
