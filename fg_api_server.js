@@ -58,7 +58,7 @@ app.use(function(req, res, next) {
 
 require('./passport/passport.routes')(app,passport);
 // this is gedcom uploads page
-require('./gedcom/gedcom.js')(app, mongoose, bodyParser, passport);
+require('./gedcom/gedcom.js')(app, mongoose, bodyParser, passport, PersonModel, StagedPersonModel);
 require('./api_calls/person-api')(app, PersonModel);
 require('./api_calls/events-api')(app, EventsModel);
 require('./api_calls/pairbondrels-api')(app, PairBondRelModel);
@@ -66,6 +66,7 @@ require('./api_calls/parentalrel-api')(app, ParentalRelModel);
 require('./api_calls/parentalreltypes-api')(app, ParentalRelTypeModel);
 require('./api_calls/stagedpeople-api')(app, StagedPersonModel);
 require('./api_calls/newperson-api.js')(app, PersonModel, EventsModel, ParentalRelModel);
+
 
 /**********
 Old api files
