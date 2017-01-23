@@ -33,4 +33,23 @@ module.exports = function(app, StagedPersonModel) {
 		);
 	});
 
+  app.post('/api/v2/staging/person/update', auth.isAuthenticated, function(req,res) {
+    winston.log(logLevel, date + ": in update staged person");
+    var user = req.decoded._doc.userName;
+    var _id = req.body.object._id;
+    const set = {};
+    set[req.body.object.field] = req.body.object.value;
+    StagedPersonModel.findOneAndUpdate(
+      { _id : _id, user_id : user },
+      { $set : set },
+      { new : true },
+      function(err, data) {
+        if (err) {
+          res.status(500).send("Error updating staged person" + err);
+          return;
+        }
+        res.status(200).send(JSON.stringify(data));
+      }
+    );
+  })
 }

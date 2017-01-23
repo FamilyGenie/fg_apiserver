@@ -3,7 +3,6 @@ var multer = require('multer');
 var exec = require('child_process').exec;
 var upload = multer({ dest: './gedcom/uploads/' });
 var type = upload.single('gedcom');
-var importScript = require('../functions/import-script.js')
 
 module.exports = function(app, mongoose, bodyParser, passport, PersonModel, StagedPersonModel) {
 
@@ -96,9 +95,6 @@ module.exports = function(app, mongoose, bodyParser, passport, PersonModel, Stag
         });
       }
     });
-
-
-    importScript(mongoose, PersonModel, StagedPersonModel)
 
   });
 

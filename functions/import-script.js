@@ -1,51 +1,82 @@
-module.exports = function(mongoose, PersonModel, StagedPersonModel) {
-  
-  StagedPersonModel.find({ "sexAtBirth" : "F" },
-    function(err, res) {
-      if (err) {
-        return console.log(err);
-      }
-      console.log("in stagedperosnmodel find")
-      var stagedPeople = res;
-      PersonModel.find({ "sexAtBirth" : "F" },
-        function(err,res) {
-          if (err) {
-            return console.log(err);
-          }
-          var people = res;
-          for (i in stagedPeople) {
-            var exists = false;
-            for (k in people) {
-              if (stagedPeople[i].fName === people[k].fName || stagedPeople[i].lName === people[k].lName || stagedPeople[i].sexAtBirth === people[k].sexAtBirth) {
-                exists = true;
-              }
+var auth = require('../authentication');
+var mongoose = require('mongoose');
+var winston = require('winston');
+
+winston.level = 'debug'; // uncomment for development debugging
+var logLevel = 'debug';
+// var logLevel = 'info';
+var date = new Date();
+
+var _data = [];
+
+module.exports = function(app, PersonModel, StagedPersonModel) {
+  app.post('/api/v2/autoimport', auth.isAuthenticated, function(req, res) {
+    winston.log(logLevel, date + ': in import-script')
+
+    StagedPersonModel.find({},
+      function(err, stagedPeople) {
+        if (err) {
+          res.status(500).send(err);
+        }
+
+        PersonModel.find({},
+          function(err, people) {
+            if (err) {
+              res.status(500).send(err);
             }
-            if (exists === true) {
-             object = {
-                fName: stagedPeople[i].fName,
-                mName: stagedPeople[i].mName,
-                lName: stagedPeople[i].lName,
-                sexAtBirth: stagedPeople[i].sexAtBirth,
-                birthDate: stagedPeople[i].birthDate,
-                birthPlace: stagedPeople[i].birthPlace,
-                deathDate: stagedPeople[i].deathDate,
-                deathPlace: stagedPeople[i].deathPlace,
-                notes: stagedPeople[i].notes,
-              };
-            // console.log(object)
 
-            new PersonModel(object).save(function(err, data){
-              if (err) {
-                return ("Error creating line item" + err);
+            stagedPeople.forEach(function(stagedPerson) {
+              var match = false;
+              people.forEach(function(person) {
+
+                if (stagedPerson.fName === person.fName && stagedPerson.lName === person.lName && stagedPerson.sexAtBirth === person.sexAtBirth) {
+                  match = true;
+
+                  StagedPersonModel.findOneAndUpdate(
+                    { _id : stagedPerson._id },
+                    { $set : { genie_id : person._id, ignore : true } },
+                    { new : true, upsert: true },
+                    function(err, data1) {
+                      if (err) {
+                        res.status(500).send(err);
+                      }
+                      // want to return data1
+                  })
+                }
+
+              })
+
+              if (match === false) {
+                object = {
+                   fName: stagedPerson.fName,
+                   lName: stagedPerson.lName,
+                   sexAtBirth: stagedPerson.sexAtBirth,
+                   notes: stagedPerson.notes,
+                   user_id: stagedPerson.user_id,
+                }
+
+                new PersonModel(object).save(function(err, newPerson) {
+                  if (err) {
+                    res.status(500).send(err);
+                  }
+
+                  StagedPersonModel.findOneAndUpdate(
+                    { _id : stagedPerson._id },
+                    { $set : { genie_id : newPerson._id, ignore : true } },
+                    { new : true, upsert : true },
+                    function(err, data2) {
+                      if (err) {
+                        res.status(500).send(err)
+                      }
+                      // want to retrn data2
+                  })
+                  // want to return newPerson
+                })
               }
-              console.log(JSON.stringify(data));
-            });
-            }
-          }
-        })
 
-    });
-
-  // db.eval(compareCollections);
-
+            })
+        });
+      });
+    res.status(200).send('success ' + _data) // want to send all data from above
+  });
 }
