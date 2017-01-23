@@ -67,7 +67,7 @@ require('./api_calls/parentalreltypes-api')(app, ParentalRelTypeModel);
 require('./api_calls/stagedpeople-api')(app, StagedPersonModel);
 require('./api_calls/newperson-api.js')(app, PersonModel, EventsModel, ParentalRelModel);
 
-require('./functions/import-script.js')(app, PersonModel, StagedPersonModel);
+require('./functions/person-import.js')(app, PersonModel, StagedPersonModel);
 
 /**********
 Old api files
