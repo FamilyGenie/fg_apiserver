@@ -19,64 +19,54 @@ module.exports = function(app, PersonModel, StagedPersonModel) {
           res.status(500).send(err);
         }
 
-        PersonModel.find({},
-          function(err, people) {
-            if (err) {
-              res.status(500).send(err);
-            }
+        stagedPeople.forEach(function(stagedPerson) {
 
-            stagedPeople.forEach(function(stagedPerson) {
-              var match = false;
-              people.forEach(function(person) {
-
-                if (stagedPerson.fName === person.fName && stagedPerson.lName === person.lName && stagedPerson.sexAtBirth === person.sexAtBirth) {
-                  match = true;
-
+            PersonModel.find(
+              { fName : stagedPerson.fName, lName : stagedPerson.lName, sexAtBirth : stagedPerson.sexAtBirth },
+              function(err, person) {
+                if (err) {
+                  res.status(500).send(err);
+                }
+                if (person.length) {
+                  console.log('person', person[0].fName, stagedPerson.fName)
                   StagedPersonModel.findOneAndUpdate(
                     { _id : stagedPerson._id },
-                    { $set : { genie_id : person._id, ignore : true } },
+                    { $set : { genie_id : person[0]._id, ignore : true } },
                     { new : true, upsert: true },
                     function(err, data1) {
                       if (err) {
                         res.status(500).send(err);
                       }
-                      // want to return data1
                   })
-                }
-
-              })
-
-              if (match === false) {
-                object = {
-                   fName: stagedPerson.fName,
-                   lName: stagedPerson.lName,
-                   sexAtBirth: stagedPerson.sexAtBirth,
-                   notes: stagedPerson.notes,
-                   user_id: stagedPerson.user_id,
-                }
-
-                new PersonModel(object).save(function(err, newPerson) {
-                  if (err) {
-                    res.status(500).send(err);
+                } else {
+                  console.log('person not found', stagedPerson.fName);
+                  object = {
+                     fName: stagedPerson.fName,
+                     lName: stagedPerson.lName,
+                     sexAtBirth: stagedPerson.sexAtBirth,
+                     notes: stagedPerson.notes,
+                     user_id: stagedPerson.user_id,
                   }
 
-                  StagedPersonModel.findOneAndUpdate(
-                    { _id : stagedPerson._id },
-                    { $set : { genie_id : newPerson._id, ignore : true } },
-                    { new : true, upsert : true },
-                    function(err, data2) {
-                      if (err) {
-                        res.status(500).send(err)
-                      }
-                      // want to retrn data2
-                  })
-                  // want to return newPerson
+                  new PersonModel(object).save(function(err, newPerson) {
+                    if (err) {
+                      res.status(500).send(err);
+                    }
+                    StagedPersonModel.findOneAndUpdate(
+                      { _id : stagedPerson._id },
+                      { $set : { genie_id : newPerson._id, ignore : true } },
+                      { new : true, upsert: true },
+                      function(err, data1) {
+                        if (err) {
+                          res.status(500).send(err);
+                        }
+                    })
                 })
               }
-
             })
-        });
+
+        })
       });
-    res.status(200).send('success ' + _data) // want to send all data from above
+    res.status(200).send('success') // want to send all data from above
   });
 }
