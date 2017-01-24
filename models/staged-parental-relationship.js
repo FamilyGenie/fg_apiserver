@@ -1,18 +1,16 @@
-module.exports = function(mongoose, PersonModel) {
+module.exports = function(mongoose) {
 
-	ObjectId = mongoose.Schema.ObjectId;
-
-	var ParentalRelModel = mongoose.model("ParentalRelationship",{
-		child_id: {type: ObjectId, ref: PersonModel},
-		parent_id: {type: ObjectId, ref: PersonModel},
+	var StagedParentalRelModel = mongoose.model("StagedParentalRelationship",{
+		child_id: String,
+		parent_id: String,
 		relationshipType: String,
 		subType: String,
-		startDateUser: String,
 		startDate: Date,
-		endDateUser: String,
 		endDate: Date,
+    genie_id: ObjectId,
+    ignore: Boolean,
 		user_id: String
 	});
 
-	return ParentalRelModel;
+	return StagedParentalRelModel;
 };

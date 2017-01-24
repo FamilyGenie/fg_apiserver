@@ -7,6 +7,7 @@ module.exports = function(mongoose) {
     eventPlace : String,
     approxDate : String,
     genie_id : ObjectId,
+    ignore : Boolean,
     user_id: String
   });
 
