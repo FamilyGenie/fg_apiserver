@@ -9,9 +9,8 @@ var date = new Date();
 
 var _data = [];
 
-module.exports = function(app, PersonModel, StagedPersonModel) {
-  app.post('/api/v2/autoimport', auth.isAuthenticated, function(req, res) {
-    winston.log(logLevel, date + ': in import-script')
+module.exports = function(PersonModel, StagedPersonModel, EventsModel, StagedEventsModel) {
+    winston.log(logLevel, date + ': in people import')
 
     StagedPersonModel.find({},
       function(err, stagedPeople) {
@@ -28,7 +27,6 @@ module.exports = function(app, PersonModel, StagedPersonModel) {
                   res.status(500).send(err);
                 }
                 if (person.length) {
-                  console.log('person', person[0].fName, stagedPerson.fName)
                   StagedPersonModel.findOneAndUpdate(
                     { _id : stagedPerson._id },
                     { $set : { genie_id : person[0]._id, ignore : true } },
@@ -39,7 +37,6 @@ module.exports = function(app, PersonModel, StagedPersonModel) {
                       }
                   })
                 } else {
-                  console.log('person not found', stagedPerson.fName);
                   object = {
                      fName: stagedPerson.fName,
                      lName: stagedPerson.lName,
@@ -67,6 +64,4 @@ module.exports = function(app, PersonModel, StagedPersonModel) {
 
         })
       });
-    res.status(200).send('success') // want to send all data from above
-  });
 }
