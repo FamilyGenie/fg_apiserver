@@ -101,6 +101,7 @@ module.exports = function(app, ParentalRelModel) {
         res.status(500).send('Error creating new parentalrel: ' + err);
         return;
       }
+      console.log("created Parent: ", data);
       res.status(200).send(JSON.stringify(data));
     });
   });
