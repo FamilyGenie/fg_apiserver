@@ -115,6 +115,7 @@ module.exports = function(app, PersonModel) {
 				return;
 			}
 			// return just the created record
+			console.log("created Person: ", data);
 			res.status(200).send(JSON.stringify(data));
 		});
 	})
