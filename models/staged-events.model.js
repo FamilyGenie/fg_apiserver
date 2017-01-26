@@ -1,6 +1,6 @@
 module.exports = function(mongoose) {
 
-  var StagedEventsModel = mongoose.model("Gedcom_Events", {
+  var StagedEventsModel = mongoose.model("Gedcom_Event", {
     personId : String,
     eventType : String,
     eventDate : Date,

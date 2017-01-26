@@ -2,7 +2,7 @@ module.exports = function(mongoose, PersonModel) {
 
 	ObjectId = mongoose.Schema.ObjectId;
 
-	var StagedParentalRelModel = mongoose.model("ParentalRelationship",{
+	var ParentalRelModel = mongoose.model("ParentalRelationship",{
 		child_id: String,
 		parent_id: String,
 		relationshipType: String,
@@ -12,5 +12,5 @@ module.exports = function(mongoose, PersonModel) {
 		user_id: String
 	});
 
-	return StagedParentalRelModel;
+	return ParentalRelModel;
 };

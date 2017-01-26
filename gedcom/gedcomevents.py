@@ -21,6 +21,7 @@ import sys
 
 argIn = sys.argv[1] # gedcom file input
 argOut = sys.argv[2] # json file output
+userId = sys.argv[3] 
 
 # various event types, in no particular order. global.
 attributes = ['event', 'birth', 'death', 'divorce', 'burial', 'residence', 'bar_mitzvah', 'bas_mitzvah', 'blessing', 'christening', 'adult_christening', 'confirmation', 'confirmation_lds', 'cremation', 'graduation', 'immigration', 'naturalization', 'will']
@@ -58,10 +59,11 @@ def makeEventRecords(filename):
                     buildRecord += '"eventDate" : null,\n'
 
                 try:
-                    buildRecord += '"eventPlace" : "' + getattr(person, attribute).place + '"\n'
+                    buildRecord += '"eventPlace" : "' + getattr(person, attribute).place + '",\n'
                 except AttributeError:
-                    buildRecord += '"eventPlace" : null\n'
+                    buildRecord += '"eventPlace" : null,\n'
 
+                buildRecord += '"user_id" : "' + userId + '"\n'
                 buildRecord += "}"
                 eventRecords.append(buildRecord)
             # AttributeError if the event type does not exist for that person

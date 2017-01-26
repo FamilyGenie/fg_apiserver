@@ -78,7 +78,7 @@ module.exports = function(app, mongoose, bodyParser, passport, PersonModel, Stag
       }
     });
 
-  exec('python ./gedcom/gedcomevents.py ./gedcom/uploads/' + req.file.filename + ' ./gedcom/jsonfiles/' + req.file.filename + 'event.json ',
+  exec('python ./gedcom/gedcomevents.py ./gedcom/uploads/' + req.file.filename + ' ./gedcom/jsonfiles/' + req.file.filename + 'event.json ' + user_id,
     function(err) {
       if (err) {
         console.log('python parse failed', err)

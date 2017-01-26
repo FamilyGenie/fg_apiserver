@@ -2,7 +2,7 @@ module.exports = function(mongoose, PersonModel) {
 
 	ObjectId = mongoose.Schema.ObjectId;
 
-	var StagedPairBondModel = mongoose.model("PairBondRelationship",{
+	var PairBondModel = mongoose.model("PairBondRelationship",{
 		personOne_id: String,
 		personTwo_id: String,
 		relationshipType: String,
@@ -11,5 +11,5 @@ module.exports = function(mongoose, PersonModel) {
 		user_id: String
 	});
 
-	return StagedPairBondModel;
+	return PairBondModel;
 };

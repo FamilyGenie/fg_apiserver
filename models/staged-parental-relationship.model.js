@@ -1,6 +1,6 @@
 module.exports = function(mongoose) {
 
-	var StagedParentalRelModel = mongoose.model("Gedcom_Parents",{
+	var StagedParentalRelModel = mongoose.model("Gedcom_Parent",{
 		child_id: String,
 		parent_id: String,
 		relationshipType: String,

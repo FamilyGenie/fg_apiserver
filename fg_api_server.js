@@ -59,8 +59,10 @@ require('./api_calls/events-api')(app, EventsModel);
 require('./api_calls/pairbondrels-api')(app, PairBondRelModel);
 require('./api_calls/parentalrel-api')(app, ParentalRelModel);
 require('./api_calls/parentalreltypes-api')(app, ParentalRelTypeModel);
+
 require('./api_calls/stagedpeople-api')(app, StagedPersonModel);
 require('./api_calls/newperson-api.js')(app, PersonModel, EventsModel, ParentalRelModel);
+require('./api_calls/stagedEvents-api.js')(app, StagedEventsModel)
 
 require('./functions/import-scripts.js')(app, PersonModel, StagedPersonModel, EventsModel, StagedEventsModel);
 

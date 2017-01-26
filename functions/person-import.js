@@ -26,7 +26,7 @@ module.exports = function(PersonModel, StagedPersonModel, EventsModel, StagedEve
                 if (err) {
                   res.status(500).send(err);
                 }
-                if (person.length) {
+                if (!person.length) {
                   StagedPersonModel.findOneAndUpdate(
                     { _id : stagedPerson._id },
                     { $set : { genie_id : person[0]._id, ignore : true } },
@@ -49,6 +49,7 @@ module.exports = function(PersonModel, StagedPersonModel, EventsModel, StagedEve
                     if (err) {
                       res.status(500).send(err);
                     }
+                    console.log('created new person')
                     StagedPersonModel.findOneAndUpdate(
                       { _id : stagedPerson._id },
                       { $set : { genie_id : newPerson._id, ignore : true } },

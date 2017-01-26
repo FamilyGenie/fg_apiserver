@@ -40,8 +40,8 @@ module.exports = function(PersonModel, StagedPersonModel, EventsModel, StagedEve
                 if (err) {
                   res.status(500).send(err);
                 }
+                console.log('created new event')
                 // should return something here... TODO
-                console.log('newEvent', newEvent)
               })
             })
           }
