@@ -22,15 +22,34 @@ module.exports = function(app, StagedPersonModel) {
 			}, // filter object empty - to return all
 			function(err, data) {
 				if(err) {
-					console.log('Staged people error', err)
+					winston.log(logLevel, date + ': staged people error')
 					res.status(500).send("Error getting all staged people" + err);
 					return;
 				}
 				// return all people
-				console.log('Staged people success', data)
+				winston.log(logLevel, date + ': staged people success')
 				res.status(200).send(JSON.stringify(data));
 			}
 		);
 	});
 
+  app.post('/api/v2/staging/person/update', auth.isAuthenticated, function(req,res) {
+    winston.log(logLevel, date + ": in update staged person");
+    var user = req.decoded._doc.userName;
+    var _id = req.body.object._id;
+    const set = {};
+    set[req.body.object.field] = req.body.object.value;
+    StagedPersonModel.findOneAndUpdate(
+      { _id : _id, user_id : user },
+      { $set : set },
+      { new : true },
+      function(err, data) {
+        if (err) {
+          res.status(500).send("Error updating staged person" + err);
+          return;
+        }
+        res.status(200).send(JSON.stringify(data));
+      }
+    );
+  })
 }

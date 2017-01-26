@@ -1,13 +1,13 @@
-module.exports = function(mongoose, PersonModel) {
+module.exports = function(mongoose) {
 
-	ObjectId = mongoose.Schema.ObjectId;
-
-	var StagedPairBondModel = mongoose.model("PairBondRelationship",{
+	var StagedPairBondModel = mongoose.model("StagedPairBondRelationship",{
 		personOne_id: String,
 		personTwo_id: String,
 		relationshipType: String,
 		startDate: Date,
 		endDate: Date,
+    genie_id: ObjectId,
+    ignore: Boolean,
 		user_id: String
 	});
 
