@@ -34,14 +34,25 @@ module.exports = function(PersonModel, StagedPersonModel, EventsModel, StagedEve
                 eventType: stagedEvent.eventType,
                 eventDate: stagedEvent.eventDate,
                 eventPlace: stagedEvent.eventPlace,
-                approxDate: stagedEvent.approxDate
+                approxDate: stagedEvent.approxDate,
+                user_id: stagedEvent.user_id
               }
               new EventsModel(object).save((err, newEvent) => {
                 if (err) {
                   res.status(500).send(err);
                 }
-                console.log('created new event')
-                // should return something here... TODO
+                StagedEventsModel.findOneAndUpdate(
+                  { _id : stagedEvent._id },
+                  { $set : { ignore : true, genie_id : newEvent._id } },
+                  { new : true, upsert : true },
+                  function(err, data) {
+                    if (err) {
+                      res.status(500).send(err);
+                    }
+                    console.log(data)
+                    // should return something here... TODO
+                  }
+                )
               })
             })
           }
