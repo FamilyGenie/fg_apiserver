@@ -2,6 +2,8 @@ var auth = require('../authentication');
 var mongoose = require('mongoose');
 var winston = require('winston');
 
+var importEvents = require('./event-import.js');
+
 winston.level = 'debug'; // uncomment for development debugging
 var logLevel = 'debug';
 // var logLevel = 'info';
@@ -61,6 +63,7 @@ module.exports = function(PersonModel, StagedPersonModel, EventsModel, StagedEve
                         if (err) {
                           res.status(500).send(err);
                         }
+                        importEvents(stagedPerson.personId, newPerson._id, EventsModel, StagedEventsModel)
                     })
                 })
               }

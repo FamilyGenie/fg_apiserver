@@ -11,13 +11,13 @@ module.exports = function(app, PersonModel, StagedPersonModel, EventsModel, Stag
   app.post('/api/v2/autoimport', auth.isAuthenticated, function(req, res) {
     winston.log(logLevel, date + ': in import-scripts');
 
-    require('./person-import')(PersonModel, StagedPersonModel)
+    require('./person-import')(PersonModel, StagedPersonModel, EventsModel, StagedEventsModel)
 
     // These setTimeout functions are temporary to make this work synchronously until we come up with a better solution
 
-    setTimeout(function() {
-      require('./event-import')(PersonModel, StagedPersonModel, EventsModel, StagedEventsModel)
-    }, 500)
+    // setTimeout(function() {
+      // require('./event-import')(PersonModel, StagedPersonModel, EventsModel, StagedEventsModel)
+    // }, 500)
 
     /*
      * setTimeout(function() {
