@@ -83,7 +83,7 @@ module.exports = function(app, PairBondRelModel) {
 
   // changed this so that you need to pass an object in the body. That object needs a 'field' and a 'value'. This way we can delete records not just based on the _id, but also call and remove all records for a certain personOne_id or personTwo_id, etc... Made this mostly so that when we delete a person, we can remove all the pairbonds related to them
   app.post('/api/v2/pairbondrel/delete', auth.isAuthenticated, function(req, res) {
-    winston.log(logLevel, date + ": in pairbondrel deleteperson");
+    winston.log(logLevel, date + ": in pairbondrel delete");
     var user = req.decoded._doc.userName;
     PairBondRelModel.remove(
       {
