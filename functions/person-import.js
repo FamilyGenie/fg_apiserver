@@ -20,16 +20,18 @@ module.exports = function(PersonModel, StagedPersonModel, EventsModel, StagedEve
 
         stagedPeople.forEach(function(stagedPerson) {
 
-            PersonModel.find(
-              { fName : stagedPerson.fName, lName : stagedPerson.lName, sexAtBirth : stagedPerson.sexAtBirth },
+            PersonModel.findOne(
+              // TODO find sweet spot for search function
+              { $or: [{fName : stagedPerson.fName}, {lName : stagedPerson.lName}, {sexAtBirth : stagedPerson.sexAtBirth }] },
               function(err, person) {
                 if (err) {
                   res.status(500).send(err);
                 }
-                if (!person.length) {
+                // check if there is a person found that matches the staged person, and update the staged record if one is found. Here we set ignore to false so the stagedPerson can be manually reviewed. 
+                if (person) {
                   StagedPersonModel.findOneAndUpdate(
                     { _id : stagedPerson._id },
-                    { $set : { genie_id : person[0]._id, ignore : true } },
+                    { $set : { ignore : false } },
                     { new : true, upsert: true },
                     function(err, data1) {
                       if (err) {
@@ -45,11 +47,12 @@ module.exports = function(PersonModel, StagedPersonModel, EventsModel, StagedEve
                      user_id: stagedPerson.user_id,
                   }
 
+                  // when we do not find the staged person in the people records, we create a new person
                   new PersonModel(object).save(function(err, newPerson) {
                     if (err) {
                       res.status(500).send(err);
                     }
-                    console.log('created new person')
+                    // after the new person is created we update the staged person record to include the genie_id and set ignore to true because we will not need to review this record
                     StagedPersonModel.findOneAndUpdate(
                       { _id : stagedPerson._id },
                       { $set : { genie_id : newPerson._id, ignore : true } },
@@ -62,7 +65,6 @@ module.exports = function(PersonModel, StagedPersonModel, EventsModel, StagedEve
                 })
               }
             })
-
         })
       });
 }
