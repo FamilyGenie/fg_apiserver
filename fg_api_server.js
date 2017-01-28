@@ -21,13 +21,12 @@ var PairBondRelModel = require('./models/pairbond-relationship.model.js')(mongoo
 var ParentalRelModel = require('./models/parental-relationship.model.js')(mongoose, PersonModel);
 var ParentalRelTypeModel = require('./models/parentalreltype.model.js')(mongoose, PersonModel);
 var PersonChangeModel = require('./models/personchange.model.js')(mongoose, PersonModel);
-var EventsModel = require('./models/events.model.js')(mongoose);
+var EventsModel = require('./models/events.model.js')(mongoose, PersonModel);
 
 var StagedPersonModel = require('./models/staged-person.model.js')(mongoose, PersonModel);
 var StagedEventsModel = require('./models/staged-events.model.js')(mongoose, PersonModel);
 var StagedPairBondRelModel = require('./models/staged-pairbond-relationship.model.js')(mongoose, PersonModel);
 var StagedParentalRelModel = require('./models/staged-parental-relationship.model.js')(mongoose, PersonModel);
-
 // END Mongoose Models
 
 var app = express();
@@ -65,18 +64,6 @@ require('./api_calls/newperson-api.js')(app, PersonModel, EventsModel, ParentalR
 require('./api_calls/stagedEvents-api.js')(app, StagedEventsModel)
 
 require('./functions/import-scripts.js')(app, PersonModel, StagedPersonModel, EventsModel, StagedEventsModel);
-
-/**********
-Old api files
-************/
-// require("./api_calls/get-api")(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel);
-// require("./api_calls/create-api")(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel);
-// require("./api_calls/update-api")(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel);
-// require("./api_calls/delete-api")(app, PersonModel, PairBondRelModel, ParentalRelModel, ParentalRelTypeModel, PersonChangeModel, EventsModel);
-
-/*app.get('*', function(req, res){
-   res.sendFile('../familygenie-angular/index.html');
-});*/
 
 app.use(function(req, res, next) {
 	res.status(404);
