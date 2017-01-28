@@ -34,7 +34,7 @@ var PairBondRelModel = require('./models/pairbond-relationship.model.js')(mongoo
 var ParentalRelModel = require('./models/parental-relationship.model.js')(mongoose, PersonModel);
 var ParentalRelTypeModel = require('./models/parentalreltype.model.js')(mongoose, PersonModel);
 var PersonChangeModel = require('./models/personchange.model.js')(mongoose, PersonModel);
-var EventsModel = require('./models/events.model.js')(mongoose);
+var EventsModel = require('./models/events.model.js')(mongoose, PersonModel);
 var StagedPersonModel = require('./models/staged-person.model.js')(mongoose);
 
 var app = express();
