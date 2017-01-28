@@ -31,37 +31,55 @@ module.exports = function(app, PersonModel, EventsModel, ParentalRelModel) {
         user_id: user
       };
 
-      new PersonModel(personObject).save(function(err, data) {
-        if (err) {
-          res.status(500).send("Error creating new parent")
-        }
-        var newChild = data;
+    new PersonModel(personObject).save(function(err, data) {
+      if (err) {
+        res.status(500).send("Error creating new parent")
+      }
+      var newChild = data;
 
-        // declare a blank event for birth using the id of the newly created person from above
-        eventObject = {
-          person_id : newChild._id,
-          eventType : 'Birth',
-          eventdateUser: '',
-          eventDate: null,
-          eventPlace: '',
-          familyContext: '',
-          localContext: '',
-          worldContext: '',
-          user_id: user
+      // declare a blank event for birth using the id of the newly created person from above
+      eventObject = {
+        person_id : newChild._id,
+        eventType : 'Birth',
+        eventdateUser: '',
+        eventDate: null,
+        eventPlace: '',
+        familyContext: '',
+        localContext: '',
+        worldContext: '',
+        user_id: user
+      }
+      
+      new EventsModel(eventObject).save(function(err, data) {
+        if (err) {
+          res.status(500).send("Error creating New Person Birth" + err);
+          return;
         }
-        
-        new EventsModel(eventObject).save(function(err, data) {
+
+        var newEvent = data;
+
+        motherObject = {
+          child_id: newChild._id,
+          parent_id: '',
+          relationshipType: 'Mother',
+          subType: 'Biological',
+          startDateUser: '',
+          startDate: null,
+          endDateUser: '',
+          endDate: null,
+          user_id: user
+        };
+
+        new ParentalRelModel(motherObject).save(function(err,data) {
           if (err) {
-            res.status(500).send("Error creating New Person Birth" + err);
+            res.status(500).send("Error creating new mother rel");
             return;
           }
 
-          var newEvent = data;
-
-          motherObject = {
+          fatherObject = {
             child_id: newChild._id,
-            parent_id: '',
-            relationshipType: 'Mother',
+            parent_id: newFather._id,
+            relationshipType: 'Father',
             subType: 'Biological',
             startDateUser: '',
             startDate: null,
@@ -70,44 +88,25 @@ module.exports = function(app, PersonModel, EventsModel, ParentalRelModel) {
             user_id: user
           };
 
-          new ParentalRelModel(motherObject).save(function(err,data) {
+          new ParentalRelModel(fatherObject).save(function(err,data) {
             if (err) {
-              res.status(500).send("Error creating new mother rel");
+              res.status(500).send("Error creating new father rel");
               return;
             }
 
-            fatherObject = {
-              child_id: newChild._id,
-              parent_id: newFather._id,
-              relationshipType: 'Father',
-              subType: 'Biological',
-              startDateUser: '',
-              startDate: null,
-              endDateUser: '',
-              endDate: null,
-              user_id: user
-            };
+              var newFatherRel = data;
 
-            new ParentalRelModel(fatherObject).save(function(err,data) {
-              if (err) {
-                res.status(500).send("Error creating new father rel");
-                return;
+              // send the information back to the front end to update there
+              result = {
+                newChild,
+                newFather,
+                newMother,
+                newEvent,
+                newMotherRel,
+                newFatherRel
               }
 
-                var newFatherRel = data;
-
-                // send the information back to the front end to update there
-                result = {
-                  newChild,
-                  newFather,
-                  newMother,
-                  newEvent,
-                  newMotherRel,
-                  newFatherRel
-                }
-
-                res.status(200).send(result);
-              })
+              res.status(200).send(result);
             })
           })
         })
