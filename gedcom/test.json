@@ -1,4034 +1,2502 @@
-[ 
-{
-"child_id" : "@P2@",
-"parent_id" : "@P5@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "2000-01-25 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P2@",
-"parent_id" : "@P1@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "2000-01-25 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P1@",
-"parent_id" : "@P4@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1967-04-27 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P1@",
-"parent_id" : "@P3@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1967-04-27 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P3@",
-"parent_id" : "@P13@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1937-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P3@",
-"parent_id" : "@P12@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1937-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P4@",
-"parent_id" : "@P11@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1930-08-24 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P4@",
-"parent_id" : "@P10@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1930-08-24 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P5@",
-"parent_id" : "@P6@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1961-01-13 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P5@",
-"parent_id" : "@P7@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1961-01-13 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P6@",
-"parent_id" : "@P52@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1934-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P6@",
-"parent_id" : "@P51@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1934-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P7@",
-"parent_id" : "@P16@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1935-11-10 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P7@",
-"parent_id" : "@P15@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1935-11-10 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P8@",
-"parent_id" : "@P4@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1965-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P8@",
-"parent_id" : "@P3@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1965-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P9@",
-"parent_id" : "@P4@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P9@",
-"parent_id" : "@P3@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P10@",
-"parent_id" : "@P87@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1904-08-12 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P10@",
-"parent_id" : "@P86@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1904-08-12 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P11@",
-"parent_id" : "@P85@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1893-05-15 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P11@",
-"parent_id" : "@P84@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1893-05-15 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P12@",
-"parent_id" : "@P224@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P12@",
-"parent_id" : "@P223@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P13@",
-"parent_id" : "@P89@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1909-02-12 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P13@",
-"parent_id" : "@P88@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1909-02-12 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P14@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1967-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P14@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1967-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P15@",
-"parent_id" : "@P30@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P15@",
-"parent_id" : "@P29@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P16@",
-"parent_id" : "@P24@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1904-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P16@",
-"parent_id" : "@P25@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1904-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P17@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1933-09-04 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P17@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1933-09-04 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P18@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P18@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P19@",
-"parent_id" : "@P17@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1965-08-27 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P19@",
-"parent_id" : "@P7@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1965-08-27 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P20@",
-"parent_id" : "@P17@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P20@",
-"parent_id" : "@P7@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P21@",
-"parent_id" : "@P17@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1963-12-16 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P21@",
-"parent_id" : "@P7@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1963-12-16 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P22@",
-"parent_id" : "@P17@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P22@",
-"parent_id" : "@P7@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P23@",
-"parent_id" : "@P16@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P23@",
-"parent_id" : "@P15@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P24@",
-"parent_id" : "@P36@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1868-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P24@",
-"parent_id" : "@P34@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1868-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P25@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1879-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P25@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1879-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P26@",
-"parent_id" : "@P16@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1929-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P26@",
-"parent_id" : "@P15@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1929-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P27@",
-"parent_id" : "@P16@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1929-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P27@",
-"parent_id" : "@P15@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1929-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P28@",
-"parent_id" : "@P16@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1929-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P28@",
-"parent_id" : "@P15@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1929-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P29@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1882-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P29@",
-"parent_id" : "@P50@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1882-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P30@",
-"parent_id" : "@P45@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1880-06-06 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P30@",
-"parent_id" : "@P44@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1880-06-06 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P31@",
-"parent_id" : "@P24@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1916-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P31@",
-"parent_id" : "@P25@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1916-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P32@",
-"parent_id" : "@P24@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1890-08-13 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P32@",
-"parent_id" : "@P25@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1890-08-13 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P33@",
-"parent_id" : "@P24@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1892-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P33@",
-"parent_id" : "@P25@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1892-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P34@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1843-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P34@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1843-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P35@",
-"parent_id" : "@P24@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1893-01-29 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P35@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1893-01-29 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P36@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1843-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P36@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1843-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P37@",
-"parent_id" : "@P24@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1899-01-09 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P37@",
-"parent_id" : "@P25@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1899-01-09 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P38@",
-"parent_id" : "@P30@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1907-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P38@",
-"parent_id" : "@P29@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1907-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P39@",
-"parent_id" : "@P30@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1915-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P39@",
-"parent_id" : "@P29@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1915-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P40@",
-"parent_id" : "@P30@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1914-07-26 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P40@",
-"parent_id" : "@P29@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1914-07-26 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P41@",
-"parent_id" : "@P30@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1910-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P41@",
-"parent_id" : "@P29@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1910-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P42@",
-"parent_id" : "@P30@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1913-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P42@",
-"parent_id" : "@P29@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1913-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P43@",
-"parent_id" : "@P30@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1902-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P43@",
-"parent_id" : "@P29@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1902-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P44@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P44@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P45@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P45@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P46@",
-"parent_id" : "@P30@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1903-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P46@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1903-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P47@",
-"parent_id" : "@P30@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1922-01-16 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P47@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1922-01-16 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P48@",
-"parent_id" : "@P30@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1916-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P48@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1916-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P49@",
-"parent_id" : "@P30@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1929-10-25 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P49@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1929-10-25 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P50@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P50@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P51@",
-"parent_id" : "@P54@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1910-03-16 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P51@",
-"parent_id" : "@P53@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1910-03-16 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P52@",
-"parent_id" : "@P59@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1908-12-21 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P52@",
-"parent_id" : "@P58@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1908-12-21 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P53@",
-"parent_id" : "@P67@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P53@",
-"parent_id" : "@P66@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P54@",
-"parent_id" : "@P63@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P54@",
-"parent_id" : "@P62@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P55@",
-"parent_id" : "@P52@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1933-09-04 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P55@",
-"parent_id" : "@P51@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1933-09-04 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P56@",
-"parent_id" : "@P52@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1933-09-04 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P56@",
-"parent_id" : "@P51@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1933-09-04 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P57@",
-"parent_id" : "@P52@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1937-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P57@",
-"parent_id" : "@P51@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1937-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P58@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1877-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P58@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1877-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P59@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1866-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P59@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1866-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P60@",
-"parent_id" : "@P54@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1916-02-24 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P60@",
-"parent_id" : "@P53@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1916-02-24 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P61@",
-"parent_id" : "@P54@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1912-09-05 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P61@",
-"parent_id" : "@P53@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1912-09-05 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P62@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1862-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P62@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1862-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P63@",
-"parent_id" : "@P120@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P63@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P64@",
-"parent_id" : "@P54@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1917-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P64@",
-"parent_id" : "@P53@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1917-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P65@",
-"parent_id" : "@P54@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1913-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P65@",
-"parent_id" : "@P53@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1913-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P66@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1865-12-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P66@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1865-12-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P67@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1865-05-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P67@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1865-05-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P68@",
-"parent_id" : "@P59@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1915-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P68@",
-"parent_id" : "@P58@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1915-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P69@",
-"parent_id" : "@P59@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1902-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P69@",
-"parent_id" : "@P58@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1902-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P70@",
-"parent_id" : "@P59@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1891-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P70@",
-"parent_id" : "@P58@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1891-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P71@",
-"parent_id" : "@P59@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1896-08-10 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P71@",
-"parent_id" : "@P58@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1896-08-10 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P72@",
-"parent_id" : "@P59@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1904-09-15 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P72@",
-"parent_id" : "@P58@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1904-09-15 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P73@",
-"parent_id" : "@P59@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1902-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P73@",
-"parent_id" : "@P58@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1902-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P74@",
-"parent_id" : "@P59@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1907-04-03 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P74@",
-"parent_id" : "@P58@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1907-04-03 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P75@",
-"parent_id" : "@P59@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1893-01-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P75@",
-"parent_id" : "@P58@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1893-01-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P76@",
-"parent_id" : "@P59@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1900-03-25 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P76@",
-"parent_id" : "@P58@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1900-03-25 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P77@",
-"parent_id" : "@P59@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1915-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P77@",
-"parent_id" : "@P81@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1915-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P78@",
-"parent_id" : "@P59@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1910-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P78@",
-"parent_id" : "@P81@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1910-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P79@",
-"parent_id" : "@P59@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1903-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P79@",
-"parent_id" : "@P81@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1903-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P80@",
-"parent_id" : "@P59@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1898-04-08 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P80@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1898-04-08 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P81@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1877-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P81@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1877-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P82@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P82@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P83@",
-"parent_id" : "@P59@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1910-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P83@",
-"parent_id" : "@P82@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1910-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P84@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1853-12-29 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P84@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1853-12-29 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P85@",
-"parent_id" : "@P217@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1851-07-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P85@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1851-07-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P86@",
-"parent_id" : "@P116@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P86@",
-"parent_id" : "@P115@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P87@",
-"parent_id" : "@P112@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P87@",
-"parent_id" : "@P111@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P88@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1887-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P88@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1887-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P89@",
-"parent_id" : "@P103@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1885-04-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P89@",
-"parent_id" : "@P102@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1885-04-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P90@",
-"parent_id" : "@P13@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1937-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P90@",
-"parent_id" : "@P92@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1937-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P91@",
-"parent_id" : "@P13@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1934-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P91@",
-"parent_id" : "@P92@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1934-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P92@",
-"parent_id" : "@P106@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1912-02-24 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P92@",
-"parent_id" : "@P105@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1912-02-24 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P93@",
-"parent_id" : "@P95@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1891-08-09 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P93@",
-"parent_id" : "@P94@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1891-08-09 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P94@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1870-07-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P94@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1870-07-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P95@",
-"parent_id" : "@P160@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1852-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P95@",
-"parent_id" : "@P159@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1852-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P96@",
-"parent_id" : "@P93@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1919-01-24 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P96@",
-"parent_id" : "@P99@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1919-01-24 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P97@",
-"parent_id" : "@P93@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1917-02-12 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P97@",
-"parent_id" : "@P99@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1917-02-12 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P98@",
-"parent_id" : "@P93@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1913-12-17 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P98@",
-"parent_id" : "@P99@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1913-12-17 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P99@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1896-03-04 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P99@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1896-03-04 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P100@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1913-04-08 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P100@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1913-04-08 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P101@",
-"parent_id" : "@P100@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1940-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P101@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1940-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P102@",
-"parent_id" : "@P154@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1855-05-17 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P102@",
-"parent_id" : "@P153@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1855-05-17 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P103@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1848-09-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P103@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1848-09-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P104@",
-"parent_id" : "@P89@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1906-08-21 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P104@",
-"parent_id" : "@P88@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1906-08-21 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P105@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1891-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P105@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1891-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P106@",
-"parent_id" : "@P219@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1886-11-18 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P106@",
-"parent_id" : "@P218@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1886-11-18 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P107@",
-"parent_id" : "@P87@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1902-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P107@",
-"parent_id" : "@P86@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1902-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P108@",
-"parent_id" : "@P87@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1927-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P108@",
-"parent_id" : "@P86@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1927-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P109@",
-"parent_id" : "@P87@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1913-04-21 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P109@",
-"parent_id" : "@P86@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1913-04-21 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P110@",
-"parent_id" : "@P87@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1903-05-16 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P110@",
-"parent_id" : "@P86@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1903-05-16 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P111@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1849-09-04 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P111@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1849-09-04 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P112@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1847-04-07 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P112@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1847-04-07 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P113@",
-"parent_id" : "@P87@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1922-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P113@",
-"parent_id" : "@P86@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1922-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P114@",
-"parent_id" : "@P87@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1917-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P114@",
-"parent_id" : "@P86@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1917-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P115@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1841-03-20 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P115@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1841-03-20 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P116@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1834-09-09 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P116@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1834-09-09 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P117@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1865-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P117@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1865-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P118@",
-"parent_id" : "@P63@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1896-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P118@",
-"parent_id" : "@P62@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1896-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P119@",
-"parent_id" : "@P63@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1887-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P119@",
-"parent_id" : "@P62@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1887-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P120@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P120@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P121@",
-"parent_id" : "@P63@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1891-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P121@",
-"parent_id" : "@P62@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1891-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P122@",
-"parent_id" : "@P63@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1893-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P122@",
-"parent_id" : "@P62@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1893-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P123@",
-"parent_id" : "@P63@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1889-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P123@",
-"parent_id" : "@P62@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1889-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P124@",
-"parent_id" : "@P67@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1885-04-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P124@",
-"parent_id" : "@P66@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1885-04-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P125@",
-"parent_id" : "@P67@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1899-12-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P125@",
-"parent_id" : "@P66@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1899-12-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P126@",
-"parent_id" : "@P67@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1897-10-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P126@",
-"parent_id" : "@P66@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1897-10-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P127@",
-"parent_id" : "@P67@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1894-05-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P127@",
-"parent_id" : "@P66@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1894-05-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P128@",
-"parent_id" : "@P67@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1890-05-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P128@",
-"parent_id" : "@P66@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1890-05-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P129@",
-"parent_id" : "@P67@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1892-10-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P129@",
-"parent_id" : "@P66@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1892-10-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P130@",
-"parent_id" : "@P67@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1888-12-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P130@",
-"parent_id" : "@P66@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1888-12-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P131@",
-"parent_id" : "@P45@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1869-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P131@",
-"parent_id" : "@P44@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1869-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P132@",
-"parent_id" : "@P45@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1888-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P132@",
-"parent_id" : "@P44@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1888-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P133@",
-"parent_id" : "@P45@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1869-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P133@",
-"parent_id" : "@P44@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1869-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P134@",
-"parent_id" : "@P45@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1882-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P134@",
-"parent_id" : "@P44@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1882-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P135@",
-"parent_id" : "@P112@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1885-10-12 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P135@",
-"parent_id" : "@P111@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1885-10-12 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P136@",
-"parent_id" : "@P112@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1874-04-25 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P136@",
-"parent_id" : "@P111@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1874-04-25 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P137@",
-"parent_id" : "@P112@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1878-07-23 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P137@",
-"parent_id" : "@P111@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1878-07-23 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P138@",
-"parent_id" : "@P112@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1872-07-04 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P138@",
-"parent_id" : "@P111@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1872-07-04 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P139@",
-"parent_id" : "@P112@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1883-10-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P139@",
-"parent_id" : "@P111@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1883-10-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P140@",
-"parent_id" : "@P116@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1866-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P140@",
-"parent_id" : "@P115@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1866-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P141@",
-"parent_id" : "@P116@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1871-07-06 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P141@",
-"parent_id" : "@P115@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1871-07-06 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P142@",
-"parent_id" : "@P116@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1873-09-06 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P142@",
-"parent_id" : "@P115@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1873-09-06 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P143@",
-"parent_id" : "@P116@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1867-09-06 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P143@",
-"parent_id" : "@P115@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1867-09-06 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P144@",
-"parent_id" : "@P116@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1879-12-18 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P144@",
-"parent_id" : "@P115@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1879-12-18 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P145@",
-"parent_id" : "@P116@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1878-07-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P145@",
-"parent_id" : "@P115@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1878-07-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P146@",
-"parent_id" : "@P116@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1866-05-16 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P146@",
-"parent_id" : "@P115@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1866-05-16 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P147@",
-"parent_id" : "@P116@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1863-05-18 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P147@",
-"parent_id" : "@P115@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1863-05-18 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P148@",
-"parent_id" : "@P103@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1890-02-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P148@",
-"parent_id" : "@P102@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1890-02-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P149@",
-"parent_id" : "@P103@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1873-11-11 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P149@",
-"parent_id" : "@P102@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1873-11-11 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P150@",
-"parent_id" : "@P103@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1878-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P150@",
-"parent_id" : "@P102@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1878-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P151@",
-"parent_id" : "@P103@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1888-07-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P151@",
-"parent_id" : "@P102@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1888-07-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P152@",
-"parent_id" : "@P103@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1882-05-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P152@",
-"parent_id" : "@P102@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1882-05-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P153@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1832-03-15 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P153@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1832-03-15 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P154@",
-"parent_id" : "@P158@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1814-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P154@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1814-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P155@",
-"parent_id" : "@P154@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1857-06-16 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P155@",
-"parent_id" : "@P153@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1857-06-16 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P156@",
-"parent_id" : "@P154@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1857-06-16 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P156@",
-"parent_id" : "@P153@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1857-06-16 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P157@",
-"parent_id" : "@P154@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1866-01-18 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P157@",
-"parent_id" : "@P153@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1866-01-18 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P158@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P158@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P159@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1829-11-25 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P159@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1829-11-25 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P160@",
-"parent_id" : "@P169@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1806-03-05 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P160@",
-"parent_id" : "@P168@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1806-03-05 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P161@",
-"parent_id" : "@P95@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1896-02-10 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P161@",
-"parent_id" : "@P94@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1896-02-10 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P162@",
-"parent_id" : "@P95@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1898-12-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P162@",
-"parent_id" : "@P94@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1898-12-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P163@",
-"parent_id" : "@P95@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1891-06-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P163@",
-"parent_id" : "@P94@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1891-06-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P164@",
-"parent_id" : "@P95@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1894-12-15 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P164@",
-"parent_id" : "@P94@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1894-12-15 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P165@",
-"parent_id" : "@P95@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1890-04-09 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P165@",
-"parent_id" : "@P94@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1890-04-09 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P166@",
-"parent_id" : "@P95@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1888-06-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P166@",
-"parent_id" : "@P94@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1888-06-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P167@",
-"parent_id" : "@P95@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1886-05-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P167@",
-"parent_id" : "@P94@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1886-05-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P168@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1770-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P168@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1770-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P169@",
-"parent_id" : "@P186@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1766-01-27 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P169@",
-"parent_id" : "@P185@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1766-01-27 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P170@",
-"parent_id" : "@P160@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1843-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P170@",
-"parent_id" : "@P159@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1843-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P171@",
-"parent_id" : "@P160@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1847-11-02 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P171@",
-"parent_id" : "@P159@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1847-11-02 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P172@",
-"parent_id" : "@P160@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1859-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P172@",
-"parent_id" : "@P159@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1859-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P173@",
-"parent_id" : "@P160@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1860-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P173@",
-"parent_id" : "@P159@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1860-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P174@",
-"parent_id" : "@P160@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1835-06-23 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P174@",
-"parent_id" : "@P159@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1835-06-23 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P175@",
-"parent_id" : "@P160@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1832-11-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P175@",
-"parent_id" : "@P159@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1832-11-01 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P176@",
-"parent_id" : "@P160@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1846-07-20 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P176@",
-"parent_id" : "@P159@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1846-07-20 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P177@",
-"parent_id" : "@P160@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1855-01-13 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P177@",
-"parent_id" : "@P159@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1855-01-13 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P178@",
-"parent_id" : "@P160@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1835-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P178@",
-"parent_id" : "@P184@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1835-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P179@",
-"parent_id" : "@P160@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1848-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P179@",
-"parent_id" : "@P184@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1848-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P180@",
-"parent_id" : "@P160@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1843-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P180@",
-"parent_id" : "@P184@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1843-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P181@",
-"parent_id" : "@P160@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1829-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P181@",
-"parent_id" : "@P184@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1829-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P182@",
-"parent_id" : "@P160@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1857-01-05 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P182@",
-"parent_id" : "@P159@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1857-01-05 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P183@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1828-10-03 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P183@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1828-10-03 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P184@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1810-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P184@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1810-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P185@",
-"parent_id" : "@P212@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1746-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P185@",
-"parent_id" : "@P211@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1746-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P186@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1717-09-17 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P186@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1717-09-17 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P187@",
-"parent_id" : "@P169@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1817-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P187@",
-"parent_id" : "@P168@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1817-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P188@",
-"parent_id" : "@P169@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1810-08-14 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P188@",
-"parent_id" : "@P168@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1810-08-14 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P189@",
-"parent_id" : "@P169@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1801-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P189@",
-"parent_id" : "@P168@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1801-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P190@",
-"parent_id" : "@P169@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1814-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P190@",
-"parent_id" : "@P168@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1814-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P191@",
-"parent_id" : "@P169@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1810-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P191@",
-"parent_id" : "@P168@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1810-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P192@",
-"parent_id" : "@P169@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1816-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P192@",
-"parent_id" : "@P168@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1816-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P193@",
-"parent_id" : "@P169@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1820-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P193@",
-"parent_id" : "@P168@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1820-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P194@",
-"parent_id" : "@P169@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1798-03-31 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P194@",
-"parent_id" : "@P168@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1798-03-31 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P195@",
-"parent_id" : "@P169@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1803-06-23 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P195@",
-"parent_id" : "@P168@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1803-06-23 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P196@",
-"parent_id" : "@P169@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1810-08-14 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P196@",
-"parent_id" : "@P168@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1810-08-14 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P197@",
-"parent_id" : "@P169@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1796-06-14 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P197@",
-"parent_id" : "@P168@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1796-06-14 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P198@",
-"parent_id" : "@P169@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1792-12-29 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P198@",
-"parent_id" : "@P168@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1792-12-29 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P199@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1770-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P199@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1770-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P200@",
-"parent_id" : "@P169@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1802-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P200@",
-"parent_id" : "@P168@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1802-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P201@",
-"parent_id" : "@P186@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1769-08-24 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P201@",
-"parent_id" : "@P185@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1769-08-24 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P202@",
-"parent_id" : "@P186@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1767-10-12 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P202@",
-"parent_id" : "@P185@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1767-10-12 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P203@",
-"parent_id" : "@P186@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1777-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P203@",
-"parent_id" : "@P185@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1777-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P204@",
-"parent_id" : "@P186@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1772-07-05 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P204@",
-"parent_id" : "@P185@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1772-07-05 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P205@",
-"parent_id" : "@P186@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1770-01-19 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P205@",
-"parent_id" : "@P185@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1770-01-19 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P206@",
-"parent_id" : "@P186@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1785-06-23 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P206@",
-"parent_id" : "@P185@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1785-06-23 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P207@",
-"parent_id" : "@P186@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1790-04-14 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P207@",
-"parent_id" : "@P185@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1790-04-14 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P208@",
-"parent_id" : "@P186@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1781-05-08 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P208@",
-"parent_id" : "@P185@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1781-05-08 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P209@",
-"parent_id" : "@P186@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1779-12-06 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P209@",
-"parent_id" : "@P185@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1779-12-06 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P210@",
-"parent_id" : "@P186@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1773-04-10 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P210@",
-"parent_id" : "@P185@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1773-04-10 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P211@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1718-03-11 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P211@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1718-03-11 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P212@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1691-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P212@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1691-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P213@",
-"parent_id" : "@P212@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1695-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P213@",
-"parent_id" : "@P211@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1695-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P214@",
-"parent_id" : "@P212@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1723-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P214@",
-"parent_id" : "@P211@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1723-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P215@",
-"parent_id" : "@P212@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1726-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P215@",
-"parent_id" : "@P211@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1726-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P216@",
-"parent_id" : "@P212@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1730-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P216@",
-"parent_id" : "@P211@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1730-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P217@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P217@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : null,
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P218@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1860-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P218@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1860-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P219@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1860-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P219@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1860-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P220@",
-"parent_id" : "@P219@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1890-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P220@",
-"parent_id" : "@P218@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1890-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P221@",
-"parent_id" : "@P219@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1892-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P221@",
-"parent_id" : "@P218@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1892-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P222@",
-"parent_id" : "@P219@",
-"relationshipType" : "Father",
-"subType" : "Biological",
-"startDate" : "1886-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P222@",
-"parent_id" : "@P218@",
-"relationshipType" : "Mother",
-"subType" : "Biological",
-"startDate" : "1886-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P223@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1891-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P223@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1891-01-01 00:00:00",
-"approxDate" : true,
-"endDate" : null
-},
-{
-"child_id" : "@P224@",
-"parent_id" : null,
-"relationshipType" : "Father",
-"subType" : null,
-"startDate" : "1886-11-18 00:00:00",
-"approxDate" : false,
-"endDate" : null
-},
-{
-"child_id" : "@P224@",
-"parent_id" : null,
-"relationshipType" : "Mother",
-"subType" : null,
-"startDate" : "1886-11-18 00:00:00",
-"approxDate" : false,
-"endDate" : null
+[{
+"personId" : "@P2@",
+"eventType" : "birth",
+"eventDate" : "2000-01-25 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Chicago, Cook, Illinois, USA"
+},
+{
+"personId" : "@P1@",
+"eventType" : "birth",
+"eventDate" : "1967-04-27 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Ann Arbor, Washtenaw, Michigan, USA"
+},
+{
+"personId" : "@P3@",
+"eventType" : "birth",
+"eventDate" : "1937-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Michigan"
+},
+{
+"personId" : "@P4@",
+"eventType" : "birth",
+"eventDate" : "1930-08-24 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Tomah Monroe, Wisconsin"
+},
+{
+"personId" : "@P4@",
+"eventType" : "death",
+"eventDate" : "1994-05-29 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Michigan, USA"
+},
+{
+"personId" : "@P5@",
+"eventType" : "birth",
+"eventDate" : "1961-01-13 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Chicago, Cook, Illinois, USA"
+},
+{
+"personId" : "@P6@",
+"eventType" : "birth",
+"eventDate" : "1934-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P7@",
+"eventType" : "birth",
+"eventDate" : "1935-11-10 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "New York, USA"
+},
+{
+"personId" : "@P7@",
+"eventType" : "death",
+"eventDate" : "2010-04-18 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Highland Park, Lake, Illinois"
+},
+{
+"personId" : "@P8@",
+"eventType" : "birth",
+"eventDate" : "1965-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Michigan, USA"
+},
+{
+"personId" : "@P10@",
+"eventType" : "birth",
+"eventDate" : "1904-08-12 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Monroe, Wisconsin, USA"
+},
+{
+"personId" : "@P10@",
+"eventType" : "death",
+"eventDate" : "1999-06-11 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Chicago, Cook, Illinois, USA"
+},
+{
+"personId" : "@P11@",
+"eventType" : "birth",
+"eventDate" : "1893-05-15 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P11@",
+"eventType" : "death",
+"eventDate" : "1967-11-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Chicago, Cook, Illinois, USA"
+},
+{
+"personId" : "@P13@",
+"eventType" : "birth",
+"eventDate" : "1909-02-12 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Cincinnati, Ohio"
+},
+{
+"personId" : "@P13@",
+"eventType" : "death",
+"eventDate" : "1998-05-17 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Detroit, Wayne, Michigan, USA"
+},
+{
+"personId" : "@P14@",
+"eventType" : "birth",
+"eventDate" : "1967-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : null
+},
+{
+"personId" : "@P15@",
+"eventType" : "birth",
+"eventDate" : "1910-07-04 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "New York, USA"
+},
+{
+"personId" : "@P15@",
+"eventType" : "death",
+"eventDate" : "1998-03-23 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Deerfield, Fulton, Illinois, United States"
+},
+{
+"personId" : "@P15@",
+"eventType" : "burial",
+"eventDate" : "1998-03-26 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Arlington Heights"
+},
+{
+"personId" : "@P16@",
+"eventType" : "birth",
+"eventDate" : "1904-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Minsk or PInsk"
+},
+{
+"personId" : "@P16@",
+"eventType" : "death",
+"eventDate" : "1971-09-21 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Miami Beach, Dade, Florida, United States"
+},
+{
+"personId" : "@P17@",
+"eventType" : "birth",
+"eventDate" : "1933-09-04 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P19@",
+"eventType" : "birth",
+"eventDate" : "1965-08-27 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P20@",
+"eventType" : "birth",
+"eventDate" : null,
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P21@",
+"eventType" : "birth",
+"eventDate" : "1963-12-16 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P22@",
+"eventType" : "birth",
+"eventDate" : null,
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P23@",
+"eventType" : "birth",
+"eventDate" : null,
+"eventPlace" : "New York, Bronx, New York"
+},
+{
+"personId" : "@P23@",
+"eventType" : "death",
+"eventDate" : "2016-03-02 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Buffalo Grove, Lake, Illinois, USA"
+},
+{
+"personId" : "@P24@",
+"eventType" : "birth",
+"eventDate" : "1868-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Russia"
+},
+{
+"personId" : "@P24@",
+"eventType" : "death",
+"eventDate" : "1938-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "New York, New York, USA"
+},
+{
+"personId" : "@P25@",
+"eventType" : "birth",
+"eventDate" : "1879-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Lomza, Podlaskie, Poland"
+},
+{
+"personId" : "@P25@",
+"eventType" : "death",
+"eventDate" : "1948-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "York, Livingston, New York, United States"
+},
+{
+"personId" : "@P26@",
+"eventType" : "birth",
+"eventDate" : "1929-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "United States"
+},
+{
+"personId" : "@P27@",
+"eventType" : "birth",
+"eventDate" : "1929-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "New York"
+},
+{
+"personId" : "@P28@",
+"eventType" : "birth",
+"eventDate" : "1929-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "New York"
+},
+{
+"personId" : "@P29@",
+"eventType" : "birth",
+"eventDate" : "1882-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Romania"
+},
+{
+"personId" : "@P30@",
+"eventType" : "birth",
+"eventDate" : "1880-06-06 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Romania"
+},
+{
+"personId" : "@P30@",
+"eventType" : "death",
+"eventDate" : "1949-12-24 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "New York"
+},
+{
+"personId" : "@P31@",
+"eventType" : "birth",
+"eventDate" : "1916-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "New York"
+},
+{
+"personId" : "@P32@",
+"eventType" : "birth",
+"eventDate" : "1890-08-13 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Russia"
+},
+{
+"personId" : "@P32@",
+"eventType" : "death",
+"eventDate" : "1930-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Wisconsin"
+},
+{
+"personId" : "@P33@",
+"eventType" : "birth",
+"eventDate" : "1892-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Romania"
+},
+{
+"personId" : "@P34@",
+"eventType" : "birth",
+"eventDate" : "1843-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : ",,,Russia"
+},
+{
+"personId" : "@P34@",
+"eventType" : "death",
+"eventDate" : "1903-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : null
+},
+{
+"personId" : "@P35@",
+"eventType" : "birth",
+"eventDate" : "1893-01-29 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore County, Maryland"
+},
+{
+"personId" : "@P35@",
+"eventType" : "death",
+"eventDate" : "1939-04-22 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Wheeling, West Virginia"
+},
+{
+"personId" : "@P36@",
+"eventType" : "birth",
+"eventDate" : "1843-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : ",,,Russia"
+},
+{
+"personId" : "@P36@",
+"eventType" : "death",
+"eventDate" : "1903-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : null
+},
+{
+"personId" : "@P37@",
+"eventType" : "birth",
+"eventDate" : "1899-01-09 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Russia"
+},
+{
+"personId" : "@P38@",
+"eventType" : "birth",
+"eventDate" : "1907-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "New York"
+},
+{
+"personId" : "@P38@",
+"eventType" : "death",
+"eventDate" : "1998-03-25 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Highland Park, IL"
+},
+{
+"personId" : "@P39@",
+"eventType" : "birth",
+"eventDate" : "1915-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "New York"
+},
+{
+"personId" : "@P39@",
+"eventType" : "death",
+"eventDate" : null,
+"eventPlace" : "New Jersey"
+},
+{
+"personId" : "@P40@",
+"eventType" : "birth",
+"eventDate" : "1914-07-26 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "New York"
+},
+{
+"personId" : "@P41@",
+"eventType" : "birth",
+"eventDate" : "1910-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "New York"
+},
+{
+"personId" : "@P42@",
+"eventType" : "birth",
+"eventDate" : "1913-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "New York"
+},
+{
+"personId" : "@P43@",
+"eventType" : "birth",
+"eventDate" : "1902-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Romania"
+},
+{
+"personId" : "@P43@",
+"eventType" : "death",
+"eventDate" : "1977-09-01 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Miami, Fl"
+},
+{
+"personId" : "@P46@",
+"eventType" : "birth",
+"eventDate" : "1903-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Poland/Russia"
+},
+{
+"personId" : "@P47@",
+"eventType" : "birth",
+"eventDate" : "1922-01-16 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Brooklyn, Kings, NY, USA"
+},
+{
+"personId" : "@P47@",
+"eventType" : "death",
+"eventDate" : "2012-05-01 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Boca Raton, Palm Beach, Florida, USA"
+},
+{
+"personId" : "@P48@",
+"eventType" : "birth",
+"eventDate" : "1916-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : null
+},
+{
+"personId" : "@P48@",
+"eventType" : "death",
+"eventDate" : "1953-04-09 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Brooklyn, Kings, NY, USA"
+},
+{
+"personId" : "@P49@",
+"eventType" : "birth",
+"eventDate" : "1929-10-25 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Brooklyn, New York, USA"
+},
+{
+"personId" : "@P49@",
+"eventType" : "death",
+"eventDate" : "2015-12-22 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : null
+},
+{
+"personId" : "@P51@",
+"eventType" : "birth",
+"eventDate" : "1910-03-16 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Chicago, Cook, Illinois, United States of America"
+},
+{
+"personId" : "@P51@",
+"eventType" : "death",
+"eventDate" : "1984-11-13 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Chicago, Cook, Illinois, United States of America"
+},
+{
+"personId" : "@P52@",
+"eventType" : "birth",
+"eventDate" : "1908-12-21 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "McDonough, Illinois, United States"
+},
+{
+"personId" : "@P52@",
+"eventType" : "death",
+"eventDate" : "1964-03-27 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Chicago, Cook, Illinois, United States"
+},
+{
+"personId" : "@P53@",
+"eventType" : "birth",
+"eventDate" : "1885-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Chicago, Illinois"
+},
+{
+"personId" : "@P53@",
+"eventType" : "death",
+"eventDate" : "1971-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Cook County, IL"
+},
+{
+"personId" : "@P54@",
+"eventType" : "birth",
+"eventDate" : "1884-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Chicago, Illinois"
+},
+{
+"personId" : "@P54@",
+"eventType" : "death",
+"eventDate" : "1947-06-08 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Chicago, Cook, Illinois, USA"
+},
+{
+"personId" : "@P54@",
+"eventType" : "burial",
+"eventDate" : null,
+"eventPlace" : "Forest Park, Cook County, Illinois, USA"
+},
+{
+"personId" : "@P55@",
+"eventType" : "birth",
+"eventDate" : "1933-09-04 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P56@",
+"eventType" : "birth",
+"eventDate" : "1933-09-04 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P57@",
+"eventType" : "birth",
+"eventDate" : "1937-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P58@",
+"eventType" : "birth",
+"eventDate" : "1877-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Russia"
+},
+{
+"personId" : "@P58@",
+"eventType" : "death",
+"eventDate" : "1952-03-19 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Cook County, Illinois, USA"
+},
+{
+"personId" : "@P59@",
+"eventType" : "birth",
+"eventDate" : "1866-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Pilken, Lithuania Russia"
+},
+{
+"personId" : "@P59@",
+"eventType" : "death",
+"eventDate" : "1925-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Chicago, Cook, Illinois"
+},
+{
+"personId" : "@P60@",
+"eventType" : "birth",
+"eventDate" : "1916-02-24 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Chicago, Cook, Illinois, USA"
+},
+{
+"personId" : "@P60@",
+"eventType" : "death",
+"eventDate" : "1988-04-04 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Wheeling, Cook, IL, USA"
+},
+{
+"personId" : "@P61@",
+"eventType" : "birth",
+"eventDate" : "1912-09-05 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Chicago, Cook, Illinois, USA"
+},
+{
+"personId" : "@P61@",
+"eventType" : "death",
+"eventDate" : "2002-01-29 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Pompano Beach, Broward, Florida, USA"
+},
+{
+"personId" : "@P62@",
+"eventType" : "birth",
+"eventDate" : "1862-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Russia"
+},
+{
+"personId" : "@P63@",
+"eventType" : "birth",
+"eventDate" : "1862-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Kalvana, Russia"
+},
+{
+"personId" : "@P63@",
+"eventType" : "death",
+"eventDate" : "1935-11-24 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Chicago , Cook, IL, USA"
+},
+{
+"personId" : "@P63@",
+"eventType" : "burial",
+"eventDate" : "1935-11-25 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Forest Park, Cook, Illinois"
+},
+{
+"personId" : "@P64@",
+"eventType" : "birth",
+"eventDate" : "1917-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P65@",
+"eventType" : "birth",
+"eventDate" : "1913-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P66@",
+"eventType" : "birth",
+"eventDate" : "1865-12-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Russia"
+},
+{
+"personId" : "@P67@",
+"eventType" : "birth",
+"eventDate" : "1865-05-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Russia"
+},
+{
+"personId" : "@P68@",
+"eventType" : "birth",
+"eventDate" : "1915-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Chicago, Illinois"
+},
+{
+"personId" : "@P68@",
+"eventType" : "death",
+"eventDate" : "1938-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Evergreen Park, Cook, Illinois"
+},
+{
+"personId" : "@P69@",
+"eventType" : "birth",
+"eventDate" : "1902-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Russia"
+},
+{
+"personId" : "@P70@",
+"eventType" : "birth",
+"eventDate" : "1891-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : null
+},
+{
+"personId" : "@P70@",
+"eventType" : "death",
+"eventDate" : "1928-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : null
+},
+{
+"personId" : "@P71@",
+"eventType" : "birth",
+"eventDate" : "1896-08-10 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Latvia"
+},
+{
+"personId" : "@P71@",
+"eventType" : "death",
+"eventDate" : "1962-11-12 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Miami Beach, Dade, Florida, USA"
+},
+{
+"personId" : "@P72@",
+"eventType" : "birth",
+"eventDate" : "1904-09-15 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Russia"
+},
+{
+"personId" : "@P72@",
+"eventType" : "death",
+"eventDate" : "1988-06-15 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Chicago, Cook, Illinois, United States of America"
+},
+{
+"personId" : "@P73@",
+"eventType" : "birth",
+"eventDate" : "1902-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Russia"
+},
+{
+"personId" : "@P74@",
+"eventType" : "birth",
+"eventDate" : "1907-04-03 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : null
+},
+{
+"personId" : "@P74@",
+"eventType" : "death",
+"eventDate" : "1988-09-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Miami, Miami-Dade, Florida, United States of America"
+},
+{
+"personId" : "@P75@",
+"eventType" : "birth",
+"eventDate" : "1893-01-01 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Latvia, Lituania"
+},
+{
+"personId" : "@P75@",
+"eventType" : "death",
+"eventDate" : "1972-07-18 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Skokie, Cook, Illinois, USA"
+},
+{
+"personId" : "@P76@",
+"eventType" : "birth",
+"eventDate" : "1900-03-25 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : null
+},
+{
+"personId" : "@P76@",
+"eventType" : "death",
+"eventDate" : "1984-08-02 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Dade, Florida, United States"
+},
+{
+"personId" : "@P77@",
+"eventType" : "birth",
+"eventDate" : "1915-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Chicago, Illinois"
+},
+{
+"personId" : "@P77@",
+"eventType" : "death",
+"eventDate" : "1938-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Evergreen Park, Cook, Illinois"
+},
+{
+"personId" : "@P78@",
+"eventType" : "birth",
+"eventDate" : "1910-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : null
+},
+{
+"personId" : "@P79@",
+"eventType" : "birth",
+"eventDate" : "1903-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Russia"
+},
+{
+"personId" : "@P80@",
+"eventType" : "birth",
+"eventDate" : "1898-04-08 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Hille, Gävleborg, Sverige"
+},
+{
+"personId" : "@P80@",
+"eventType" : "death",
+"eventDate" : "1974-08-02 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Milbostigen 5E Hille, Gävleborg, Sverige"
+},
+{
+"personId" : "@P81@",
+"eventType" : "birth",
+"eventDate" : "1877-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Russia"
+},
+{
+"personId" : "@P81@",
+"eventType" : "death",
+"eventDate" : "1952-03-19 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Cook County, Illinois, USA"
+},
+{
+"personId" : "@P83@",
+"eventType" : "birth",
+"eventDate" : "1910-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : null
+},
+{
+"personId" : "@P84@",
+"eventType" : "birth",
+"eventDate" : "1853-12-29 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Denmark"
+},
+{
+"personId" : "@P84@",
+"eventType" : "death",
+"eventDate" : "1938-10-17 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Chicago, Cook, Illinois"
+},
+{
+"personId" : "@P84@",
+"eventType" : "burial",
+"eventDate" : "1938-10-19 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Warren, Monroe, Wisconsin"
+},
+{
+"personId" : "@P85@",
+"eventType" : "birth",
+"eventDate" : "1851-07-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Denmark"
+},
+{
+"personId" : "@P86@",
+"eventType" : "birth",
+"eventDate" : "1883-02-04 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "La Grange Township, Monroe County, Wisconsin, USA"
+},
+{
+"personId" : "@P86@",
+"eventType" : "death",
+"eventDate" : "1963-10-09 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Chicago, Cook Co., IL"
+},
+{
+"personId" : "@P87@",
+"eventType" : "birth",
+"eventDate" : "1881-04-24 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Tunnel City, Wisconsin"
+},
+{
+"personId" : "@P87@",
+"eventType" : "death",
+"eventDate" : "1941-09-30 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Tomah, Monroe County, Wisconsin, USA"
+},
+{
+"personId" : "@P87@",
+"eventType" : "burial",
+"eventDate" : null,
+"eventPlace" : "Tomah, Monroe County, Wisconsin, USA"
+},
+{
+"personId" : "@P88@",
+"eventType" : "birth",
+"eventDate" : "1887-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Kentucky"
+},
+{
+"personId" : "@P89@",
+"eventType" : "birth",
+"eventDate" : "1885-04-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Ohio"
+},
+{
+"personId" : "@P89@",
+"eventType" : "death",
+"eventDate" : "1978-01-27 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Detroit, Wayne, Michigan"
+},
+{
+"personId" : "@P90@",
+"eventType" : "birth",
+"eventDate" : "1937-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Michigan"
+},
+{
+"personId" : "@P91@",
+"eventType" : "birth",
+"eventDate" : "1934-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Michigan"
+},
+{
+"personId" : "@P92@",
+"eventType" : "birth",
+"eventDate" : "1912-02-24 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Lowell, Massachusetts"
+},
+{
+"personId" : "@P92@",
+"eventType" : "death",
+"eventDate" : "1996-09-05 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Grosse Pte Farms, Wayne, Michigan"
+},
+{
+"personId" : "@P93@",
+"eventType" : "birth",
+"eventDate" : "1891-08-09 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "St Johns, Multnomah, Oregon, United States"
+},
+{
+"personId" : "@P93@",
+"eventType" : "death",
+"eventDate" : "1987-04-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Las Vegas, Clark Co., Nevada"
+},
+{
+"personId" : "@P94@",
+"eventType" : "birth",
+"eventDate" : "1870-07-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "British Columbia, Canada"
+},
+{
+"personId" : "@P95@",
+"eventType" : "birth",
+"eventDate" : "1852-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Multnomah Co., OR"
+},
+{
+"personId" : "@P95@",
+"eventType" : "death",
+"eventDate" : "1897-02-18 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "St Johns, Multnomah, Oregon, United States"
+},
+{
+"personId" : "@P96@",
+"eventType" : "birth",
+"eventDate" : "1919-01-24 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Fourth Plain, Clark, Washington, United States"
+},
+{
+"personId" : "@P96@",
+"eventType" : "death",
+"eventDate" : "2007-07-30 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Las Vegas, Clark Co., Nevada"
+},
+{
+"personId" : "@P97@",
+"eventType" : "birth",
+"eventDate" : "1917-02-12 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "St. Johns, Multnomah Co., Oregon"
+},
+{
+"personId" : "@P97@",
+"eventType" : "death",
+"eventDate" : "2007-07-24 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Stayton, Marion Co., Oregon"
+},
+{
+"personId" : "@P98@",
+"eventType" : "birth",
+"eventDate" : "1913-12-17 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "St Johns, Multnomah, Oregon, United States"
+},
+{
+"personId" : "@P98@",
+"eventType" : "death",
+"eventDate" : "1927-12-31 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Riverside, Riverside Co., California"
+},
+{
+"personId" : "@P99@",
+"eventType" : "birth",
+"eventDate" : "1896-03-04 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Manor, Clark Co., Washington"
+},
+{
+"personId" : "@P99@",
+"eventType" : "death",
+"eventDate" : "1991-09-19 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Las Vegas, Clark Co., Nevada"
+},
+{
+"personId" : "@P100@",
+"eventType" : "birth",
+"eventDate" : "1913-04-08 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Washington"
+},
+{
+"personId" : "@P100@",
+"eventType" : "death",
+"eventDate" : "1989-01-14 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Riverside, Riverside Co., California"
+},
+{
+"personId" : "@P101@",
+"eventType" : "birth",
+"eventDate" : "1940-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "California"
+},
+{
+"personId" : "@P102@",
+"eventType" : "birth",
+"eventDate" : "1855-05-17 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Cincinnati, Hamilton, Ohio"
+},
+{
+"personId" : "@P102@",
+"eventType" : "death",
+"eventDate" : "1942-11-16 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Cincinnati, Hamiltion, Ohio"
+},
+{
+"personId" : "@P103@",
+"eventType" : "birth",
+"eventDate" : "1848-09-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "France"
+},
+{
+"personId" : "@P104@",
+"eventType" : "birth",
+"eventDate" : "1906-08-21 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Ohio"
+},
+{
+"personId" : "@P104@",
+"eventType" : "death",
+"eventDate" : "1981-09-03 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Grosse Pointe, Wayne, Michigan"
+},
+{
+"personId" : "@P105@",
+"eventType" : "birth",
+"eventDate" : "1891-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Massachusetts"
+},
+{
+"personId" : "@P106@",
+"eventType" : "birth",
+"eventDate" : "1886-11-18 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Montreal Canada"
+},
+{
+"personId" : "@P106@",
+"eventType" : "death",
+"eventDate" : "1941-08-20 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Detroit, Wayne, Michigan, USA"
+},
+{
+"personId" : "@P107@",
+"eventType" : "birth",
+"eventDate" : "1902-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Wisconsin"
+},
+{
+"personId" : "@P107@",
+"eventType" : "death",
+"eventDate" : "1971-06-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Warrens, Monroe County, Wisconsin, USA"
+},
+{
+"personId" : "@P108@",
+"eventType" : "birth",
+"eventDate" : "1927-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Monroe Co., WI"
+},
+{
+"personId" : "@P108@",
+"eventType" : "death",
+"eventDate" : "1927-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Monroe Co., WI"
+},
+{
+"personId" : "@P109@",
+"eventType" : "birth",
+"eventDate" : "1913-04-21 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "La Grange Twp., Monroe Co., WI"
+},
+{
+"personId" : "@P109@",
+"eventType" : "death",
+"eventDate" : "2004-04-01 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Necedah, Juneau Co., WI"
+},
+{
+"personId" : "@P110@",
+"eventType" : "birth",
+"eventDate" : "1903-05-16 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "WI, USA"
+},
+{
+"personId" : "@P110@",
+"eventType" : "death",
+"eventDate" : "1993-07-05 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Chicago, Cook, IL, USA"
+},
+{
+"personId" : "@P111@",
+"eventType" : "birth",
+"eventDate" : "1849-09-04 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Royalton, Niagara County, NY"
+},
+{
+"personId" : "@P111@",
+"eventType" : "death",
+"eventDate" : "1922-05-01 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Tomah, Tomah Township, Monroe County, WI"
+},
+{
+"personId" : "@P111@",
+"eventType" : "burial",
+"eventDate" : null,
+"eventPlace" : "Tunnel City, Monroe County, Wisconsin, USA"
+},
+{
+"personId" : "@P112@",
+"eventType" : "birth",
+"eventDate" : "1847-04-07 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Fowler, St Lawrence, New York, United States"
+},
+{
+"personId" : "@P112@",
+"eventType" : "death",
+"eventDate" : "1923-11-04 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Tomah, Tomah Township, Monroe County, WI"
+},
+{
+"personId" : "@P112@",
+"eventType" : "burial",
+"eventDate" : null,
+"eventPlace" : "Tunnel City, Monroe County, Wisconsin, USA"
+},
+{
+"personId" : "@P113@",
+"eventType" : "birth",
+"eventDate" : "1922-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Wisconsin"
+},
+{
+"personId" : "@P114@",
+"eventType" : "birth",
+"eventDate" : "1917-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Wisconsin"
+},
+{
+"personId" : "@P115@",
+"eventType" : "birth",
+"eventDate" : "1841-03-20 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Summit, OH, USA"
+},
+{
+"personId" : "@P115@",
+"eventType" : "death",
+"eventDate" : "1885-04-28 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "La Grange Township, Monroe County, Wisconsin, USA"
+},
+{
+"personId" : "@P116@",
+"eventType" : "birth",
+"eventDate" : "1834-09-09 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Blenheim, Schoharie County, New York, USA"
+},
+{
+"personId" : "@P116@",
+"eventType" : "death",
+"eventDate" : "1912-09-03 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "La Grange Township, Monroe County, Wisconsin, USA"
+},
+{
+"personId" : "@P117@",
+"eventType" : "birth",
+"eventDate" : "1865-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Poland"
+},
+{
+"personId" : "@P118@",
+"eventType" : "birth",
+"eventDate" : "1896-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P119@",
+"eventType" : "birth",
+"eventDate" : "1887-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P120@",
+"eventType" : "birth",
+"eventDate" : null,
+"eventPlace" : "Kalvana, Russia"
+},
+{
+"personId" : "@P121@",
+"eventType" : "birth",
+"eventDate" : "1891-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P122@",
+"eventType" : "birth",
+"eventDate" : "1893-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P123@",
+"eventType" : "birth",
+"eventDate" : "1889-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P124@",
+"eventType" : "birth",
+"eventDate" : "1885-04-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P125@",
+"eventType" : "birth",
+"eventDate" : "1899-12-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P126@",
+"eventType" : "birth",
+"eventDate" : "1897-10-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P127@",
+"eventType" : "birth",
+"eventDate" : "1894-05-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P128@",
+"eventType" : "birth",
+"eventDate" : "1890-05-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P129@",
+"eventType" : "birth",
+"eventDate" : "1892-10-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P130@",
+"eventType" : "birth",
+"eventDate" : "1888-12-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P131@",
+"eventType" : "birth",
+"eventDate" : "1869-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Illinois"
+},
+{
+"personId" : "@P131@",
+"eventType" : "death",
+"eventDate" : "1939-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Bridgeport, Saginaw, Michigan, USA"
+},
+{
+"personId" : "@P132@",
+"eventType" : "birth",
+"eventDate" : "1888-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Romania"
+},
+{
+"personId" : "@P133@",
+"eventType" : "birth",
+"eventDate" : "1869-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Romania"
+},
+{
+"personId" : "@P134@",
+"eventType" : "birth",
+"eventDate" : "1882-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Romania"
+},
+{
+"personId" : "@P135@",
+"eventType" : "birth",
+"eventDate" : "1885-10-12 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Bangor, La Crosse County, WI"
+},
+{
+"personId" : "@P135@",
+"eventType" : "death",
+"eventDate" : "1968-03-16 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Tomah, Monroe, Wisconsin"
+},
+{
+"personId" : "@P136@",
+"eventType" : "birth",
+"eventDate" : "1874-04-25 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Greenfield Township, Monroe County, WI"
+},
+{
+"personId" : "@P136@",
+"eventType" : "death",
+"eventDate" : "1924-01-04 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Greenfield Twp., Monroe Co., WI"
+},
+{
+"personId" : "@P137@",
+"eventType" : "birth",
+"eventDate" : "1878-07-23 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Monroe County, Wisconsin"
+},
+{
+"personId" : "@P137@",
+"eventType" : "death",
+"eventDate" : "1968-11-25 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : null
+},
+{
+"personId" : "@P138@",
+"eventType" : "birth",
+"eventDate" : "1872-07-04 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Greenfield Township, Monroe County, WI"
+},
+{
+"personId" : "@P138@",
+"eventType" : "death",
+"eventDate" : "1954-05-06 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Tomah, Tomah Township, Monroe County, WI"
+},
+{
+"personId" : "@P139@",
+"eventType" : "birth",
+"eventDate" : "1883-10-01 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Monroe County, Wisconsin"
+},
+{
+"personId" : "@P139@",
+"eventType" : "death",
+"eventDate" : "1918-06-09 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Monroe County, Wisconsin"
+},
+{
+"personId" : "@P140@",
+"eventType" : "birth",
+"eventDate" : "1866-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Wisconsin, United States"
+},
+{
+"personId" : "@P141@",
+"eventType" : "birth",
+"eventDate" : "1871-07-06 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "La Grange Township, Monroe County, Wisconsin, USA"
+},
+{
+"personId" : "@P141@",
+"eventType" : "death",
+"eventDate" : "1933-10-04 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Saynor, Vilas, WI, USA"
+},
+{
+"personId" : "@P142@",
+"eventType" : "birth",
+"eventDate" : "1873-09-06 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "La Grange Township, Monroe County, Wisconsin, USA"
+},
+{
+"personId" : "@P142@",
+"eventType" : "death",
+"eventDate" : "1950-03-29 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Sparta, Monroe County, Wisconsin, USA"
+},
+{
+"personId" : "@P143@",
+"eventType" : "birth",
+"eventDate" : "1867-09-06 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "La Grange Township, Monroe County, Wisconsin, USA"
+},
+{
+"personId" : "@P143@",
+"eventType" : "death",
+"eventDate" : "1957-04-28 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "La Grange Township, Monroe County, Wisconsin, USA"
+},
+{
+"personId" : "@P144@",
+"eventType" : "birth",
+"eventDate" : "1879-12-18 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "La Grange, Monroe, WI, USA"
+},
+{
+"personId" : "@P144@",
+"eventType" : "death",
+"eventDate" : "1931-02-03 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Monroe Co., WI, USA"
+},
+{
+"personId" : "@P145@",
+"eventType" : "birth",
+"eventDate" : "1878-07-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "La Grange Township, Monroe County, Wisconsin, USA"
+},
+{
+"personId" : "@P145@",
+"eventType" : "death",
+"eventDate" : "1951-01-16 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Oregon City, Clackamas County, Oregon, USA"
+},
+{
+"personId" : "@P146@",
+"eventType" : "birth",
+"eventDate" : "1866-05-16 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "La Grange Township, Monroe County, Wisconsin, USA"
+},
+{
+"personId" : "@P146@",
+"eventType" : "death",
+"eventDate" : "1938-10-13 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Monroe, WI, USA"
+},
+{
+"personId" : "@P147@",
+"eventType" : "birth",
+"eventDate" : "1863-05-18 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Oconomowoc, Waukesha, WI, USA"
+},
+{
+"personId" : "@P147@",
+"eventType" : "death",
+"eventDate" : "1898-02-28 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "La Grange Township, Monroe County, Wisconsin, USA"
+},
+{
+"personId" : "@P148@",
+"eventType" : "birth",
+"eventDate" : "1890-02-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Ohio"
+},
+{
+"personId" : "@P149@",
+"eventType" : "birth",
+"eventDate" : "1873-11-11 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Cincinnati, Hamiltion, Ohio"
+},
+{
+"personId" : "@P149@",
+"eventType" : "death",
+"eventDate" : "1946-12-19 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Cincinnati, Hamiltion, Ohio"
+},
+{
+"personId" : "@P150@",
+"eventType" : "birth",
+"eventDate" : "1878-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Ohio"
+},
+{
+"personId" : "@P151@",
+"eventType" : "birth",
+"eventDate" : "1888-07-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Ohio"
+},
+{
+"personId" : "@P152@",
+"eventType" : "birth",
+"eventDate" : "1882-05-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Ohio"
+},
+{
+"personId" : "@P153@",
+"eventType" : "birth",
+"eventDate" : "1832-03-15 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Wuerttemburg Germany"
+},
+{
+"personId" : "@P153@",
+"eventType" : "death",
+"eventDate" : "1918-06-19 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Cincinnati Ohio W. Hills"
+},
+{
+"personId" : "@P153@",
+"eventType" : "burial",
+"eventDate" : null,
+"eventPlace" : "Cincinnati, Hamilton County, Ohio, USA"
+},
+{
+"personId" : "@P154@",
+"eventType" : "birth",
+"eventDate" : "1814-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Germany"
+},
+{
+"personId" : "@P154@",
+"eventType" : "death",
+"eventDate" : "1867-07-09 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : null
+},
+{
+"personId" : "@P154@",
+"eventType" : "burial",
+"eventDate" : null,
+"eventPlace" : "Cincinnati, Hamilton County, Ohio, USA"
+},
+{
+"personId" : "@P155@",
+"eventType" : "birth",
+"eventDate" : "1857-06-16 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Cincinnati, Ohio"
+},
+{
+"personId" : "@P155@",
+"eventType" : "death",
+"eventDate" : "1906-11-02 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Cincinnati, Hamilton Ohio"
+},
+{
+"personId" : "@P155@",
+"eventType" : "burial",
+"eventDate" : null,
+"eventPlace" : "Cincinnati, Hamilton County, Ohio, USA"
+},
+{
+"personId" : "@P156@",
+"eventType" : "birth",
+"eventDate" : "1857-06-16 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Cincinnati, Ohio"
+},
+{
+"personId" : "@P156@",
+"eventType" : "death",
+"eventDate" : "1912-01-28 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Cincinnati, Hamilton, Ohio"
+},
+{
+"personId" : "@P156@",
+"eventType" : "burial",
+"eventDate" : null,
+"eventPlace" : "Cincinnati, Hamilton County, Ohio, USA"
+},
+{
+"personId" : "@P157@",
+"eventType" : "birth",
+"eventDate" : "1866-01-18 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Ohio"
+},
+{
+"personId" : "@P157@",
+"eventType" : "death",
+"eventDate" : "1938-03-18 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Cincinnati Hamilton Co Ohio"
+},
+{
+"personId" : "@P157@",
+"eventType" : "burial",
+"eventDate" : null,
+"eventPlace" : "Cincinnati, Hamilton County, Ohio, USA"
+},
+{
+"personId" : "@P159@",
+"eventType" : "birth",
+"eventDate" : "1829-11-25 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Berwick, York County, Maine, USA"
+},
+{
+"personId" : "@P159@",
+"eventType" : "death",
+"eventDate" : "1914-07-17 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Portland, Multnomah, Oregon, USA"
+},
+{
+"personId" : "@P160@",
+"eventType" : "birth",
+"eventDate" : "1806-03-05 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore, Maryland, USA"
+},
+{
+"personId" : "@P160@",
+"eventType" : "death",
+"eventDate" : "1892-10-17 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Portland, Multnomah Co., OR"
+},
+{
+"personId" : "@P161@",
+"eventType" : "birth",
+"eventDate" : "1896-02-10 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Woodburn, Marion, Oregon, USA"
+},
+{
+"personId" : "@P161@",
+"eventType" : "death",
+"eventDate" : "1964-02-12 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Kennewick, Benton, Washington, USA"
+},
+{
+"personId" : "@P162@",
+"eventType" : "birth",
+"eventDate" : "1898-12-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Oregon, USA"
+},
+{
+"personId" : "@P163@",
+"eventType" : "birth",
+"eventDate" : "1891-06-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Oregon, USA"
+},
+{
+"personId" : "@P164@",
+"eventType" : "birth",
+"eventDate" : "1894-12-15 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Portland, Multnomah, Oregon, USA"
+},
+{
+"personId" : "@P165@",
+"eventType" : "birth",
+"eventDate" : "1890-04-09 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Oregon, USA"
+},
+{
+"personId" : "@P165@",
+"eventType" : "death",
+"eventDate" : "1973-02-16 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Seaside, Clatsop, Oregon, USA"
+},
+{
+"personId" : "@P166@",
+"eventType" : "birth",
+"eventDate" : "1888-06-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Multnomah Co., OR"
+},
+{
+"personId" : "@P166@",
+"eventType" : "death",
+"eventDate" : "1910-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : null
+},
+{
+"personId" : "@P167@",
+"eventType" : "birth",
+"eventDate" : "1886-05-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Oregon, USA"
+},
+{
+"personId" : "@P168@",
+"eventType" : "birth",
+"eventDate" : "1770-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Baltimore, Baltimore, Maryland, USA"
+},
+{
+"personId" : "@P168@",
+"eventType" : "death",
+"eventDate" : "1828-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Tuscarawas, Tuscarawas, Ohio"
+},
+{
+"personId" : "@P169@",
+"eventType" : "birth",
+"eventDate" : "1766-01-27 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore, Maryland, United States"
+},
+{
+"personId" : "@P169@",
+"eventType" : "death",
+"eventDate" : "1836-05-24 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Newport, Tuscarawas, Ohio"
+},
+{
+"personId" : "@P170@",
+"eventType" : "birth",
+"eventDate" : "1843-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Missouri, United States"
+},
+{
+"personId" : "@P171@",
+"eventType" : "birth",
+"eventDate" : "1847-11-02 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Andrew County, Missouri, USA"
+},
+{
+"personId" : "@P171@",
+"eventType" : "death",
+"eventDate" : "1931-07-01 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Portland, Multnomah, Oregon, USA"
+},
+{
+"personId" : "@P172@",
+"eventType" : "birth",
+"eventDate" : "1859-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Multnomah County, Oregon, USA"
+},
+{
+"personId" : "@P172@",
+"eventType" : "death",
+"eventDate" : "1859-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Portland, Multnomah, Oregon"
+},
+{
+"personId" : "@P173@",
+"eventType" : "birth",
+"eventDate" : "1860-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Oregon"
+},
+{
+"personId" : "@P173@",
+"eventType" : "death",
+"eventDate" : "1938-02-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Los Angeles, Los Angeles Co., CA"
+},
+{
+"personId" : "@P174@",
+"eventType" : "birth",
+"eventDate" : "1835-06-23 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Tuscarawas, Tuscarawas, Ohio, USA"
+},
+{
+"personId" : "@P174@",
+"eventType" : "death",
+"eventDate" : "1885-10-20 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Portland, Multnomah County, Oregon, USA"
+},
+{
+"personId" : "@P175@",
+"eventType" : "birth",
+"eventDate" : "1832-11-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Tuscarawas, Coshocton, Ohio, USA"
+},
+{
+"personId" : "@P175@",
+"eventType" : "death",
+"eventDate" : "1918-04-05 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "USA"
+},
+{
+"personId" : "@P176@",
+"eventType" : "birth",
+"eventDate" : "1846-07-20 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "St Louis, Missouri, USA"
+},
+{
+"personId" : "@P176@",
+"eventType" : "death",
+"eventDate" : "1929-03-01 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Portland, OR, District of Columbia, United States"
+},
+{
+"personId" : "@P177@",
+"eventType" : "birth",
+"eventDate" : "1855-01-13 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Portland, Multnomah, Oregon, USA"
+},
+{
+"personId" : "@P177@",
+"eventType" : "death",
+"eventDate" : "1944-01-01 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Portland, Multnomah, Oregon"
+},
+{
+"personId" : "@P178@",
+"eventType" : "birth",
+"eventDate" : "1835-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Tuscarawas, Ohio, USA"
+},
+{
+"personId" : "@P179@",
+"eventType" : "birth",
+"eventDate" : "1848-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Missouri, USA"
+},
+{
+"personId" : "@P180@",
+"eventType" : "birth",
+"eventDate" : "1843-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Savannah, Andrew, Missouri, USA"
+},
+{
+"personId" : "@P180@",
+"eventType" : "death",
+"eventDate" : "1921-02-11 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "St. Johns, Multnomah County, Oregon"
+},
+{
+"personId" : "@P181@",
+"eventType" : "birth",
+"eventDate" : "1829-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Tuscarawas, Tuscarawas Co., Ohio"
+},
+{
+"personId" : "@P181@",
+"eventType" : "death",
+"eventDate" : "1886-12-03 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Portland, Multnomah Co., OR"
+},
+{
+"personId" : "@P182@",
+"eventType" : "birth",
+"eventDate" : "1857-01-05 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Oregon, USA"
+},
+{
+"personId" : "@P182@",
+"eventType" : "death",
+"eventDate" : "1908-03-23 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Woodburn, Marion, Oregon, USA"
+},
+{
+"personId" : "@P183@",
+"eventType" : "birth",
+"eventDate" : "1828-10-03 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : null
+},
+{
+"personId" : "@P183@",
+"eventType" : "death",
+"eventDate" : "1881-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : null
+},
+{
+"personId" : "@P184@",
+"eventType" : "birth",
+"eventDate" : "1810-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Tuscarawas, Ohio, USA"
+},
+{
+"personId" : "@P184@",
+"eventType" : "death",
+"eventDate" : "1845-11-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Savannah, Andrew Co., Missouri,"
+},
+{
+"personId" : "@P185@",
+"eventType" : "birth",
+"eventDate" : "1746-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Baltimore, Baltimore, Maryland, USA"
+},
+{
+"personId" : "@P185@",
+"eventType" : "death",
+"eventDate" : "1800-02-01 00:00:00",
+"approxDate" : "month"",
+"eventPlace" : "Butler, Baltimore, Maryland, USA"
+},
+{
+"personId" : "@P186@",
+"eventType" : "birth",
+"eventDate" : "1717-09-17 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Anne Arundel, Maryland"
+},
+{
+"personId" : "@P186@",
+"eventType" : "death",
+"eventDate" : "1801-03-20 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Maryland, USA"
+},
+{
+"personId" : "@P187@",
+"eventType" : "birth",
+"eventDate" : "1817-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Tuscarawas, Ohio, United States"
+},
+{
+"personId" : "@P187@",
+"eventType" : "death",
+"eventDate" : null,
+"eventPlace" : "Platte City, Platte, Missouri, USA"
+},
+{
+"personId" : "@P188@",
+"eventType" : "birth",
+"eventDate" : "1810-08-14 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : null
+},
+{
+"personId" : "@P188@",
+"eventType" : "death",
+"eventDate" : "1853-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : null
+},
+{
+"personId" : "@P189@",
+"eventType" : "birth",
+"eventDate" : "1801-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "newport, tuscarawas, ohio, usa"
+},
+{
+"personId" : "@P189@",
+"eventType" : "death",
+"eventDate" : "1857-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "platte latty, ohio"
+},
+{
+"personId" : "@P190@",
+"eventType" : "birth",
+"eventDate" : "1814-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Tuscarawas, Tuscarawas, Ohio, USA"
+},
+{
+"personId" : "@P190@",
+"eventType" : "death",
+"eventDate" : null,
+"eventPlace" : "Platte City, Platte, Missouri, USA"
+},
+{
+"personId" : "@P191@",
+"eventType" : "birth",
+"eventDate" : "1810-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Newport, Washington, Ohio, USA"
+},
+{
+"personId" : "@P191@",
+"eventType" : "death",
+"eventDate" : "1874-05-19 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Newport, Tuscarawas, Ohio, USA"
+},
+{
+"personId" : "@P192@",
+"eventType" : "birth",
+"eventDate" : "1816-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Tuscarawas, Tuscarawas, Ohio, United States"
+},
+{
+"personId" : "@P192@",
+"eventType" : "death",
+"eventDate" : "1840-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Platte City, Platte, Missouri, United States"
+},
+{
+"personId" : "@P193@",
+"eventType" : "birth",
+"eventDate" : "1820-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Tuscawara, Ohio, United States"
+},
+{
+"personId" : "@P193@",
+"eventType" : "death",
+"eventDate" : null,
+"eventPlace" : "Savannah, Andrew, Missouri, United States"
+},
+{
+"personId" : "@P194@",
+"eventType" : "birth",
+"eventDate" : "1798-03-31 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore, Maryland, USA"
+},
+{
+"personId" : "@P194@",
+"eventType" : "death",
+"eventDate" : "1876-11-24 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Ohio, USA"
+},
+{
+"personId" : "@P195@",
+"eventType" : "birth",
+"eventDate" : "1803-06-23 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore Co. MD"
+},
+{
+"personId" : "@P195@",
+"eventType" : "death",
+"eventDate" : "1881-11-10 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Columbia City, Columbia, Oregon, USA"
+},
+{
+"personId" : "@P196@",
+"eventType" : "birth",
+"eventDate" : "1810-08-14 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Tuscarawas, Tuscarawas, Ohio"
+},
+{
+"personId" : "@P196@",
+"eventType" : "death",
+"eventDate" : "1853-11-30 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Portland, Multnomah Co., OR"
+},
+{
+"personId" : "@P197@",
+"eventType" : "birth",
+"eventDate" : "1796-06-14 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore, Maryland, United States"
+},
+{
+"personId" : "@P197@",
+"eventType" : "death",
+"eventDate" : "1884-01-02 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Amazonia, Andrew, Missouri, USA"
+},
+{
+"personId" : "@P198@",
+"eventType" : "birth",
+"eventDate" : "1792-12-29 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore Co. MD"
+},
+{
+"personId" : "@P198@",
+"eventType" : "death",
+"eventDate" : "1881-09-30 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Gnadenhutten, Tuscarawas, Ohio"
+},
+{
+"personId" : "@P199@",
+"eventType" : "birth",
+"eventDate" : "1770-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Baltimore, Baltimore, Maryland, United States"
+},
+{
+"personId" : "@P199@",
+"eventType" : "death",
+"eventDate" : "1828-10-03 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Tuscarawas, Tuscarawas, Ohio, United States"
+},
+{
+"personId" : "@P200@",
+"eventType" : "birth",
+"eventDate" : "1802-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : null
+},
+{
+"personId" : "@P200@",
+"eventType" : "death",
+"eventDate" : "1872-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : null
+},
+{
+"personId" : "@P201@",
+"eventType" : "birth",
+"eventDate" : "1769-08-24 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore County, Province of Maryland"
+},
+{
+"personId" : "@P201@",
+"eventType" : "death",
+"eventDate" : "1770-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Baltimore, Baltimore County, Province of Maryland"
+},
+{
+"personId" : "@P202@",
+"eventType" : "birth",
+"eventDate" : "1767-10-12 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Maryland, USA"
+},
+{
+"personId" : "@P202@",
+"eventType" : "death",
+"eventDate" : "1859-02-10 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore County, Maryland, USA"
+},
+{
+"personId" : "@P203@",
+"eventType" : "birth",
+"eventDate" : "1777-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Baltimore, Baltimore, Maryland, United States"
+},
+{
+"personId" : "@P203@",
+"eventType" : "death",
+"eventDate" : "1831-09-19 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Fostoria, Seneca, Ohio, USA"
+},
+{
+"personId" : "@P204@",
+"eventType" : "birth",
+"eventDate" : "1772-07-05 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore County, Province of Maryland"
+},
+{
+"personId" : "@P204@",
+"eventType" : "death",
+"eventDate" : "1823-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Baltimore, Baltimore County, Maryland, USA"
+},
+{
+"personId" : "@P205@",
+"eventType" : "birth",
+"eventDate" : "1770-01-19 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Anne Arundel, Maryland, USA"
+},
+{
+"personId" : "@P205@",
+"eventType" : "death",
+"eventDate" : "1817-05-05 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Tuscarawas, Tuscarawas, Ohio, USA"
+},
+{
+"personId" : "@P206@",
+"eventType" : "birth",
+"eventDate" : "1785-06-23 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore, Maryland"
+},
+{
+"personId" : "@P206@",
+"eventType" : "death",
+"eventDate" : "1869-06-02 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Hancock, Ohio, USA"
+},
+{
+"personId" : "@P207@",
+"eventType" : "birth",
+"eventDate" : "1790-04-14 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore, Maryland"
+},
+{
+"personId" : "@P207@",
+"eventType" : "death",
+"eventDate" : "1849-05-27 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Okinawa, Okinawa, Japan"
+},
+{
+"personId" : "@P208@",
+"eventType" : "birth",
+"eventDate" : "1781-05-08 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore, Maryland, United States"
+},
+{
+"personId" : "@P208@",
+"eventType" : "death",
+"eventDate" : "1834-09-19 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Fostoria, Seneca County, Ohio"
+},
+{
+"personId" : "@P209@",
+"eventType" : "birth",
+"eventDate" : "1779-12-06 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore, Maryland"
+},
+{
+"personId" : "@P209@",
+"eventType" : "death",
+"eventDate" : "1846-07-17 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore County, Maryland, USA"
+},
+{
+"personId" : "@P210@",
+"eventType" : "birth",
+"eventDate" : "1773-04-10 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore, Maryland"
+},
+{
+"personId" : "@P210@",
+"eventType" : "death",
+"eventDate" : "1839-04-06 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore County, Maryland, USA"
+},
+{
+"personId" : "@P211@",
+"eventType" : "birth",
+"eventDate" : "1718-03-11 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Saint James Parish, Anne Arundel, Maryland"
+},
+{
+"personId" : "@P211@",
+"eventType" : "death",
+"eventDate" : "1770-06-25 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore, Maryland, United States"
+},
+{
+"personId" : "@P212@",
+"eventType" : "birth",
+"eventDate" : "1691-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Baltimore, Anne Arundel, Maryland, United States"
+},
+{
+"personId" : "@P212@",
+"eventType" : "death",
+"eventDate" : "1770-06-25 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore County, Maryland, USA"
+},
+{
+"personId" : "@P212@",
+"eventType" : "burial",
+"eventDate" : null,
+"eventPlace" : "St John's Episcopal Church, Baltimore County, Maryland, USA"
+},
+{
+"personId" : "@P213@",
+"eventType" : "birth",
+"eventDate" : "1695-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Coles Chance, Baltimore, Maryland, United States"
+},
+{
+"personId" : "@P213@",
+"eventType" : "death",
+"eventDate" : "1773-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Baltimore, Baltimore, Maryland, United States"
+},
+{
+"personId" : "@P214@",
+"eventType" : "birth",
+"eventDate" : "1723-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Deer Creek, Baltimore, Maryland, United States"
+},
+{
+"personId" : "@P214@",
+"eventType" : "death",
+"eventDate" : "1835-01-11 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Baltimore, Baltimore, Maryland, United States"
+},
+{
+"personId" : "@P215@",
+"eventType" : "birth",
+"eventDate" : "1726-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Maryland, United States"
+},
+{
+"personId" : "@P216@",
+"eventType" : "birth",
+"eventDate" : "1730-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Maryland, United States"
+},
+{
+"personId" : "@P217@",
+"eventType" : "birth",
+"eventDate" : null,
+"eventPlace" : "Denmark"
+},
+{
+"personId" : "@P218@",
+"eventType" : "birth",
+"eventDate" : "1860-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Canada"
+},
+{
+"personId" : "@P219@",
+"eventType" : "birth",
+"eventDate" : "1860-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Canada"
+},
+{
+"personId" : "@P220@",
+"eventType" : "birth",
+"eventDate" : "1890-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Canada"
+},
+{
+"personId" : "@P221@",
+"eventType" : "birth",
+"eventDate" : "1892-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Canada"
+},
+{
+"personId" : "@P222@",
+"eventType" : "birth",
+"eventDate" : "1886-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Canada"
+},
+{
+"personId" : "@P223@",
+"eventType" : "birth",
+"eventDate" : "1891-01-01 00:00:00",
+"approxDate" : "year"",
+"eventPlace" : "Massachusetts"
+},
+{
+"personId" : "@P224@",
+"eventType" : "birth",
+"eventDate" : "1886-11-18 00:00:00",
+"approxDate" : "exact"",
+"eventPlace" : "Montreal, Quebec, Canada"
 }
 ]

@@ -6,10 +6,10 @@ module.exports = function(mongoose, PersonModel) {
 		personOne_id: {type: ObjectId, ref: PersonModel},
 		personTwo_id: {type: ObjectId, ref: PersonModel},
 		relationshipType: String,
-		subType: String,
-		startDateUser: String,
+    subType: String,
 		startDate: Date,
-		endDateUser: String,
+    startDateUser: String,
+    endDateUser: String,
 		endDate: Date,
 		user_id: String
 	});
