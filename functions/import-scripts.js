@@ -1,6 +1,7 @@
 var auth = require('../authentication');
 var mongoose = require('mongoose');
 var winston = require('winston');
+var async = require('async');
 
 winston.level = 'debug';
 var logLevel = 'debug';
@@ -11,27 +12,27 @@ module.exports = function(app, PersonModel, StagedPersonModel, EventsModel, Stag
   app.post('/api/v2/autoimport', auth.isAuthenticated, function(req, res) {
     winston.log(logLevel, date + ': in import-scripts');
 
-    require('./person-import')(PersonModel, StagedPersonModel, EventsModel, StagedEventsModel)
+    require('./person-import')(res, PersonModel, StagedPersonModel, EventsModel, StagedEventsModel)
 
-    // These setTimeout functions are temporary to make this work synchronously until we come up with a better solution
+      /*
+       * PersonModel.find({},
+       *   function(err, people) {
+       *     if (err) {
+       *       return err;
+       *     }
+       *     async.each(people, function(person, callback) {
+       *       console.log(person.fName);
+       *       callback();
+       *     }, function(err) {
+       *       if (err) { console.log('fail'); return 'FAIL' + err; }
+       *       else {
+       *         console.log('success')
+       *         res.status(200).send('success')
+       *       }
+       *     })
+       *   })
+       */
 
-    // setTimeout(function() {
-      // require('./event-import')(PersonModel, StagedPersonModel, EventsModel, StagedEventsModel)
-    // }, 500)
-
-    /*
-     * setTimeout(function() {
-     *   require('./parent-import')(PersonModel, StagedPersonModel, ParentalRelModel, StagedParentalRelModel)
-     * }, 1000)
-     */
-    /*
-     * setTimeout(function() {
-     *   require('./pairbond-import')(PersonModel, StagedPersonModel, PairBondRelModel, StagedPairBondRelModel)
-     * }, 1500)
-     */
-
-
-    res.status(200).send('success'); // need to find data to send back...
   })
 }
 

@@ -1,6 +1,7 @@
 var auth = require('../authentication');
 var mongoose = require('mongoose');
 var winston = require('winston');
+var async = require('async');
 
 winston.level = 'debug';
 var logLevel = 'debug';
@@ -8,7 +9,7 @@ var logLevel = 'debug';
 var date = new Date();
 
 // passing in the ancestry_id and genie_id makes this function smaller and more universal for importing events based on a single person. No need to search through the tables too many times.
-module.exports = function(ancestry_id, genie_id, EventsModel, StagedEventsModel) {
+module.exports = function(ancestry_id, genie_id, EventsModel, StagedEventsModel, functionCallback) {
   winston.log(logLevel, date + ': in events import');
 
   // find all events where the personId on the event matches the ancestry_id passed in from above.
@@ -19,7 +20,7 @@ module.exports = function(ancestry_id, genie_id, EventsModel, StagedEventsModel)
         res.status(500).send(err);
       }
       // if no events are found, an empty array is returned and nothing happens with the data
-      stagedEvents.forEach((stagedEvent) => {
+      async.each(stagedEvents, function(stagedEvent, callback){ 
         object = {
           person_id: genie_id,
           eventType: stagedEvent.eventType,
@@ -42,10 +43,20 @@ module.exports = function(ancestry_id, genie_id, EventsModel, StagedEventsModel)
               if (err) {
                 res.status(500).send(err);
               }
+              callback();
             }
           )
         })
-      })
+      }, function(err) {
+           if (err) {
+             res.status(500).send(err);
+           }
+           else {
+            EventsModel.find({}, function(err, data) { console.log('EVENTSMODELFIND22222222222222222',data) })
+             functionCallback();
+           }
+        }
+      ) 
     }
   )
 }

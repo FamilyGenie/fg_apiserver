@@ -22,12 +22,9 @@ module.exports = function(app, StagedPersonModel) {
 			}, // filter object empty - to return all
 			function(err, data) {
 				if(err) {
-					winston.log(logLevel, date + ': staged people error')
 					res.status(500).send("Error getting all staged people" + err);
 					return;
 				}
-				// return all people
-				winston.log(logLevel, date + ': staged people success')
 				res.status(200).send(JSON.stringify(data));
 			}
 		);
