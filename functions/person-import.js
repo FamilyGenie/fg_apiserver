@@ -1,6 +1,9 @@
 var auth = require('../authentication');
 var mongoose = require('mongoose');
 var winston = require('winston');
+var async = require('async');
+
+var importEvents = require('./event-import.js');
 
 winston.level = 'debug'; // uncomment for development debugging
 var logLevel = 'debug';
@@ -9,7 +12,7 @@ var date = new Date();
 
 var _data = [];
 
-module.exports = function(PersonModel, StagedPersonModel, EventsModel, StagedEventsModel) {
+module.exports = function(res, PersonModel, StagedPersonModel, EventsModel, StagedEventsModel) {
     winston.log(logLevel, date + ': in people import')
 
     StagedPersonModel.find({},
@@ -18,7 +21,7 @@ module.exports = function(PersonModel, StagedPersonModel, EventsModel, StagedEve
           res.status(500).send(err);
         }
 
-        stagedPeople.forEach(function(stagedPerson) {
+        async.each(stagedPeople, function(stagedPerson, callback) {
 
             PersonModel.findOne(
               // TODO find sweet spot for search function
@@ -37,6 +40,7 @@ module.exports = function(PersonModel, StagedPersonModel, EventsModel, StagedEve
                       if (err) {
                         res.status(500).send(err);
                       }
+                      callback();
                   })
                 } else {
                   object = {
@@ -61,10 +65,19 @@ module.exports = function(PersonModel, StagedPersonModel, EventsModel, StagedEve
                         if (err) {
                           res.status(500).send(err);
                         }
+                        importEvents(stagedPerson.personId, newPerson._id, EventsModel, StagedEventsModel, function() { callback() })
                     })
                 })
               }
             })
+        }, function(err) {
+          if (err) {
+            res.status(500).send(err);
+          }
+          else {
+            EventsModel.find({}, function(err, data) { console.log('EVENTSMODELFIND',data) })
+            res.status(200).send('success');
+          }
         })
       });
 }

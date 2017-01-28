@@ -1,63 +1,62 @@
 var auth = require('../authentication');
 var mongoose = require('mongoose');
 var winston = require('winston');
+var async = require('async');
 
 winston.level = 'debug';
 var logLevel = 'debug';
 // var logLevel = 'info';
 var date = new Date();
 
-module.exports = function(PersonModel, StagedPersonModel, EventsModel, StagedEventsModel) {
+// passing in the ancestry_id and genie_id makes this function smaller and more universal for importing events based on a single person. No need to search through the tables too many times.
+module.exports = function(ancestry_id, genie_id, EventsModel, StagedEventsModel, functionCallback) {
   winston.log(logLevel, date + ': in events import');
 
-  // find people that have been imported from gedcom into FG to get their genie_id.
-  // :returns: an array of people with a genie_id field
-  StagedPersonModel.find(
-    { genie_id : { $exists : true } },
-    function(err, stagedPeople) {
+  // find all events where the personId on the event matches the ancestry_id passed in from above.
+  StagedEventsModel.find(
+    { personId : ancestry_id },
+    function(err, stagedEvents) {
       if (err) {
         res.status(500).send(err);
       }
-      stagedPeople.forEach((stagedPerson) => {
-        // find events that match each person. 
-        // :returns: an array of events
-        StagedEventsModel.find(
-          { personId : stagedPerson.personId },
-          function(err, stagedEvents) {
-            if (err) {
-              res.status(500).send(err);
-            }
-            // create/import a new event from the information from the stagedEvent
-            stagedEvents.forEach((stagedEvent) => {
-              var object = {
-                person_id: stagedPerson.genie_id,
-                eventType: stagedEvent.eventType,
-                eventDate: stagedEvent.eventDate,
-                eventPlace: stagedEvent.eventPlace,
-                approxDate: stagedEvent.approxDate,
-                user_id: stagedEvent.user_id
-              }
-              new EventsModel(object).save((err, newEvent) => {
-                if (err) {
-                  res.status(500).send(err);
-                }
-                StagedEventsModel.findOneAndUpdate(
-                  { _id : stagedEvent._id },
-                  { $set : { ignore : true, genie_id : newEvent._id } },
-                  { new : true, upsert : true },
-                  function(err, data) {
-                    if (err) {
-                      res.status(500).send(err);
-                    }
-                    // console.log(data)
-                    // should return something here... TODO
-                  }
-                )
-              })
-            })
+      // if no events are found, an empty array is returned and nothing happens with the data
+      async.each(stagedEvents, function(stagedEvent, callback){ 
+        object = {
+          person_id: genie_id,
+          eventType: stagedEvent.eventType,
+          eventDate: stagedEvent.eventDate,
+          eventPlace: stagedEvent.eventPlace,
+          approxDate: stagedEvent.approxDate,
+          user_id: stagedEvent.user_id
+        }
+        // create a new event based on the information from the stagedEvent
+        new EventsModel(object).save((err, newEvent) => {
+          if (err) {
+            res.status(500).send(err);
           }
-        )
-      })
+          // update the original stagedEvent to have the newly created event's genie_id, and ignore set to true. This is so that the staged event no longer appears in the staged list
+          StagedEventsModel.findOneAndUpdate(
+            { _id : stagedEvent._id },
+            { $set : { genie_id : newEvent._id, ignore : true } },
+            { new : true, upsert : true },
+            function(err, updatedEvent) {
+              if (err) {
+                res.status(500).send(err);
+              }
+              callback();
+            }
+          )
+        })
+      }, function(err) {
+           if (err) {
+             res.status(500).send(err);
+           }
+           else {
+            EventsModel.find({}, function(err, data) { console.log('EVENTSMODELFIND22222222222222222',data) })
+             functionCallback();
+           }
+        }
+      ) 
     }
   )
 }
