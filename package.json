@@ -4,6 +4,7 @@
   "description": "",
   "main": "fg_api_server.js",
   "dependencies": {
+    "async": "^2.1.4",
     "bcrypt": "^0.8.7",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
