@@ -53,7 +53,7 @@ app.use(function(req, res, next) {
 
 require('./passport/passport.routes')(app,passport);
 // this is gedcom uploads page
-require('./gedcom/gedcom.js')(app, mongoose, bodyParser, passport, PersonModel, StagedPersonModel);
+require('./gedcom/gedcom.js')(app, mongoose, bodyParser, passport);
 require('./api_calls/person-api')(app, PersonModel);
 require('./api_calls/events-api')(app, EventsModel);
 require('./api_calls/pairbondrels-api')(app, PairBondRelModel);

@@ -14,25 +14,6 @@ module.exports = function(app, PersonModel, StagedPersonModel, EventsModel, Stag
 
     require('./person-import')(res, PersonModel, StagedPersonModel, EventsModel, StagedEventsModel)
 
-      /*
-       * PersonModel.find({},
-       *   function(err, people) {
-       *     if (err) {
-       *       return err;
-       *     }
-       *     async.each(people, function(person, callback) {
-       *       console.log(person.fName);
-       *       callback();
-       *     }, function(err) {
-       *       if (err) { console.log('fail'); return 'FAIL' + err; }
-       *       else {
-       *         console.log('success')
-       *         res.status(200).send('success')
-       *       }
-       *     })
-       *   })
-       */
-
   })
 }
 

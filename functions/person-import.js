@@ -75,7 +75,7 @@ module.exports = function(res, PersonModel, StagedPersonModel, EventsModel, Stag
             res.status(500).send(err);
           }
           else {
-            EventsModel.find({}, function(err, data) { console.log('EVENTSMODELFIND',data) })
+            // need to return something here
             res.status(200).send('success');
           }
         })

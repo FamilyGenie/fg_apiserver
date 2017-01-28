@@ -52,7 +52,7 @@ module.exports = function(ancestry_id, genie_id, EventsModel, StagedEventsModel,
              res.status(500).send(err);
            }
            else {
-            EventsModel.find({}, function(err, data) { console.log('EVENTSMODELFIND22222222222222222',data) })
+             // should probably return something here
              functionCallback();
            }
         }
