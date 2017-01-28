@@ -1,4 +1,4 @@
-module.exports = function(mongoose) {
+module.exports = function(mongoose, PersonModel) {
 
   var StagedEventsModel = mongoose.model("Gedcom_Event", {
     personId : String,
@@ -6,7 +6,7 @@ module.exports = function(mongoose) {
     eventDate : Date,
     eventPlace : String,
     approxDate : String,
-    genie_id : ObjectId,
+    genie_id : {type: ObjectId, ref: PersonModel},
     ignore : Boolean,
     user_id: String
   });

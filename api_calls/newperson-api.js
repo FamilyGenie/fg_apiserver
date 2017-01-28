@@ -105,11 +105,20 @@ module.exports = function(app, PersonModel, EventsModel, ParentalRelModel) {
                 newMotherRel,
                 newFatherRel
               }
+                var newFatherRel = data;
 
-              res.status(200).send(result);
+                // send the information back to the front end to update there
+                result = {
+                  newChild,
+                  newEvent,
+                  newMotherRel,
+                  newFatherRel
+                }
+
+                res.status(200).send(result);
+              })
             })
           })
         })
       })
-    })
 }
