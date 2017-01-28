@@ -1,4 +1,4 @@
-module.exports = function(mongoose) {
+module.exports = function(mongoose, PersonModel) {
 
 	var StagedParentalRelModel = mongoose.model("Gedcom_Parent",{
 		child_id: String,
@@ -7,7 +7,7 @@ module.exports = function(mongoose) {
 		subType: String,
 		startDate: Date,
 		endDate: Date,
-    genie_id: ObjectId,
+    genie_id: {type: ObjectId, ref: PersonModel},
     ignore: Boolean,
 		user_id: String
 	});

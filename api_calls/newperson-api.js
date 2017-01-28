@@ -99,8 +99,6 @@ module.exports = function(app, PersonModel, EventsModel, ParentalRelModel) {
                 // send the information back to the front end to update there
                 result = {
                   newChild,
-                  newFather,
-                  newMother,
                   newEvent,
                   newMotherRel,
                   newFatherRel
@@ -112,5 +110,4 @@ module.exports = function(app, PersonModel, EventsModel, ParentalRelModel) {
           })
         })
       })
-    })
 }

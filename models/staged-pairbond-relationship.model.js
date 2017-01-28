@@ -1,4 +1,4 @@
-module.exports = function(mongoose) {
+module.exports = function(mongoose, PersonModel) {
 
 	var StagedPairBondModel = mongoose.model("Gedcom_Pairbond",{
 		personOne_id: String,
@@ -6,7 +6,7 @@ module.exports = function(mongoose) {
 		relationshipType: String,
 		startDate: Date,
 		endDate: Date,
-    genie_id: ObjectId,
+    genie_id: {type: ObjectId, ref: PersonModel},
     ignore: Boolean,
 		user_id: String
 	});
