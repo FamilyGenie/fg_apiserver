@@ -1,3 +1,7 @@
 node_modules
 data
 data-test
+.DS_Store
+dump*
+npm-debug.log
+*.pyc

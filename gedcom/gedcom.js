@@ -2,7 +2,7 @@ var auth = require('../authentication');
 var multer = require('multer');
 var exec = require('child_process').exec;
 var upload = multer({ dest: './gedcom/uploads/' });
-var type = upload.single('gedcom')
+var type = upload.single('gedcom');
 
 module.exports = function(app, mongoose, bodyParser, passport) {
 
@@ -36,7 +36,7 @@ module.exports = function(app, mongoose, bodyParser, passport) {
           console.log('mongo import failed', err);
         }
         else {
-          console.log('json file imported to mongo');
+          console.log('people json file imported to mongo');
         }
       });
     }
@@ -54,7 +54,7 @@ module.exports = function(app, mongoose, bodyParser, passport) {
             console.log('mongo import failed', err);
           }
           else {
-            console.log('json file imported to mongo');
+            console.log('parent json file imported to mongo');
           }
         });
       }
@@ -72,7 +72,7 @@ module.exports = function(app, mongoose, bodyParser, passport) {
             console.log('mongo import failed', err);
           }
           else {
-            console.log('json file imported to mongo');
+            console.log('pairbond json file imported to mongo');
           }
         });
       }
@@ -80,16 +80,20 @@ module.exports = function(app, mongoose, bodyParser, passport) {
 
   exec('python ./gedcom/gedcomevents.py ./gedcom/uploads/' + req.file.filename + ' ./gedcom/jsonfiles/' + req.file.filename + 'event.json ' + user_id,
     function(err) {
-      if (err) return ('python parse failed', err);
-    else {
-      exec('mongoimport --db test --collection gedcom_events --type json --file ./gedcom/jsonfiles/' + req.file.filename + 'event.json --jsonArray',
-      function(err) {
-        if (err) return('mongo import failed events' + err);
-        else {
-          return('json events imported to mongo');
-        }
-      });
-    }
+      if (err) {
+        console.log('python parse failed', err)
+      }
+      else {
+        exec('mongoimport --db test --collection gedcom_events --type json --file ./gedcom/jsonfiles/' + req.file.filename + 'event.json --jsonArray',
+        function(err) {
+          if (err) {
+            console.log('mongo import failed events' + err)
+          }
+          else {
+            console.log('events json imported to mongo');
+          }
+        });
+      }
     });
 
   });

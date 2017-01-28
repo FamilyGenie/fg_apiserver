@@ -10,6 +10,8 @@ module.exports = function(mongoose) {
         approxDate : String,
         deathPlace : String,
         personId : String,
+        ignore : Boolean,
+        genie_id : ObjectId,
         user_id : String
   });
 
