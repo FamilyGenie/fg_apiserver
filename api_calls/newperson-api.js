@@ -9,12 +9,15 @@ var date = new Date();
 
 mongoose.Promise = global.Promise;
 
+// create a blank person, blank birth event, and two blank paretal relationships
+// all people have been born from two biological parents
 module.exports = function(app, PersonModel, EventsModel, ParentalRelModel) {
   app.post('/api/v2/newperson/create', auth.isAuthenticated, function(req, res) {
     winston.log(logLevel, date + ": in newperson create");
 
     var user = req.decoded._doc.userName;
 
+    // declare a blank person, including the user_id
     var personObject = {
         fName: '',
         mName: '',  
@@ -32,22 +35,9 @@ module.exports = function(app, PersonModel, EventsModel, ParentalRelModel) {
         if (err) {
           res.status(500).send("Error creating new parent")
         }
-        var newFather = data;
-
-      new PersonModel(personObject).save(function(err, data) {
-      if (err) {
-          res.status(500).send("Error creating new parent")
-        }
-        var newMother = data;
-
-      new PersonModel(personObject).save(function(err, data) {
-        if (err) {
-          res.status(500).send("Error creating new child" + err);
-          return;
-        }
-
         var newChild = data;
 
+        // declare a blank event for birth using the id of the newly created person from above
         eventObject = {
           person_id : newChild._id,
           eventType : 'Birth',
@@ -70,7 +60,7 @@ module.exports = function(app, PersonModel, EventsModel, ParentalRelModel) {
 
           motherObject = {
             child_id: newChild._id,
-            parent_id: newMother._id,
+            parent_id: '',
             relationshipType: 'Mother',
             subType: 'Biological',
             startDateUser: '',
@@ -85,8 +75,6 @@ module.exports = function(app, PersonModel, EventsModel, ParentalRelModel) {
               res.status(500).send("Error creating new mother rel");
               return;
             }
-
-            var newMotherRel = data;
 
             fatherObject = {
               child_id: newChild._id,
@@ -108,6 +96,7 @@ module.exports = function(app, PersonModel, EventsModel, ParentalRelModel) {
 
                 var newFatherRel = data;
 
+                // send the information back to the front end to update there
                 result = {
                   newChild,
                   newFather,
@@ -124,5 +113,4 @@ module.exports = function(app, PersonModel, EventsModel, ParentalRelModel) {
         })
       })
     })
-  })
 }

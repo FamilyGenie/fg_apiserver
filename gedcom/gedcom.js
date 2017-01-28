@@ -4,7 +4,7 @@ var exec = require('child_process').exec;
 var upload = multer({ dest: './gedcom/uploads/' });
 var type = upload.single('gedcom');
 
-module.exports = function(app, mongoose, bodyParser, passport, PersonModel, StagedPersonModel) {
+module.exports = function(app, mongoose, bodyParser, passport) {
 
   // I thought these lines were needed. But it now appears to be working without them. Leaving them commented out for now.
   // app.use(bodyParser.json());
