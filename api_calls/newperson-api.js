@@ -113,5 +113,4 @@ module.exports = function(app, PersonModel, EventsModel, ParentalRelModel) {
         })
       })
     })
-  })
 }
