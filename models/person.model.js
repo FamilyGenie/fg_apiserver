@@ -10,6 +10,7 @@ module.exports = function(mongoose) {
 		deathDate: Date,
 		deathPlace: String,
 		notes: String,
+    ancestry_id: String,
 		user_id: String
 	});
 

@@ -63,7 +63,7 @@ require('./api_calls/stagedpeople-api')(app, StagedPersonModel);
 require('./api_calls/newperson-api.js')(app, PersonModel, EventsModel, ParentalRelModel);
 require('./api_calls/stagedEvents-api.js')(app, StagedEventsModel)
 
-require('./functions/import-scripts.js')(app, PersonModel, StagedPersonModel, EventsModel, StagedEventsModel);
+require('./functions/import-script.js')(app, PersonModel, StagedPersonModel, EventsModel, StagedEventsModel, ParentalRelModel, StagedParentalRelModel);
 
 app.use(function(req, res, next) {
 	res.status(404);
