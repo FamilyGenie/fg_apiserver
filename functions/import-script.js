@@ -18,7 +18,7 @@ module.exports = function(app, PersonModel, StagedPersonModel, EventsModel, Stag
   app.post('/api/v2/autoimportrels', auth.isAuthenticated, function(req, res) {
     winston.log(logLevel, date + ': in import-scripts')
 
-    // require('./parentalrel-import')(res, PersonModel, ParentalRelModel, StagedParentalRelModel)
+    require('./parentalrel-import')(res, PersonModel, ParentalRelModel, StagedParentalRelModel)
     require('./pairbondrel-import')(res, PersonModel, PairBondRelModel, StagedPairBondRelModel)
 
   })
