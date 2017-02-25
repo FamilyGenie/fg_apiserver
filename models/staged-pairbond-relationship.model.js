@@ -1,6 +1,6 @@
 module.exports = function(mongoose, PersonModel) {
 
-	var StagedPairBondModel = mongoose.model("Gedcom_Pairbond",{
+	var StagedPairBondRelModel = mongoose.model("Gedcom_Pairbond",{
 		personOne_id: String,
 		personTwo_id: String,
 		relationshipType: String,
@@ -11,5 +11,5 @@ module.exports = function(mongoose, PersonModel) {
 		user_id: String
 	});
 
-	return StagedPairBondModel;
+	return StagedPairBondRelModel;
 };

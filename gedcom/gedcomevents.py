@@ -51,7 +51,7 @@ def makeEventRecords(filename):
             buildRecord = '{\n'
             try:
                 buildRecord += '"personId" : "' + getattr(person, attribute).parent_id + '",\n'
-                buildRecord += '"eventType" : "' + attribute + '",\n'
+                buildRecord += '"eventType" : "' + attribute.replace('_', ' ').capitalize() + '",\n'
 
                 try:
                     buildRecord += str(parseDate(getattr(person, attribute).date)) + ',\n'

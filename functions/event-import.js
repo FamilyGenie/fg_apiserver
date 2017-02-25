@@ -10,7 +10,7 @@ var date = new Date();
 
 // passing in the ancestry_id and genie_id makes this function smaller and more universal for importing events based on a single person. No need to search through the tables too many times.
 module.exports = function(ancestry_id, genie_id, EventsModel, StagedEventsModel, functionCallback) {
-  winston.log(logLevel, date + ': in events import');
+  // winston.log(logLevel, date + ': in events import');
 
   // find all events where the personId on the event matches the ancestry_id passed in from above.
   StagedEventsModel.find(

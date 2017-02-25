@@ -17,6 +17,7 @@ module.exports = function(res, PersonModel, ParentalRelModel, StagedParentalRelM
         res.status(500).send(err);
       }
 
+      // loop through the parental relationships.
       async.each(stagedParentalRels, function(stagedParentRel, callback) {
         ParentalRelModel.findOne(
           // TODO: find sweet spot for search function
@@ -40,7 +41,6 @@ module.exports = function(res, PersonModel, ParentalRelModel, StagedParentalRelM
             }
             else {
               // need to find the _ids of the parent and child as they exist in our records, to create the new parentalRelationship
-              console.log('\n\n\n\n\n\n\n\n\n\n\n\n\n', stagedParentRel)
               var child_id, parent_id;
               PersonModel.findOne(
                 { ancestry_id : stagedParentRel.child_id },
@@ -48,45 +48,48 @@ module.exports = function(res, PersonModel, ParentalRelModel, StagedParentalRelM
                   if(err) {
                     res.status(500).send(err);
                   }
-                  console.log(person);
-                  child_id = person._id;
-                }
-              )
-              PersonModel.findOne(
-                { ancestry_id : stagedParentRel.parent_id },
-                function(err, person) {
-                  if(err) {
-                    res.status(500).send(err);
+                  try {
+                    child_id = person._id;
                   }
-                  console.log(person);
-                  parent_id = person._id;
-                }
-              )
+                  catch (TypeError) {}
 
-              object = {
-                child_id: child_id,
-                parent_id: parent_id,
-                relationshipType: stagedParentRel.relationshipType,
-                subType: stagedParentRel.subType,
-                startDate: stagedParentRel.startDate,
-                endDate: stagedParentRel.endDate,
-                user_id: stagedParentRel.user_id,
-              }
+                  PersonModel.findOne(
+                    { ancestry_id : stagedParentRel.parent_id },
+                    function(err, person) {
+                      if(err) {
+                        res.status(500).send(err);
+                      }
+                      try {
+                        parent_id = person._id;
+                      }
+                      catch (TypeError) {}
 
-              new ParentalRelModel(object).save(function(err, newParentalRel) {
-                if (err) {
-                  res.status(500).send(err);
-                }
+                      object = {
+                        child_id: child_id || null,
+                        parent_id: parent_id || null,
+                        relationshipType: stagedParentRel.relationshipType,
+                        subType: stagedParentRel.subType,
+                        startDate: stagedParentRel.startDate,
+                        endDate: stagedParentRel.endDate,
+                        user_id: stagedParentRel.user_id,
+                      }
 
-                StagedParentalRelModel.findOneAndUpdate(
-                  { _id : stagedParentRel._id },
-                  { $set: { genie_id : newParentalRel._id, ignore : true } },
-                  { new : true, upsert: true },
-                  function(err, data) {
-                    if (err) {
-                      res.status(500).send(err);
-                    }
-                    callback();
+                      new ParentalRelModel(object).save(function(err, newParentalRel) {
+                        if (err) {
+                          res.status(500).send(err);
+                        }
+
+                        StagedParentalRelModel.findOneAndUpdate(
+                          { _id : stagedParentRel._id },
+                          { $set: { genie_id : newParentalRel._id, ignore : true } },
+                          { new : true, upsert: true },
+                          function(err, data) {
+                            if (err) {
+                              res.status(500).send(err);
+                            }
+                            callback();
+                          })
+                      })
                   })
               })
             }
