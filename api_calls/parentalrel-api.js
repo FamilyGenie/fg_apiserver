@@ -92,7 +92,9 @@ module.exports = function(app, ParentalRelModel) {
       relationshipType: req.body.object.relationshipType,
       subType: req.body.object.subType,
       startDate: req.body.object.startDate,
+      startDateUser: req.body.object.startDateUser,
       endDate: req.body.object.endDate,
+      endDateUser: req.body.object.endDateUser,
       user_id: user
     };
 

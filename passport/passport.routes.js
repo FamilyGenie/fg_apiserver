@@ -9,7 +9,6 @@ module.exports = function(app, passport) {
 
             var token = jwt.sign(req.user, app.get('jwtSecret'));
             req.user.token = token;
-
             res.json( {
                 token: token,
                 userName: req.user.firstName + " " + req.user.lastName,
@@ -17,7 +16,7 @@ module.exports = function(app, passport) {
             });
         });
 
-    /* 
+    /*
     to post to signup, need this in the body
     {
             "username": "",
