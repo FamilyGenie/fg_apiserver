@@ -85,6 +85,7 @@ module.exports = function(app, ParentalRelModel) {
 
   app.post('/api/v2/parentalrel/create', auth.isAuthenticated, function(req, res) {
     winston.log(logLevel, date + ": in parentalrel create");
+    console.log('in parentalrel create with: ', req.body.object);
     var user = req.decoded._doc.userName;
     object = {
       child_id: req.body.object.child_id,
@@ -92,7 +93,9 @@ module.exports = function(app, ParentalRelModel) {
       relationshipType: req.body.object.relationshipType,
       subType: req.body.object.subType,
       startDate: req.body.object.startDate,
+      startDateUser: req.body.object.startDateUser,
       endDate: req.body.object.endDate,
+      endDateUser: req.body.object.endDateUser,
       user_id: user
     };
 
