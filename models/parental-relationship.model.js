@@ -9,8 +9,10 @@ module.exports = function(mongoose, PersonModel) {
 		subType: String,
     startDateUser: String,
 		startDate: Date,
+    approxStart: String,
     endDateUser: String,
 		endDate: Date,
+    approxEnd: String,
 		user_id: String
 	});
 

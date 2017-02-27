@@ -54,7 +54,8 @@ def makeEventRecords(filename):
                 buildRecord += '"eventType" : "' + attribute.replace('_', ' ').capitalize() + '",\n'
 
                 try:
-                    buildRecord += str(parseDate(getattr(person, attribute).date)) + ',\n'
+                    buildRecord += '"eventDate" : "' + str(parseDate(getattr(person, attribute).date)[0]) + '",\n'
+                    buildRecord += '"approxDate" : "' + str(parseDate(getattr(person, attribute).date)[1]) + '",\n'
                 except AttributeError:
                     buildRecord += '"eventDate" : null,\n'
 
@@ -82,7 +83,6 @@ def makeJSONobject(filename):
 
     eventRecords = makeEventRecords(filename)
     jsonEvents = '['
-
     i = 0
     for event in eventRecords:
         if i == len(eventRecords) - 1:

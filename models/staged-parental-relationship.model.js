@@ -6,7 +6,9 @@ module.exports = function(mongoose, PersonModel) {
 		relationshipType: String,
 		subType: String,
 		startDate: Date,
+    approxStart: String,
 		endDate: Date,
+    approxEnd: String,
     genie_id: {type: ObjectId, ref: PersonModel},
     ignore: Boolean,
 		user_id: String
