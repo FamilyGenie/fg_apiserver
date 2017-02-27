@@ -21,6 +21,7 @@ module.exports = function(res, PersonModel, PairBondRelModel, StagedPairBondRelM
 
         // start by searching through the existing genie records, trying to find any that match the gedcom records according to the criteria. 
         PairBondRelModel.findOne(
+          // we can also try implementing comparison based on ancestry_id. We want to make sure that the same two people in this record match the genie record.
           { $and: [ { relationshipType: stagedPairBondRel.relationshipType }, { startDate: stagedPairBondRel.startDate }, { endDate: stagedPairBondRel.endDate } ] },
           function(err, pairBondRel) {
             if (err) { 
@@ -50,7 +51,7 @@ module.exports = function(res, PersonModel, PairBondRelModel, StagedPairBondRelM
                   if (err) {
                     res.status(500).send(err);
                   }
-                  // try/catch if there is no person record, it will throw a TypeError. 
+                  // try/catch if there is no person record, it will throw a TypeError because there is no person._id, so there's no person to add here & we just  
                   try {
                     person_one_id = person._id;
                   }
@@ -67,33 +68,37 @@ module.exports = function(res, PersonModel, PairBondRelModel, StagedPairBondRelM
                       try {
                         person_two_id = person._id;
                       }
-                      catch (TypeError) {}
+                      catch (TypeError) {
 
-                      // create a new record to save to the DB.
-                      object = {
-                        personOne_id: person_one_id || null,
-                        personTwo_id: person_two_id || null,
-                        relationshipType: stagedPairBondRel.relationshipType,
-                        startDate: stagedPairBondRel.startDate,
-                        endDate: stagedPairBondRel.endDate,
-                        user_id: stagedPairBondRel.user_id,
                       }
 
-                      new PairBondRelModel(object).save(function(err, newPairBondRel) {
-                        if (err) {
-                          res.status(500).send(err);
+                      if (person_one_id || person_two_id) {
+                        // create a new record to save to the DB.
+                        object = {
+                          personOne_id: person_one_id || null,
+                          personTwo_id: person_two_id || null,
+                          relationshipType: stagedPairBondRel.relationshipType,
+                          startDate: stagedPairBondRel.startDate,
+                          endDate: stagedPairBondRel.endDate,
+                          user_id: stagedPairBondRel.user_id,
                         }
 
-                        StagedPairBondRelModel.findOneAndUpdate(
-                          { _id : stagedPairBondRel._id },
-                          { $set: { genie_id : newPairBondRel._id, ignore : true } },
-                          { new : true, upsert : true },
-                          function(err, data) {
-                            if (err) {
-                              res.status(500).send(err);
-                            }
-                          })
-                      })
+                        new PairBondRelModel(object).save(function(err, newPairBondRel) {
+                          if (err) {
+                            res.status(500).send(err);
+                          }
+
+                          StagedPairBondRelModel.findOneAndUpdate(
+                            { _id : stagedPairBondRel._id },
+                            { $set: { genie_id : newPairBondRel._id, ignore : true } },
+                            { new : true, upsert : true },
+                            function(err, data) {
+                              if (err) {
+                                res.status(500).send(err);
+                              }
+                            })
+                        })
+                      }
                     })
                 })
             }
