@@ -14,7 +14,7 @@ module.exports = function(res, PersonModel, PairBondRelModel, StagedPairBondRelM
   StagedPairBondRelModel.find({},
     function(err, stagedPairBondRels) {
       if (err) {
-        res.status(500).send(err);
+        callback(err)
       }
 
       async.each(stagedPairBondRels, function(stagedPairBondRel, callback) {
@@ -25,7 +25,7 @@ module.exports = function(res, PersonModel, PairBondRelModel, StagedPairBondRelM
           { $and: [ { relationshipType: stagedPairBondRel.relationshipType }, { startDate: stagedPairBondRel.startDate }, { endDate: stagedPairBondRel.endDate } ] },
           function(err, pairBondRel) {
             if (err) { 
-              res.status(500).send(err);
+              callback(err)
             }
             //
             // if a pairbond is found that exists in the genie records, update the gedcom record so that it can be reviewed later. 
@@ -36,7 +36,7 @@ module.exports = function(res, PersonModel, PairBondRelModel, StagedPairBondRelM
                 { new : true, upsert : true },
                 function(err, data) {
                   if (err) {
-                    res.status(500).send(err);
+                    callback(err)
                   }
                 })
             }
@@ -49,7 +49,7 @@ module.exports = function(res, PersonModel, PairBondRelModel, StagedPairBondRelM
                 { ancestry_id : stagedPairBondRel.personOne_id },
                 function(err, person) {
                   if (err) {
-                    res.status(500).send(err);
+                    callback(err)
                   }
                   // try/catch if there is no person record, it will throw a TypeError because there is no person._id, so there's no person to add here & we just  
                   try {
@@ -62,15 +62,13 @@ module.exports = function(res, PersonModel, PairBondRelModel, StagedPairBondRelM
                     { ancestry_id : stagedPairBondRel.personOne_id },
                     function(err, person) {
                       if (err) {
-                        res.status(500).send(err);
+                        callback(err)
                       }
                       // try/catch if there is no person record, it will throw a TypeError. 
                       try {
                         person_two_id = person._id;
                       }
-                      catch (TypeError) {
-
-                      }
+                      catch (TypeError) {}
 
                       if (person_one_id || person_two_id) {
                         // create a new record to save to the DB.
@@ -85,7 +83,7 @@ module.exports = function(res, PersonModel, PairBondRelModel, StagedPairBondRelM
 
                         new PairBondRelModel(object).save(function(err, newPairBondRel) {
                           if (err) {
-                            res.status(500).send(err);
+                            callback(err)
                           }
 
                           StagedPairBondRelModel.findOneAndUpdate(
@@ -94,7 +92,7 @@ module.exports = function(res, PersonModel, PairBondRelModel, StagedPairBondRelM
                             { new : true, upsert : true },
                             function(err, data) {
                               if (err) {
-                                res.status(500).send(err);
+                                callback(err)
                               }
                             })
                         })
@@ -102,7 +100,8 @@ module.exports = function(res, PersonModel, PairBondRelModel, StagedPairBondRelM
                     })
                 })
             }
-          })
+        })
+        callback()
       }, function(err) {
         if (err) {
           res.status(500).send(err);
