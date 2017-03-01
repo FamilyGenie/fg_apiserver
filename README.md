@@ -15,4 +15,6 @@ navigate into the `dump` folder that has been provided for you and then run the 
 
 ##### Node server
 
-run the `fg_apiserver.js` with either `node` or `nodemon` if you have it installed.
+run the `fg_api_server.js` with either `node` or `nodemon` if you have it installed.
+
+the server is hosted on http://localhost:3500
