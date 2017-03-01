@@ -10,7 +10,7 @@ var date = new Date();
 mongoose.Promise = global.Promise;
 
 module.exports = function(app, StagedPairBondRelModel) {
-  app.get('/api/v2/staging/events', auth.isAuthenticated, function(req, res) {
+  app.get('/api/v2/staging/pairbondrels', auth.isAuthenticated, function(req, res) {
     winston.log(logLevel, date + ": in get staged pairbonds");
     var user = req.decoded._doc.userName;
     StagedPairBondRelModel.find(

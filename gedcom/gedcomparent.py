@@ -72,7 +72,8 @@ def getParentRelation(filename):
                 pass
 
             buildFather += '"relationshipType" : "Father",\n'
-            buildFather += '"subType" : "Biological"\n'
+            buildFather += '"subType" : "Biological",\n'
+            buildFather += '"user_id" : "' + userId + '"\n'
 
             fRel.append(buildFather)
 
@@ -102,7 +103,8 @@ def getParentRelation(filename):
                 pass
 
             buildMother += '"relationshipType" : "Father",\n'
-            buildMother += '"subType" : "Biological"\n'
+            buildMother += '"subType" : "Biological",\n'
+            buildMother += '"user_id" : "' + userId + '"\n'
 
             mRel.append(buildMother)
 

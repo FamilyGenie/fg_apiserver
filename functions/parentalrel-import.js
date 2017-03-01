@@ -8,13 +8,13 @@ var logLevel = 'debug';
 // var logLevel = 'info';
 var date = new Date();
 
-module.exports = function(res, PersonModel, ParentalRelModel, StagedParentalRelModel) {
+module.exports = function(res, StagedPersonModel, ParentalRelModel, StagedParentalRelModel) {
   winston.log(logLevel, date + ': in parentalRel import');
   
   StagedParentalRelModel.find({},
     function(err, stagedParentalRels) {
       if (err) {
-        res.status(500).send(err);
+        res.status(500).send(err)
       }
 
       // loop through the parental relationships.
@@ -24,7 +24,7 @@ module.exports = function(res, PersonModel, ParentalRelModel, StagedParentalRelM
           { $and: [ { relationshipType : stagedParentRel.relationshipType }, { startDate: stagedParentRel.startDate }, { endDate: stagedParentRel.endDate } ] },
           function(err, parentalRel) {
             if (err) {
-              res.status(500).send(err);
+              callback(err)
             }
             // check if there is a match, if there is update the staged record. here we will set ignore to false so the record can be manually reviewed
             if (parentalRel) {
@@ -34,33 +34,32 @@ module.exports = function(res, PersonModel, ParentalRelModel, StagedParentalRelM
                 { new : true, upsert : true },
                 function(err, data) {
                   if (err) {
-                    res.status(500).send(err);
+                    callback(err)
                   }
-                  callback();
                 })
             }
             else {
               // need to find the _ids of the parent and child as they exist in our records, to create the new parentalRelationship
               var child_id, parent_id;
-              PersonModel.findOne(
-                { ancestry_id : stagedParentRel.child_id },
+              StagedPersonModel.findOne(
+                { personId : stagedParentRel.child_id },
                 function(err, person) {
                   if(err) {
-                    res.status(500).send(err);
+                    callback(err)
                   }
                   try {
-                    child_id = person._id;
+                    child_id = person.genie_id;
                   }
                   catch (TypeError) {}
 
-                  PersonModel.findOne(
-                    { ancestry_id : stagedParentRel.parent_id },
+                  StagedPersonModel.findOne(
+                    { personId : stagedParentRel.parent_id },
                     function(err, person) {
                       if(err) {
-                        res.status(500).send(err);
+                        callback(err)
                       }
                       try {
-                        parent_id = person._id;
+                        parent_id = person.genie_id;
                       }
                       catch (TypeError) {}
 
@@ -76,7 +75,7 @@ module.exports = function(res, PersonModel, ParentalRelModel, StagedParentalRelM
 
                       new ParentalRelModel(object).save(function(err, newParentalRel) {
                         if (err) {
-                          res.status(500).send(err);
+                          callback(err)
                         }
 
                         StagedParentalRelModel.findOneAndUpdate(
@@ -85,15 +84,16 @@ module.exports = function(res, PersonModel, ParentalRelModel, StagedParentalRelM
                           { new : true, upsert: true },
                           function(err, data) {
                             if (err) {
-                              res.status(500).send(err);
+                              callback(err)
                             }
-                            callback();
                           })
                       })
                   })
+                  
               })
             }
           })
+          callback();
       }, function(err) {
         if (err) {
           res.status(500).send(err);

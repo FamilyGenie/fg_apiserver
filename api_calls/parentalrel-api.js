@@ -38,9 +38,7 @@ module.exports = function(app, ParentalRelModel) {
         _id: _id,
         user_id: user
       },
-      {$set: set
-
-      },
+      { $set : set },
       {new: true},
       function(err, data) {
         if(err) {

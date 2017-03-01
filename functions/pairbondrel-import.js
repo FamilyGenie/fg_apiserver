@@ -8,7 +8,7 @@ var logLevel = 'debug';
 // var logLevel = 'info';
 var date = new Date();
 
-module.exports = function(res, PersonModel, PairBondRelModel, StagedPairBondRelModel) {
+module.exports = function(res, StagedPersonModel, PairBondRelModel, StagedPairBondRelModel) {
   winston.log(logLevel, date + ': in pairBondRel import');
 
   StagedPairBondRelModel.find({},
@@ -45,28 +45,25 @@ module.exports = function(res, PersonModel, PairBondRelModel, StagedPairBondRelM
               var person_one_id, person_two_id;
 
               // find the first person and save their _id to append to the new genie pairbond record
-              PersonModel.findOne(
-                { ancestry_id : stagedPairBondRel.personOne_id },
+              StagedPersonModel.findOne(
+                { personId : stagedPairBondRel.personOne_id },
                 function(err, person) {
-                  if (err) {
+                  if(err) {
                     callback(err)
                   }
-                  // try/catch if there is no person record, it will throw a TypeError because there is no person._id, so there's no person to add here & we just  
                   try {
-                    person_one_id = person._id;
+                    person_one_id = person.genie_id;
                   }
                   catch (TypeError) {}
-
-                  // search for the second persons _id. 
-                  PersonModel.findOne(
-                    { ancestry_id : stagedPairBondRel.personOne_id },
+                  
+                  StagedPersonModel.findOne(
+                    { personId : stagedPairBondRel.personTwo_id },
                     function(err, person) {
-                      if (err) {
+                      if(err) {
                         callback(err)
                       }
-                      // try/catch if there is no person record, it will throw a TypeError. 
                       try {
-                        person_two_id = person._id;
+                        person_two_id = person.genie_id;
                       }
                       catch (TypeError) {}
 
@@ -98,10 +95,10 @@ module.exports = function(res, PersonModel, PairBondRelModel, StagedPairBondRelM
                         })
                       }
                     })
-                })
+              })
             }
-        })
         callback()
+          })
       }, function(err) {
         if (err) {
           res.status(500).send(err);

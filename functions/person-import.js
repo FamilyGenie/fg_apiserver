@@ -67,7 +67,6 @@ module.exports = function(res, PersonModel, StagedPersonModel, EventsModel, Stag
                      lName: stagedPerson.lName,
                      sexAtBirth: stagedPerson.sexAtBirth,
                      notes: stagedPerson.notes,
-                     ancestry_id: stagedPerson.personId,
                      user_id: stagedPerson.user_id,
                   }
 
