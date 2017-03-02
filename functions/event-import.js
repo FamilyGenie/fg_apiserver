@@ -10,7 +10,7 @@ var date = new Date();
 
 // passing in the ancestry_id and genie_id makes this function smaller and more universal for importing events based on a single person. No need to search through the tables too many times.
 module.exports = function(ancestry_id, genie_id, EventsModel, StagedEventsModel, functionCallback) {
-  winston.log(logLevel, date + ': in events import');
+  // winston.log(logLevel, date + ': in events import');
 
   // find all events where the personId on the event matches the ancestry_id passed in from above.
   StagedEventsModel.find(
@@ -33,9 +33,7 @@ module.exports = function(ancestry_id, genie_id, EventsModel, StagedEventsModel,
         // create a new event based on the information from the stagedEvent
         new EventsModel(object).save((err, newEvent) => {
           if (err) {
-            res.status(500).send(err);
-            // TODO: I think we want a callback here with an error, rather than a res.send. Calling callback with a non-null value let's the async.each function know that there was an error processing the record. That can then be handled in the function below that is run when all records are processed.
-            // callback(err);
+            callback(err);
           }
           // update the original stagedEvent to have the newly created event's genie_id, and ignore set to true. This is so that the staged event no longer appears in the staged list
           StagedEventsModel.findOneAndUpdate(
@@ -44,14 +42,11 @@ module.exports = function(ancestry_id, genie_id, EventsModel, StagedEventsModel,
             { new : true, upsert : true },
             function(err, updatedEvent) {
               if (err) {
-                res.status(500).send(err);
-                 // TODO: I think we want a callback here with an error, rather than a res.send. Calling callback with a non-null value let's the async.each function know that there was an error processing the record. That can then be handled in the function below that is run when all records are processed.
-                // callback(err);
+                callback(err);
               }
-              callback();
-            }
-          )
+            })
         })
+        callback();
         // this function is the third argument to the async.each call, and is run once every record in the stagedEvents is processed.
       }, function(err) {
            if (err) {
@@ -62,9 +57,7 @@ module.exports = function(ancestry_id, genie_id, EventsModel, StagedEventsModel,
              // we get here when all the stagedEvents have been processed and no callback() was called with a error code, so call the functionCallback(), with null value passed, so the calling function can do whatever it needs to, knowing that the events for the person in the call have been imported.
              functionCallback();
            }
-        }
-      )
-    }
-  )
+        })
+    })
 }
 

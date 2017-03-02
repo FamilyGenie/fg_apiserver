@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # v 0.1
-# This DOES NOT handle missing dates
+
+""" See parseDate for details"""
 
 from datetime import datetime
 import re, sys, os
@@ -9,9 +10,10 @@ def main ():
     pass
 
 def parseDate(date):
-    preFormat = removeApprox(date)
-    isoDate = formatToISO(preFormat)
-    return isoDate
+    """
+    This will be the most commonly used function, which takes in a single date and then returns it formatted as ISO time
+    """
+    return formatToISO(removeApprox(date))
 
 def removeApprox(dateString):
 
@@ -52,11 +54,11 @@ def formatToISO(date):
         date1 = int(date[:4])
         date2 = int(date[-4:])
         avgDate = (date1+date2)/2
-        ISODate = '"eventDate" : "' + str(datetime.strptime(str(avgDate), '%Y')) + '",\n"approxDate" : "year"'
+        ISODate = (str(datetime.strptime(str(avgDate), '%Y')), 'year')
         return ISODate
 
     elif years.match(date):
-        ISODate = '"eventDate" : "' + str(datetime.strptime(str(rd[:4]), '%Y')) + '",\n"approxDate": "year"'
+        ISODate = (str(datetime.strptime(str(rd[:4]), '%Y')), 'year')
         return ISODate
 
     else:
@@ -64,12 +66,12 @@ def formatToISO(date):
         for df in dateFormat:
             try:
                 if df == '%Y':
-                    ISODate = '"eventDate" : "' + str(datetime.strptime(date,df)) + '",\n"approxDate" : "year"'
+                    ISODate = (str(datetime.strptime(date,df)), 'year')
                     break
                 elif ( (df == '%B %Y') or (df == '%b %Y') or (df == '%m/%Y') ):
-                    ISODate = '"eventDate" : "' + str(datetime.strptime(date,df)) + '",\n"approxDate" : "month"'
+                    ISODate = (str(datetime.strptime(date,df)), 'month')
                 else:
-                    ISODate = '"eventDate" : "' + str(datetime.strptime(date, df)) + '",\n"approxDate" : "exact"'
+                    ISODate = (str(datetime.strptime(date, df)), 'exact')
                     break
             except ValueError:
                 j += 1

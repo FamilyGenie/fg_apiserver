@@ -67,7 +67,7 @@ module.exports = function(app, mongoose, bodyParser, passport) {
         console.log('python parse failed', err);
       }
       else {
-        exec('mongoimport --db test --collection gedcom_pairbond --type json --file ./gedcom/jsonfiles/' + req.file.filename + 'pairbond.json --jsonArray', function(err) { // imports the file that was just uploaded into mongoDB
+        exec('mongoimport --db test --collection gedcom_pairbonds --type json --file ./gedcom/jsonfiles/' + req.file.filename + 'pairbond.json --jsonArray', function(err) { // imports the file that was just uploaded into mongoDB
           if(err) {
             console.log('mongo import failed', err);
           }
