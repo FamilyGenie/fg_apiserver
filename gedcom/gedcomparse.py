@@ -10,9 +10,7 @@ Strategy:
 """
 
 # import requirements for things to work
-import gedcom
-    # don't forget to build / install gedcompy for parsing
-    ## in the gedcompy folder, run `python setup.py build && python setup.py install`
+import gedcom ## in the gedcompy folder, run `python setup.py build && python setup.py install`
 from datetime import datetime
 import time
 import re
@@ -51,10 +49,6 @@ def getAllInfo(filename):
     # loop through each person in the file and add them to an list and return
     for person in filename.individuals:
         people.append(person)
-
-    # loop through the the newly created list and print each record
-    #  for person in people:
-        #  print person
 
     # this is used for the length of the file as well
     return people

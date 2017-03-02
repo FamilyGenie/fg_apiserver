@@ -26,7 +26,8 @@ module.exports = function(res, PersonModel, StagedPersonModel, EventsModel, Stag
 
             PersonModel.findOne(
               // TODO find sweet spot for search function
-              { $or: [{fName : stagedPerson.fName}, {lName : stagedPerson.lName}, {sexAtBirth : stagedPerson.sexAtBirth }] },
+              // changed back from (fName & lName | birthDate), this is more efficient, could still use work. 
+              { $and: [ { fName : stagedPerson.fName }, { lName : stagedPerson.lName }, { birthDate : stagedPerson.birthDate } ] },
               function(err, person) {
                 if (err) {
                   res.status(500).send(err);
@@ -45,9 +46,20 @@ module.exports = function(res, PersonModel, StagedPersonModel, EventsModel, Stag
                         // TODO: I think we want a callback here with an error, rather than a res.send. Calling callback with a non-null value let's the async.each function know that there was an error processing the record. That can then be handled in the function below that is run when all records are processed.
                         // callback(err);
                       }
-                      // this is what we want to have happen, and we are done processing this record, so call the callback with a null value to indicate success.
-                      callback();
+                      // don't need to call callback() until importEvents is finished
                   })
+                  // if a stagedPerson is not imported because it matches the criteria, we need to store a reference to the staged person on the existing record to help match for relationships
+                  PersonModel.findOneAndUpdate(
+                    { _id : person._id },
+                    { $set: { ancestry_id : stagedPerson.personId } },
+                    { new : true, upsert : true },
+                    function(err, data) {
+                      if (err) {
+                        res.status(500).send(err);
+                      }
+                      // don't need to call callback() until importEvents is finished
+                    }
+                  )
                 } else {
                   // when we do not find the staged person in the people records, we create a new person
                   object = {

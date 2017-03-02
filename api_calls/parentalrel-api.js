@@ -38,9 +38,7 @@ module.exports = function(app, ParentalRelModel) {
         _id: _id,
         user_id: user
       },
-      {$set: set
-
-      },
+      { $set : set },
       {new: true},
       function(err, data) {
         if(err) {
@@ -92,7 +90,9 @@ module.exports = function(app, ParentalRelModel) {
       relationshipType: req.body.object.relationshipType,
       subType: req.body.object.subType,
       startDate: req.body.object.startDate,
+      startDateUser: req.body.object.startDateUser,
       endDate: req.body.object.endDate,
+      endDateUser: req.body.object.endDateUser,
       user_id: user
     };
 

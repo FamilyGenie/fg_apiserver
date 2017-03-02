@@ -61,9 +61,11 @@ require('./api_calls/parentalreltypes-api')(app, ParentalRelTypeModel);
 
 require('./api_calls/stagedpeople-api')(app, StagedPersonModel);
 require('./api_calls/newperson-api.js')(app, PersonModel, EventsModel, ParentalRelModel);
-require('./api_calls/stagedEvents-api.js')(app, StagedEventsModel)
+require('./api_calls/stagedEvents-api.js')(app, StagedEventsModel);
+require('./api_calls/stagedpairbondrels-api.js')(app, StagedPairBondRelModel);
+require('./api_calls/stagedparentalrels-api.js')(app, StagedParentalRelModel);
 
-require('./functions/import-scripts.js')(app, PersonModel, StagedPersonModel, EventsModel, StagedEventsModel);
+require('./functions/import-script.js')(app, PersonModel, StagedPersonModel, EventsModel, StagedEventsModel, ParentalRelModel, StagedParentalRelModel, PairBondRelModel, StagedPairBondRelModel);
 
 app.use(function(req, res, next) {
 	res.status(404);

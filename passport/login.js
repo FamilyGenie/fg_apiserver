@@ -17,7 +17,7 @@ module.exports = function(passport){
                 function(err, user) {
                     // In case of any error, return using the done method
 
-                    // console.log("User", user);
+                    console.log("In Login.js User", user);
                     if (err)
                         return done(err);
                     // Username does not exist, log the error and redirect back
@@ -38,7 +38,7 @@ module.exports = function(passport){
                     // which will be treated like success
 
                     //smtpService.testSend();
-
+                    console.log('In Login, with successful login with user: ', user);
                     return done(null, user);
                 }
             );
