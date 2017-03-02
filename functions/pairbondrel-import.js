@@ -78,11 +78,13 @@ module.exports = function(res, StagedPersonModel, PairBondRelModel, StagedPairBo
                           user_id: stagedPairBondRel.user_id,
                         }
 
+                        // create a new pairbondrel based on the data from above
                         new PairBondRelModel(object).save(function(err, newPairBondRel) {
                           if (err) {
                             callback(err)
                           }
 
+                          // update the staged pairbondrel to have the genie_id and ignore set to true so they don't appear in our duplicate review
                           StagedPairBondRelModel.findOneAndUpdate(
                             { _id : stagedPairBondRel._id },
                             { $set: { genie_id : newPairBondRel._id, ignore : true } },
@@ -94,10 +96,11 @@ module.exports = function(res, StagedPersonModel, PairBondRelModel, StagedPairBo
                             })
                         })
                       }
-                    })
+                  })
               })
             }
-        callback()
+            // call callback() once everything else has completed to send a success message back to the front end
+            callback()
           })
       }, function(err) {
         if (err) {

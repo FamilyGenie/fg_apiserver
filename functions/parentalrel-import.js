@@ -18,6 +18,7 @@ module.exports = function(res, StagedPersonModel, ParentalRelModel, StagedParent
       }
 
       // loop through the parental relationships.
+      // async.each will execute the anonymous function for every record in stagedEvents. The anonymous function will be executed for each record until callback() is run. Once callback() is run for each record, the function that is the third argument to the async.each call is run. If callback is run with a non-null value as a parameter, then that is signal there was an error.
       async.each(stagedParentalRels, function(stagedParentRel, callback) {
         ParentalRelModel.findOne(
           // TODO: find sweet spot for search function
@@ -26,7 +27,7 @@ module.exports = function(res, StagedPersonModel, ParentalRelModel, StagedParent
             if (err) {
               callback(err)
             }
-            // check if there is a match, if there is update the staged record. here we will set ignore to false so the record can be manually reviewed
+            // check if there is a match, if there is update the staged parentalrel record. here we will set ignore to false so the record can be manually reviewed
             if (parentalRel) {
               StagedParentalRelModel.findOneAndUpdate(
                 { _id : stagedParentRel._id },
@@ -73,11 +74,13 @@ module.exports = function(res, StagedPersonModel, ParentalRelModel, StagedParent
                         user_id: stagedParentRel.user_id,
                       }
 
+                      // create the new parental relationship record from the data provided above
                       new ParentalRelModel(object).save(function(err, newParentalRel) {
                         if (err) {
                           callback(err)
                         }
 
+                        // updated the staged parentalrel to have the new genie_id and ignore set to true so that they don't appear in our duplicate review
                         StagedParentalRelModel.findOneAndUpdate(
                           { _id : stagedParentRel._id },
                           { $set: { genie_id : newParentalRel._id, ignore : true } },
@@ -93,6 +96,7 @@ module.exports = function(res, StagedPersonModel, ParentalRelModel, StagedParent
               })
             }
           })
+          // call callback() when everything else has finished successfully and send a success message
           callback();
       }, function(err) {
         if (err) {

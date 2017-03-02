@@ -9,6 +9,7 @@ var logLevel = 'debug';
 var date = new Date();
 
 module.exports = function(app, PersonModel, StagedPersonModel, EventsModel, StagedEventsModel, ParentalRelModel, StagedParentalRelModel, PairBondRelModel, StagedPairBondRelModel) {
+
   app.post('/api/v2/autoimport', auth.isAuthenticated, function(req, res) {
     winston.log(logLevel, date + ': in import-scripts');
 
