@@ -27,7 +27,7 @@ module.exports = function(res, PersonModel, StagedPersonModel, EventsModel, Stag
             PersonModel.findOne(
               // TODO find sweet spot for search function
               // changed back from (fName & lName | birthDate), this is more efficient, could still use work. 
-              { $and: [ { fName : stagedPerson.fName }, { lName : stagedPerson.lName }, { birthDate : stagedPerson.birthDate } ] },
+              { $and: [ { fName : stagedPerson.fName }, { lName : stagedPerson.lName }, { sexAtBirth : stagedPerson.sexAtBirth } ] },
               function(err, person) {
                 if (err) {
                   res.status(500).send(err);
@@ -38,7 +38,7 @@ module.exports = function(res, PersonModel, StagedPersonModel, EventsModel, Stag
                 if (person) {
                   StagedPersonModel.findOneAndUpdate(
                     { _id : stagedPerson._id },
-                    { $set : { ignore : false } },
+                    { $set : { genie_id : person._id, ignore : false } },
                     { new : true, upsert: true },
                     function(err, data1) {
                       if (err) {
@@ -46,7 +46,6 @@ module.exports = function(res, PersonModel, StagedPersonModel, EventsModel, Stag
                         // TODO: I think we want a callback here with an error, rather than a res.send. Calling callback with a non-null value let's the async.each function know that there was an error processing the record. That can then be handled in the function below that is run when all records are processed.
                         // callback(err);
                       }
-                      // don't need to call callback() until importEvents is finished
                   })
                   // if a stagedPerson is not imported because it matches the criteria, we need to store a reference to the staged person on the existing record to help match for relationships
                   PersonModel.findOneAndUpdate(
