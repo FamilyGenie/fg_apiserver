@@ -27,7 +27,6 @@ module.exports = function(res, StagedPersonModel, PairBondRelModel, StagedPairBo
             if (err) { 
               callback(err)
             }
-            //
             // if a pairbond is found that exists in the genie records, update the gedcom record so that it can be reviewed later. 
             if (pairBondRel) {
               StagedPairBondRelModel.findOneAndUpdate(

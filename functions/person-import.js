@@ -27,7 +27,7 @@ module.exports = function(res, PersonModel, StagedPersonModel, EventsModel, Stag
             PersonModel.findOne(
               // TODO find sweet spot for search function
               // changed back from (fName & lName | birthDate), this is more efficient, could still use work. 
-              { $and: [ { fName : stagedPerson.fName }, { lName : stagedPerson.lName }, { birthDate : stagedPerson.birthDate } ] },
+              { $and: [ { fName : stagedPerson.fName }, { lName : stagedPerson.lName }, { sexAtBirth : stagedPerson.sexAtBirth } ] },
               function(err, person) {
                 if (err) {
                   callback(err);
@@ -36,7 +36,7 @@ module.exports = function(res, PersonModel, StagedPersonModel, EventsModel, Stag
                 if (person) {
                   StagedPersonModel.findOneAndUpdate(
                     { _id : stagedPerson._id },
-                    { $set : { ignore : false } },
+                    { $set : { genie_id : person._id, ignore : false } },
                     { new : true, upsert: true },
                     function(err, data1) {
                       if (err) {
