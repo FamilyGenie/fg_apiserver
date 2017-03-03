@@ -102,7 +102,7 @@ def getParentRelation(filename):
             except AttributeError:
                 pass
 
-            buildMother += '"relationshipType" : "Father",\n'
+            buildMother += '"relationshipType" : "Mother",\n'
             buildMother += '"subType" : "Biological",\n'
             buildMother += '"user_id" : "' + userId + '"\n'
 
