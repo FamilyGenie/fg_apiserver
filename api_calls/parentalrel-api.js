@@ -39,7 +39,7 @@ module.exports = function(app, ParentalRelModel) {
         user_id: user
       },
       { $set : set },
-      {new: true},
+      { new : true },
       function(err, data) {
         if(err) {
           res.status(500).send("Error updating parental relationship data" + err);
@@ -101,7 +101,6 @@ module.exports = function(app, ParentalRelModel) {
         res.status(500).send('Error creating new parentalrel: ' + err);
         return;
       }
-      console.log("created Parent: ", data);
       res.status(200).send(JSON.stringify(data));
     });
   });
