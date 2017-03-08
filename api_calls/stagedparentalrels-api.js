@@ -24,4 +24,24 @@ module.exports = function(app, StagedParentalRelModel) {
       }
     );
   });
+
+  app.post('/api/v2/staging/parentalrel/update', auth.isAuthenticated, function(req, res) {
+    winston.log(logLevel, date + ": in update staged parentalrels");
+    var user = req.decoded._doc.userName;
+    const set = {};
+    set[req.body.object.field] = req.body.object.value;
+    StagedParentalRelModel.findOneAndUpdate(
+      {
+        _id: req.body.object._id,
+        user_id: user
+      },
+      { $set : set },
+      { new : true },
+      function(err, data) {
+        if(err) {
+          res.status(500).send('error updating staged parentalrelationship' + err)
+        }
+        res.status(200).send(data);
+      })
+  })
 }
