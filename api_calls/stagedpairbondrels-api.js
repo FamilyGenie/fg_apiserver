@@ -26,11 +26,11 @@ module.exports = function(app, StagedPairBondRelModel) {
   });
 
   app.post('/api/v2/staging/pairbondrel/update', auth.isAuthenticated, function(req, res) {
-    wintson.log(logLevel, date + ": in update staged pairbondrels");
+    winston.log(logLevel, date + ": in update staged pairbondrels");
     var user = req.decoded._doc.userName;
     const set = {};
     set[req.body.object.field] = req.body.object.value;
-    StagedPairondRelModel.findOneAndUpdate(
+    StagedPairBondRelModel.findOneAndUpdate(
       {
         _id: req.body.object._id,
         user_id: user
