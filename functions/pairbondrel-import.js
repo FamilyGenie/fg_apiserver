@@ -73,7 +73,9 @@ module.exports = function(res, StagedPersonModel, PairBondRelModel, StagedPairBo
                           personTwo_id: person_two_id || null,
                           relationshipType: stagedPairBondRel.relationshipType,
                           startDate: stagedPairBondRel.startDate,
+                          startDateUser: stagedPairBondRel.startDateUser,
                           endDate: stagedPairBondRel.endDate,
+                          endDateUser: stagedPairBondRel.endDateUser,
                           user_id: stagedPairBondRel.user_id,
                         }
 
