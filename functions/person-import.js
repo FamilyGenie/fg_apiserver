@@ -30,9 +30,7 @@ module.exports = function(res, PersonModel, StagedPersonModel, EventsModel, Stag
               { $and: [ { fName : stagedPerson.fName }, { lName : stagedPerson.lName }, { sexAtBirth : stagedPerson.sexAtBirth } ] },
               function(err, person) {
                 if (err) {
-                  res.status(500).send(err);
-                  // TODO: I think we want a callback here with an error, rather than a res.send. Calling callback with a non-null value let's the async.each function know that there was an error processing the record. That can then be handled in the function below that is run when all records are processed.
-                // callback(err);
+                  callback(err);
                 }
                 // check if there is a person found that matches the staged person. If so, set ignore to false so the stagedPerson can be manually reviewed by the customer.
                 if (person) {
@@ -42,23 +40,9 @@ module.exports = function(res, PersonModel, StagedPersonModel, EventsModel, Stag
                     { new : true, upsert: true },
                     function(err, data1) {
                       if (err) {
-                        res.status(500).send(err);
-                        // TODO: I think we want a callback here with an error, rather than a res.send. Calling callback with a non-null value let's the async.each function know that there was an error processing the record. That can then be handled in the function below that is run when all records are processed.
-                        // callback(err);
+                        callback(err);
                       }
                   })
-                  // if a stagedPerson is not imported because it matches the criteria, we need to store a reference to the staged person on the existing record to help match for relationships
-                  PersonModel.findOneAndUpdate(
-                    { _id : person._id },
-                    { $set: { ancestry_id : stagedPerson.personId } },
-                    { new : true, upsert : true },
-                    function(err, data) {
-                      if (err) {
-                        res.status(500).send(err);
-                      }
-                      // don't need to call callback() until importEvents is finished
-                    }
-                  )
                 } else {
                   // when we do not find the staged person in the people records, we create a new person
                   object = {
@@ -71,9 +55,7 @@ module.exports = function(res, PersonModel, StagedPersonModel, EventsModel, Stag
 
                   new PersonModel(object).save(function(err, newPerson) {
                     if (err) {
-                      res.status(500).send(err);
-                      // TODO: I think we want a callback here with an error, rather than a res.send. Calling callback with a non-null value let's the async.each function know that there was an error processing the record. That can then be handled in the function below that is run when all records are processed.
-                      // callback(err);
+                      callback(err);
                     }
                     // after the new person is created we update the staged person record to include the genie_id and set ignore to true because we will not need to review this record
                     StagedPersonModel.findOneAndUpdate(
@@ -82,9 +64,7 @@ module.exports = function(res, PersonModel, StagedPersonModel, EventsModel, Stag
                       { new : true, upsert: true },
                       function(err, data1) {
                         if (err) {
-                          res.status(500).send(err);
-                          // TODO: I think we want a callback here with an error, rather than a res.send. Calling callback with a non-null value let's the async.each function know that there was an error processing the record. That can then be handled in the function below that is run when all records are processed.
-                          // callback(err);
+                          callback(err);
                         }
                         // A new person has been imported into the Genie People collection. Call importEvents to import all the events from the stagedEvents collection to the Events collection. As a last parameter, send a callback, which is the callback() that the async.each looks for to signify that this record is done being processed).
                         importEvents(stagedPerson.personId, newPerson._id, EventsModel, StagedEventsModel, function() { callback() })

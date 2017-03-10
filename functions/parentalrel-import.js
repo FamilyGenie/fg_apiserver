@@ -31,7 +31,7 @@ module.exports = function(res, StagedPersonModel, ParentalRelModel, StagedParent
             if (parentalRel) {
               StagedParentalRelModel.findOneAndUpdate(
                 { _id : stagedParentRel._id },
-                { $set : { ignore: false } },
+                { $set : { genie_id: parentalRel._id, ignore: false } },
                 { new : true, upsert : true },
                 function(err, data) {
                   if (err) {
@@ -64,33 +64,35 @@ module.exports = function(res, StagedPersonModel, ParentalRelModel, StagedParent
                       }
                       catch (TypeError) {}
 
-                      object = {
-                        child_id: child_id || null,
-                        parent_id: parent_id || null,
-                        relationshipType: stagedParentRel.relationshipType,
-                        subType: stagedParentRel.subType,
-                        startDate: stagedParentRel.startDate,
-                        endDate: stagedParentRel.endDate,
-                        user_id: stagedParentRel.user_id,
-                      }
-
-                      // create the new parental relationship record from the data provided above
-                      new ParentalRelModel(object).save(function(err, newParentalRel) {
-                        if (err) {
-                          callback(err)
+                      if (child_id || parent_id) {
+                        object = {
+                          child_id: child_id || null,
+                          parent_id: parent_id || null,
+                          relationshipType: stagedParentRel.relationshipType,
+                          subType: stagedParentRel.subType,
+                          startDate: stagedParentRel.startDate,
+                          endDate: stagedParentRel.endDate,
+                          user_id: stagedParentRel.user_id,
                         }
 
-                        // updated the staged parentalrel to have the new genie_id and ignore set to true so that they don't appear in our duplicate review
-                        StagedParentalRelModel.findOneAndUpdate(
-                          { _id : stagedParentRel._id },
-                          { $set: { genie_id : newParentalRel._id, ignore : true } },
-                          { new : true, upsert: true },
-                          function(err, data) {
-                            if (err) {
-                              callback(err)
-                            }
-                          })
-                      })
+                        // create the new parental relationship record from the data provided above
+                        new ParentalRelModel(object).save(function(err, newParentalRel) {
+                          if (err) {
+                            callback(err)
+                          }
+
+                          // updated the staged parentalrel to have the new genie_id and ignore set to true so that they don't appear in our duplicate review
+                          StagedParentalRelModel.findOneAndUpdate(
+                            { _id : stagedParentRel._id },
+                            { $set: { genie_id : newParentalRel._id, ignore : true } },
+                            { new : true, upsert: true },
+                            function(err, data) {
+                              if (err) {
+                                callback(err)
+                              }
+                            })
+                        })
+                    }
                   })
                   
               })
