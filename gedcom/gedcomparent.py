@@ -60,6 +60,7 @@ def getParentRelation(filename):
             try:
                 startDate = parseDate(person.birth.date)
                 buildFather += '"startDate" : "' + startDate[0] + '",\n'
+                buildFather += '"startDateUser" : "' + person.birth.date + '",\n'
                 buildFather += '"approxStart" : "' + startDate[1] + '",\n'
             except AttributeError:
                 pass
@@ -67,6 +68,7 @@ def getParentRelation(filename):
             try:
                 endDate = parseDate(person.death.date)
                 buildFather += '"endDate" : "' + endDate[0] + '",\n'
+                buildFather += '"endDateUser" : "' + person.death.date + '",\n'
                 buildFather += '"approxEnd" : "' + endDate[1] + '",\n'
             except AttributeError:
                 pass
@@ -87,10 +89,11 @@ def getParentRelation(filename):
             buildMother += '"child_id" : "' + person.id + '",\n'
             buildMother += '"parent_id" : "' + person.mother.id + '",\n'
 
-            # parsedate only needs to be called once for each date entered and contains two records
+            # parseDate only needs to be called once for each date entered and contains two records
             try:
                 startDate = parseDate(person.birth.date)
                 buildMother += '"startDate" : "' + startDate[0] + '",\n'
+                buildMother += '"startDateUser" : "' + person.birth.date + '",\n'
                 buildMother += '"approxStart" : "' + startDate[1] + '",\n'
             except AttributeError:
                 pass
@@ -98,11 +101,12 @@ def getParentRelation(filename):
             try:
                 endDate = parseDate(person.death.date)
                 buildMother += '"endDate" : "' + endDate[0] + '",\n'
+                buildMother += '"endDateUser" : "' + person.death.date + '",\n'
                 buildMother += '"approxEnd" : "' + endDate[1] + '",\n'
             except AttributeError:
                 pass
 
-            buildMother += '"relationshipType" : "Father",\n'
+            buildMother += '"relationshipType" : "Mother",\n'
             buildMother += '"subType" : "Biological",\n'
             buildMother += '"user_id" : "' + userId + '"\n'
 
