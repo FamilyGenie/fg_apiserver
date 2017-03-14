@@ -20,14 +20,19 @@ module.exports = function(app, PersonModel, StagedPersonModel, EventsModel, Stag
     winston.log(logLevel, date + ': in import-scripts')
 
     require('./parentalrel-import')(res, StagedPersonModel, ParentalRelModel, StagedParentalRelModel)
-
   })
 
   app.post('/api/v2/autoimportpairbondrels', auth.isAuthenticated, function(req, res) {
     winston.log(logLevel, date + ': in import-scripts')
 
     require('./pairbondrel-import')(res, StagedPersonModel, PairBondRelModel, StagedPairBondRelModel)
+  })
 
+  app.post('/api/v2/clearstagedrecords', auth.isAuthenticated, function(req, res) {
+    winston.log(logLevel, date + ': in import-scripts')
+    
+    var user = req.decoded._doc.userName;
+    require('./clear-staged-records')(res, user, StagedPersonModel, StagedEventsModel, StagedParentalRelModel, StagedPairBondRelModel)
   })
 
 }

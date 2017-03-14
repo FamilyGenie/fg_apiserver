@@ -61,10 +61,7 @@ def makeMarriageRecords(filename):
 
         try:
             buildRecord += '"startDate" : "' + str(parseDate(family.marriage[0].date)[0]) + '",\n'
-        except IndexError:
-            pass
-
-        try:
+            buildRecord += '"startDateUser" : "' + family.marriage[0].date + '",\n'
             buildRecord += '"approxStart": "' + str(parseDate(family.marriage[0].date)[1]) + '",\n'
         except IndexError:
             pass
@@ -75,12 +72,14 @@ def makeMarriageRecords(filename):
                 try:
                     husbId = family.husband.value
                     buildRecord += '"endDate" : "' + parseDate(individual.get_by_id(husbId).divorce[0].date)[0] + '",\n'
+                    buildRecord += '"endDateUser" : "' + individual.get_by_id(husbId).divorce[0].date + '", \n'
                     buildRecord += '"approxEnd" : "' + parseDate(individual.get_by_id(husbId).divorce[0].date)[1] + '",\n'
                     break
                 except AttributeError:
                     try:
                         wifeId = family.wife.value
-                        buildRecord += '"endDate" : "' + parseDate(individual.get_by_id(wifeId).divorce[0].date)[0]
+                        buildRecord += '"endDate" : "' + parseDate(individual.get_by_id(wifeId).divorce[0].date)[0] + '",\n'
+                        buildRecord += '"endDateUser" : "' + individual.get_by_id(wifeId).divorce[0].date + '", \n'
                         buildRecord += '"approxEnd" : "' + parseDate(individual.get_by_id(wifeId).divorce[0].date)[1] + '",\n'
                         break
                     except AttributeError:

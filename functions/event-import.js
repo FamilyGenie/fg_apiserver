@@ -26,6 +26,7 @@ module.exports = function(ancestry_id, genie_id, EventsModel, StagedEventsModel,
           person_id: genie_id,
           eventType: stagedEvent.eventType,
           eventDate: stagedEvent.eventDate,
+          eventDateUser: stagedEvent.eventDateUser,
           eventPlace: stagedEvent.eventPlace,
           approxDate: stagedEvent.approxDate,
           user_id: stagedEvent.user_id

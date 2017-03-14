@@ -21,8 +21,8 @@ module.exports = function(res, StagedPersonModel, PairBondRelModel, StagedPairBo
 
         // start by searching through the existing genie records, trying to find any that match the gedcom records according to the criteria. 
         PairBondRelModel.findOne(
-          // we can also try implementing comparison based on ancestry_id. We want to make sure that the same two people in this record match the genie record.
-          { $and: [ { relationshipType: stagedPairBondRel.relationshipType }, { startDate: stagedPairBondRel.startDate }, { endDate: stagedPairBondRel.endDate } ] },
+          // TODO: find a sweet spot for search function
+          { $and: [ /* relationshipType will always be 'Marriage' */ { startDate: stagedPairBondRel.startDate }, { endDate: stagedPairBondRel.endDate } ] },
           function(err, pairBondRel) {
             if (err) { 
               callback(err)
@@ -73,7 +73,9 @@ module.exports = function(res, StagedPersonModel, PairBondRelModel, StagedPairBo
                           personTwo_id: person_two_id || null,
                           relationshipType: stagedPairBondRel.relationshipType,
                           startDate: stagedPairBondRel.startDate,
+                          startDateUser: stagedPairBondRel.startDateUser,
                           endDate: stagedPairBondRel.endDate,
+                          endDateUser: stagedPairBondRel.endDateUser,
                           user_id: stagedPairBondRel.user_id,
                         }
 

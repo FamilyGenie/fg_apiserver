@@ -71,7 +71,9 @@ module.exports = function(res, StagedPersonModel, ParentalRelModel, StagedParent
                           relationshipType: stagedParentRel.relationshipType,
                           subType: stagedParentRel.subType,
                           startDate: stagedParentRel.startDate,
+                          startDateUser: stagedParentRel.startDateUser,
                           endDate: stagedParentRel.endDate,
+                          endDateUser: stagedParentRel.endDateUser,
                           user_id: stagedParentRel.user_id,
                         }
 

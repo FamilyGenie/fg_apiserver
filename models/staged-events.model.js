@@ -4,6 +4,7 @@ module.exports = function(mongoose, PersonModel) {
     personId : String,
     eventType : String,
     eventDate : Date,
+    eventDateUser : String,
     eventPlace : String,
     approxDate : String,
     genie_id : {type: ObjectId, ref: PersonModel},
