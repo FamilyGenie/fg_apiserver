@@ -12,7 +12,7 @@ var date = new Date();
 
 var _data = [];
 
-module.exports = function(res, PersonModel, StagedPersonModel, EventsModel, StagedEventsModel) {
+module.exports = function(res, user, PersonModel, StagedPersonModel, EventsModel, StagedEventsModel) {
     winston.log(logLevel, date + ': in people import')
 
     StagedPersonModel.find({},
@@ -27,7 +27,7 @@ module.exports = function(res, PersonModel, StagedPersonModel, EventsModel, Stag
             PersonModel.findOne(
               // TODO find sweet spot for search function
               // changed back from (fName & lName | birthDate), this is more efficient, could still use work. 
-              { $and: [ { fName : stagedPerson.fName }, { lName : stagedPerson.lName }, { sexAtBirth : stagedPerson.sexAtBirth } ] },
+              { $and: [ { fName : stagedPerson.fName }, { lName : stagedPerson.lName }, { sexAtBirth : stagedPerson.sexAtBirth }, { user_id : user } ] },
               function(err, person) {
                 if (err) {
                   callback(err);
@@ -67,7 +67,7 @@ module.exports = function(res, PersonModel, StagedPersonModel, EventsModel, Stag
                           callback(err);
                         }
                         // A new person has been imported into the Genie People collection. Call importEvents to import all the events from the stagedEvents collection to the Events collection. As a last parameter, send a callback, which is the callback() that the async.each looks for to signify that this record is done being processed).
-                        importEvents(stagedPerson.personId, newPerson._id, EventsModel, StagedEventsModel, function() { callback() })
+                        importEvents(user, stagedPerson.personId, newPerson._id, EventsModel, StagedEventsModel, function() { callback() })
                     })
                 })
               }
