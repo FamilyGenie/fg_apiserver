@@ -8,7 +8,7 @@ var logLevel = 'debug';
 // var logLevel = 'info';
 var date = new Date();
 
-module.exports = function(res, StagedPersonModel, PairBondRelModel, StagedPairBondRelModel) {
+module.exports = function(res, user, StagedPersonModel, PairBondRelModel, StagedPairBondRelModel) {
   winston.log(logLevel, date + ': in pairBondRel import');
 
   StagedPairBondRelModel.find({},
@@ -22,7 +22,7 @@ module.exports = function(res, StagedPersonModel, PairBondRelModel, StagedPairBo
         // start by searching through the existing genie records, trying to find any that match the gedcom records according to the criteria. 
         PairBondRelModel.findOne(
           // TODO: find a sweet spot for search function
-          { $and: [ /* relationshipType will always be 'Marriage' */ { startDate: stagedPairBondRel.startDate }, { endDate: stagedPairBondRel.endDate } ] },
+          { $and: [ /* relationshipType will always be 'Marriage' */ { startDate: stagedPairBondRel.startDate }, { endDate: stagedPairBondRel.endDate }, { user_id: user } ] },
           function(err, pairBondRel) {
             if (err) { 
               callback(err)
@@ -45,7 +45,7 @@ module.exports = function(res, StagedPersonModel, PairBondRelModel, StagedPairBo
 
               // find the first person and save their _id to append to the new genie pairbond record
               StagedPersonModel.findOne(
-                { personId : stagedPairBondRel.personOne_id },
+                { personId : stagedPairBondRel.personOne_id, user_id : user },
                 function(err, person) {
                   if(err) {
                     callback(err)
@@ -56,7 +56,7 @@ module.exports = function(res, StagedPersonModel, PairBondRelModel, StagedPairBo
                   catch (TypeError) {}
                   
                   StagedPersonModel.findOne(
-                    { personId : stagedPairBondRel.personTwo_id },
+                    { personId : stagedPairBondRel.personTwo_id, user_id : user },
                     function(err, person) {
                       if(err) {
                         callback(err)

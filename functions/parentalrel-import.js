@@ -8,7 +8,7 @@ var logLevel = 'debug';
 // var logLevel = 'info';
 var date = new Date();
 
-module.exports = function(res, StagedPersonModel, ParentalRelModel, StagedParentalRelModel) {
+module.exports = function(res, user, StagedPersonModel, ParentalRelModel, StagedParentalRelModel) {
   winston.log(logLevel, date + ': in parentalRel import');
   
   StagedParentalRelModel.find({},
@@ -22,7 +22,7 @@ module.exports = function(res, StagedPersonModel, ParentalRelModel, StagedParent
       async.each(stagedParentalRels, function(stagedParentRel, callback) {
         ParentalRelModel.findOne(
           // TODO: find sweet spot for search function
-          { $and: [ { relationshipType : stagedParentRel.relationshipType }, { startDate: stagedParentRel.startDate }, { endDate: stagedParentRel.endDate } ] },
+          { $and: [ { relationshipType : stagedParentRel.relationshipType }, { startDate: stagedParentRel.startDate }, { endDate: stagedParentRel.endDate }, { user_id: user } ] },
           function(err, parentalRel) {
             if (err) {
               callback(err)
@@ -43,7 +43,7 @@ module.exports = function(res, StagedPersonModel, ParentalRelModel, StagedParent
               // need to find the _ids of the parent and child as they exist in our records, to create the new parentalRelationship
               var child_id, parent_id;
               StagedPersonModel.findOne(
-                { personId : stagedParentRel.child_id },
+                { personId : stagedParentRel.child_id, user_id : user },
                 function(err, person) {
                   if(err) {
                     callback(err)
@@ -54,7 +54,7 @@ module.exports = function(res, StagedPersonModel, ParentalRelModel, StagedParent
                   catch (TypeError) {}
 
                   StagedPersonModel.findOne(
-                    { personId : stagedParentRel.parent_id },
+                    { personId : stagedParentRel.parent_id, user_id : user },
                     function(err, person) {
                       if(err) {
                         callback(err)
