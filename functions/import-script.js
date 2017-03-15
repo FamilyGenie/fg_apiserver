@@ -44,6 +44,5 @@ module.exports = function(app, PersonModel, StagedPersonModel, EventsModel, Stag
     var user = req.decoded._doc.userName;
     require('./clear-saved-records')(res, user, PersonModel, EventsModel, ParentalRelModel, PairBondRelModel)
   })
-
 }
 
