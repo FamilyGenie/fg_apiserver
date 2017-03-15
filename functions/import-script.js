@@ -35,5 +35,12 @@ module.exports = function(app, PersonModel, StagedPersonModel, EventsModel, Stag
     require('./clear-staged-records')(res, user, StagedPersonModel, StagedEventsModel, StagedParentalRelModel, StagedPairBondRelModel)
   })
 
+  app.post('/api/v2/clearsavedrecords', auth.isAuthenticated, function(req, res) {
+    winston.log(logLevel, date + ': in import-scripts')
+    
+    var user = req.decoded._doc.userName;
+    require('./clear-saved-records')(res, user, PersonModel, EventsModel, ParentalRelModel, PairBondRelModel)
+  })
+
 }
 
