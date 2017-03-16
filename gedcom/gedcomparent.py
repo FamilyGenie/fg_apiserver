@@ -125,38 +125,41 @@ def makeJSONobject(filename):
     :rtype: string
     """
     fRel, mRel = getParentRelation(filename)
-    if len(fRel) < len(mRel):
+    if len(fRel) > len(mRel):
         length = len(fRel)
     else:
         length = len(mRel)
     
-    json = ''
-    json += '[ \n'
-    for i in range(length):
-        try:
-            json += '{\n'
-            json += fRel[i]
-        except IndexError:
-            pass
+    if len(fRel) > 0 or len(mRel) > 0:
+        json = ''
+        json += '[ \n'
+        for i in range(length):
+            try:
+                json += '{\n' + fRel[i]
 
-        if i == (length - 1) and not mRel[i]:
-            json += '}\n'
-        else:
-            json += '},\n'
+                if i == (length - 1) and not i in xrange(len(mRel)): # if this is the last item in the list and there is not another mother relation
+                    json += '}\n'
+                else:
+                    json += '},\n'
 
-        try:
-            json += '{\n'
-            json += mRel[i]
-        except IndexError:
-            pass
+            except IndexError:
+                pass
 
-        if i == (length - 1):
-            json += '}\n'
-        else:
-            json += '},\n'
+            try:
+                json += '{\n' + mRel[i]
 
-    json +=']'
-    return json
+                if i == (length - 1): # if this is the last item in the list.
+                    json += '}\n'
+                else:
+                    json += '},\n'
+
+            except IndexError:
+                pass
+
+        json +=']'
+        return json
+    else:
+        return '[{}]'
         
 
 def writeToJSONfile(filename):
