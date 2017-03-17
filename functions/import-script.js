@@ -14,7 +14,7 @@ module.exports = function(app, PersonModel, StagedPersonModel, EventsModel, Stag
   // for each of these functions we are passing in the required model information, as well as the `res` and the `user`. This allows for responses to be sent from within the scripts.
    
   // auto-import of people and events. Events are imported for each person, called within the function.
-  app.post('/api/v2/autoimport', auth.isAuthenticated, function(req, res) {
+  app.post('/api/v2/autoimportpeople', auth.isAuthenticated, function(req, res) {
     winston.log(logLevel, date + ': in import-scripts');
     var user = req.decoded._doc.userName;
 
@@ -42,5 +42,11 @@ module.exports = function(app, PersonModel, StagedPersonModel, EventsModel, Stag
     require('./clear-staged-records')(res, user, StagedPersonModel, StagedEventsModel, StagedParentalRelModel, StagedPairBondRelModel)
   })
 
+  app.post('/api/v2/clearsavedrecords', auth.isAuthenticated, function(req, res) {
+    winston.log(logLevel, date + ': in import-scripts')
+    
+    var user = req.decoded._doc.userName;
+    require('./clear-saved-records')(res, user, PersonModel, EventsModel, ParentalRelModel, PairBondRelModel)
+  })
 }
 

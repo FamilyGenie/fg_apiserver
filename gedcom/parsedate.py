@@ -13,16 +13,28 @@ def parseDate(date):
     """
     This will be the most commonly used function, which takes in a single date and then returns it formatted as ISO time
     """
-    return formatToISO(removeApprox(date))
+    return formatToISO(formatDateString(date))
 
-def removeApprox(dateString):
+def formatDateString(dateString):
 
     """
-    Approximation RegExp to be removed
+    Format the input dateString from wildly varying user input softly into paresable formats
     """
-    regexp = re.compile('abt\.? |bet\.? |bef\.? |before |about |early |(?<=\d)s|\?|\.', re.IGNORECASE)
-    sept = re.compile('sept', re.IGNORECASE)
-    newDate = sept.sub('sep', regexp.sub('', dateString))
+    approx = re.compile('abt\.? |bet\.? |bef\.? |before |about |early |(?<=\d)s|\?|\.', re.IGNORECASE) # common approxomation strings to be entirely removed
+    sept = re.compile('sept', re.IGNORECASE) # 'sept' is commonly used as a abbrev for the month, datetime only handles 'sep'
+    split = re.compile('([A-Za-z]+)(\d+)', re.IGNORECASE) # not enough spacing between numbers and letters
+    spacing = re.compile('\s+|([A-Za-z]+)(\d+)') # extra spacing causes problems in formatting ex '28     June1995' -> '28 June 1995'
+    comma = re.compile('\s+,\s|(?<=\d),(?=\d)') # weird comma spacing is annoying too.
+
+    # newDate = split.sub(' ', comma.sub(', ', spacing.sub(' ', sept.sub('sep', approx.sub('', dateString))))).split() # yay chaining... actually no that looks like lisp
+
+    step1 = approx.sub('', dateString)
+    step2 = sept.sub('sep', step1)
+    step3 = spacing.sub(' ', step2)
+    step4 = comma.sub(', ', step3)
+    step5 = split.sub(' ', step4)
+    step6 = step5.strip()
+    newDate = step6
 
     return newDate
 
@@ -45,10 +57,11 @@ def formatToISO(date):
     '\xe2\x80\x93' is a dash character (all 3 hex together represents a dash -- the full string)
     """
 
-    dateFormat = ['%m/%d/%Y', '%m-%d-%Y', '%d-%m-%Y', '%m %d %Y', '%d, %b %Y', '%d %B %Y', '%d %b %Y', '%d %B, %Y', '%b %d, %Y', '%B %d, %Y', '%B %d %Y', '%b %d %Y', '%Y, %b %d', '%Y %m %d', '%B %Y', '%b %Y', '%m/%Y', '%Y']
+    dateFormat = ['%Y-%m-%d', '%m/%d/%Y', '%m-%d-%Y', '%d-%m-%Y', '%d/%m/%Y', '%m %d %Y', '%d, %b %Y', '%d %B %Y', '%d %b %Y', '%d %B, %Y', '%b %d, %Y', '%B %d, %Y', '%B %d %Y', '%b %d %Y', '%Y, %b %d', '%Y %m %d', '%Y-%m', '%B %Y', '%b %Y', '%m/%Y', '%b / %Y', '%b/%Y', '%Y']
     years = re.compile('^\d{4} \d{4} \d{4} .+') # for more than 2 years sequentially 1997 1998 1999 ...
     commayrs = re.compile('^\d{4}, \d{4}') # for years separated by a comma 1998, 1999
     dashyrs = re.compile('^\d{4}-\d{4}') # for years separated by a dash # 1998-1999
+    ISODate = ''
 
     if '\xe2\x80\x93' in date or dashyrs.match(date) or commayrs.match(date):
         date1 = int(date[:4])
@@ -77,8 +90,10 @@ def formatToISO(date):
                 j += 1
                 pass
         if j > len(dateFormat) - 1:
-            raise Exception, "Input Date Format Unknown: " + date
-    return ISODate
+            print Exception, "Input Date Format Unknown: " + date
+            ISODate = ('', '')
+            pass
+        return ISODate
 
 
 if __name__ == "__main__":
