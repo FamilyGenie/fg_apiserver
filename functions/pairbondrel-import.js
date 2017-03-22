@@ -109,12 +109,12 @@ module.exports = function(res, user, StagedPersonModel, PairBondRelModel, Staged
               }
             })
           })
-      }, function(err) {
+      }, 
+      function(err) {
         if (err) {
           res.status(500).send(err);
         }
         res.status(200).send('success');
-      })
     });
 }
 
