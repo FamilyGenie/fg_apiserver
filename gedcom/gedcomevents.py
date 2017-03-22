@@ -56,7 +56,7 @@ def makeEventRecords(filename):
                 try:
                     buildRecord += '"eventDate" : "' + str(parseDate(getattr(person, attribute).date)[0]) + '",\n'
                     buildRecord += '"eventDateUser" : "' + getattr(person, attribute).date + '",\n'
-                    #  buildRecord += '"approxDate" : "' + str(parseDate(getattr(person, attribute).date)[1]) + '",\n'
+                    buildRecord += '"approxDate" : "' + str(parseDate(getattr(person, attribute).date)[1]) + '",\n'
                 except AttributeError:
                     buildRecord += '"eventDate" : null,\n'
                     buildRecord += '"eventDateUser" : null,\n'

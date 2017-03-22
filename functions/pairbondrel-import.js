@@ -11,13 +11,13 @@ var date = new Date();
 module.exports = function(res, user, StagedPersonModel, PairBondRelModel, StagedPairBondRelModel) {
   winston.log(logLevel, date + ': in pairBondRel import');
 
-  StagedPairBondRelModel.find({},
+  StagedPairBondRelModel.find({ 'user_id' : user },
     function(err, stagedPairBondRels) {
       if (err) {
-        callback(err)
+        res.status(500).send(err)
       }
 
-      async.each(stagedPairBondRels, function(stagedPairBondRel, callback) {
+      async.forEach(stagedPairBondRels, function(stagedPairBondRel, callback) {
 
         // start by searching through the existing genie records, trying to find any that match the gedcom records according to the criteria. 
         PairBondRelModel.findOne(
@@ -37,6 +37,8 @@ module.exports = function(res, user, StagedPersonModel, PairBondRelModel, Staged
                   if (err) {
                     callback(err)
                   }
+                  // we found a matching pairBondRel, so we updated the staged record with the genie_id, and we are done processing the record, so callback.
+                  callback();
                 })
             }
             // otherwise we want to create a new genie record for the new pairbond.
@@ -53,7 +55,7 @@ module.exports = function(res, user, StagedPersonModel, PairBondRelModel, Staged
                   try {
                     person_one_id = person.genie_id;
                   }
-                  catch (TypeError) {}
+                  catch (TypeError) {} // the catch will happen if person object is empty, and we still want to continue, so do nothing
                   
                   StagedPersonModel.findOne(
                     { personId : stagedPairBondRel.personTwo_id, user_id : user },
@@ -64,7 +66,7 @@ module.exports = function(res, user, StagedPersonModel, PairBondRelModel, Staged
                       try {
                         person_two_id = person.genie_id;
                       }
-                      catch (TypeError) {}
+                      catch (TypeError) {} // the catch will happen if person object is empty, and we still want to continue, so do nothing
 
                       if (person_one_id || person_two_id) {
                         // create a new record to save to the DB.
@@ -94,14 +96,18 @@ module.exports = function(res, user, StagedPersonModel, PairBondRelModel, Staged
                               if (err) {
                                 callback(err)
                               }
+                              // this is as far as we are going to go in processing this record, so callback to signify we are done.
+                              callback();
                             })
                         })
+                      } else {
+                        // we didn't find person_one or person_two, so we are done processing this record, and can callback to signal we are done processing this record.
+                        callback();
                       }
                   })
-              })
-            }
-            // call callback() once everything else has completed to send a success message back to the front end
-            callback()
+                })
+              }
+            })
           })
       }, function(err) {
         if (err) {
