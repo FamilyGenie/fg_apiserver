@@ -51,8 +51,7 @@ module.exports = function(user, ancestry_id, genie_id, EventsModel, StagedEvents
         // this function is the third argument to the async.each call, and is run once every record in the stagedEvents is processed.
       }, function(err) {
            if (err) {
-             res.status(500).send(err);
-             // TODO: Here, I think we want to call the functionCallback with the err code. Then in the code that calls this function, we can check for a non-null value, to signify an error, and do what is required there.
+             functionCallback(err);
            }
            else {
              // we get here when all the stagedEvents have been processed and no callback() was called with a error code, so call the functionCallback(), with null value passed, so the calling function can do whatever it needs to, knowing that the events for the person in the call have been imported.
