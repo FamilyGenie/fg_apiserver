@@ -55,9 +55,11 @@ def makeEventRecords(filename):
 
                 try:
                     buildRecord += '"eventDate" : "' + str(parseDate(getattr(person, attribute).date)[0]) + '",\n'
+                    buildRecord += '"eventDateUser" : "' + getattr(person, attribute).date + '",\n'
                     buildRecord += '"approxDate" : "' + str(parseDate(getattr(person, attribute).date)[1]) + '",\n'
                 except AttributeError:
                     buildRecord += '"eventDate" : null,\n'
+                    buildRecord += '"eventDateUser" : null,\n'
 
                 try:
                     buildRecord += '"eventPlace" : "' + getattr(person, attribute).place + '",\n'
@@ -82,19 +84,21 @@ def makeJSONobject(filename):
     """
 
     eventRecords = makeEventRecords(filename)
-    jsonEvents = '['
-    i = 0
-    for event in eventRecords:
-        if i == len(eventRecords) - 1:
-            jsonEvents += event + '\n'
-        else:
-            jsonEvents += event + ',\n'
-        i += 1
+    if eventRecords:
+        jsonEvents = '['
+        i = 0
+        for event in eventRecords:
+            if i == len(eventRecords) - 1:
+                jsonEvents += event + '\n'
+            else:
+                jsonEvents += event + ',\n'
+            i += 1
 
-    jsonEvents += ']'
+        jsonEvents += ']'
 
-    print jsonEvents
-    return jsonEvents
+        return jsonEvents
+    else:
+        return '[{}]'
 
 def writeToJSONfile(filename):
     """write the created json object to the output file and save it"""

@@ -8,10 +8,10 @@ var logLevel = 'debug';
 // var logLevel = 'info';
 var date = new Date();
 
-module.exports = function(res, StagedPersonModel, ParentalRelModel, StagedParentalRelModel) {
+module.exports = function(res, user, StagedPersonModel, ParentalRelModel, StagedParentalRelModel) {
   winston.log(logLevel, date + ': in parentalRel import');
   
-  StagedParentalRelModel.find({},
+  StagedParentalRelModel.find({ 'user_id' : user },
     function(err, stagedParentalRels) {
       if (err) {
         res.status(500).send(err)
@@ -22,7 +22,7 @@ module.exports = function(res, StagedPersonModel, ParentalRelModel, StagedParent
       async.each(stagedParentalRels, function(stagedParentRel, callback) {
         ParentalRelModel.findOne(
           // TODO: find sweet spot for search function
-          { $and: [ { relationshipType : stagedParentRel.relationshipType }, { startDate: stagedParentRel.startDate }, { endDate: stagedParentRel.endDate } ] },
+          { $and: [ { relationshipType : stagedParentRel.relationshipType }, { startDate: stagedParentRel.startDate }, { endDate: stagedParentRel.endDate }, { user_id: user } ] },
           function(err, parentalRel) {
             if (err) {
               callback(err)
@@ -37,13 +37,15 @@ module.exports = function(res, StagedPersonModel, ParentalRelModel, StagedParent
                   if (err) {
                     callback(err)
                   }
+                  // we found a matching parentalRel, so we updated the staged record with the genie_id, and we are done processing the record, so callback.
+                  callback()
                 })
             }
             else {
               // need to find the _ids of the parent and child as they exist in our records, to create the new parentalRelationship
               var child_id, parent_id;
               StagedPersonModel.findOne(
-                { personId : stagedParentRel.child_id },
+                { personId : stagedParentRel.child_id, user_id : user },
                 function(err, person) {
                   if(err) {
                     callback(err)
@@ -54,7 +56,7 @@ module.exports = function(res, StagedPersonModel, ParentalRelModel, StagedParent
                   catch (TypeError) {}
 
                   StagedPersonModel.findOne(
-                    { personId : stagedParentRel.parent_id },
+                    { personId : stagedParentRel.parent_id, user_id : user },
                     function(err, person) {
                       if(err) {
                         callback(err)
@@ -71,7 +73,9 @@ module.exports = function(res, StagedPersonModel, ParentalRelModel, StagedParent
                           relationshipType: stagedParentRel.relationshipType,
                           subType: stagedParentRel.subType,
                           startDate: stagedParentRel.startDate,
+                          startDateUser: stagedParentRel.startDateUser,
                           endDate: stagedParentRel.endDate,
+                          endDateUser: stagedParentRel.endDateUser,
                           user_id: stagedParentRel.user_id,
                         }
 
@@ -90,16 +94,19 @@ module.exports = function(res, StagedPersonModel, ParentalRelModel, StagedParent
                               if (err) {
                                 callback(err)
                               }
+                              // this is as far as we are going to go in processing this record, so callback to signify we are done.
+                              callback();
                             })
                         })
-                    }
+                      } else {
+                        // we didn't find child or parent, so we are done processing this record, and can callback to signal we are done processing this record.
+                        callback()
+                      }
                   })
                   
               })
             }
           })
-          // call callback() when everything else has finished successfully and send a success message
-          callback();
       }, function(err) {
         if (err) {
           res.status(500).send(err);

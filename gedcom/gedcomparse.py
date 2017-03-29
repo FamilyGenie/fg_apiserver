@@ -66,7 +66,7 @@ def getBirthPlace(filename):
     birthPlace = []
     for person in filename.individuals:
         try:
-            birthPlace.append('"birthPlace" : "' + person.birth.place + '"')
+            birthPlace.append('"birthPlace" : "' + person.birth.place.replace('"', '\\"') + '"')
         except AttributeError:
             birthPlace.append('"birthPlace" : null')
     return birthPlace
@@ -94,7 +94,7 @@ def getDeathPlace(filename):
     deathPlace = []
     for person in filename.individuals:
         try:
-            deathPlace.append('"deathPlace" : "' + person.death.place + '"')
+            deathPlace.append('"deathPlace" : "' + person.death.place.replace('"', '\\"') + '"')
         except AttributeError:
             deathPlace.append('"deathPlace" : null')
     return deathPlace
@@ -122,8 +122,8 @@ def getSexAtBirth(filename):
     sexAtBirth = []
     for person in filename.individuals:
         try:
-            sexAtBirth.append('"sexAtBirth" : "' + person.sex + '"')
-        except AttributeError:
+            sexAtBirth.append('"sexAtBirth" : "' + person.sex.replace('"', '\\"') + '"')
+        except:
             sexAtBirth.append('"sexAtBirth" : null')
     return sexAtBirth
 
@@ -142,8 +142,8 @@ def getName(filename):
             lastname = ''
         if firstname == None:
             firstname = ''
-        firstName.append('"fName" : "' + firstname + '"')
-        lastName.append('"lName" : "' + lastname + '"')
+        firstName.append('"fName" : "' + firstname.replace('"', '\\"') + '"')
+        lastName.append('"lName" : "' + lastname.replace('"', '\\"') + '"')
     return firstName, lastName
 
 def getPersonId(filename):
@@ -248,16 +248,16 @@ def parseTime(filename):
             deathDate.append('"deathDate" : null,\n"approxDate" : "exact"')
         else:
             j = 0
-            for i in dateFormat:
+            for df in dateFormat:
                 try:
-                    if i == '%Y':
+                    if df == '%Y':
                         # datetime.strptime is a public lib -- see the README. if the date does not match the date format string being tested, this function will error and exception will be passed
-                        deathDate.append('"deathDate" : "' + str(datetime.strptime(dd, i)) + '",\n"approxDate" : "year"')
+                        deathDate.append('"deathDate" : "' + str(datetime.strptime(dd, df)) + '",\n"approxDate" : "year"')
                         break
                     elif ( (df == '%B %Y') or (df == '%b %Y') or (df == '%m %Y') ):
                         birthDate.append('"deathDate" : "' + str(datetime.strptime(bd, df)) + '",\n"approxBirth" : "month"')
                     else:
-                        deathDate.append('"deathDate" : "' + str(datetime.strptime(dd, i)) + '",\n"approxDate" : "exact"')
+                        deathDate.append('"deathDate" : "' + str(datetime.strptime(dd, df)) + '",\n"approxDate" : "exact"')
                         break
                 except ValueError as e:
                     j += 1
@@ -373,14 +373,17 @@ def makeJSONobject(filename):
     json += '[ \n'
     for i in range(length):
         json += '{ \n'
-        json += firstName[i] + ',\n'
-        json += lastName[i] + ',\n'
-        json += sexAtBirth[i] + ',\n'
-        json += birthDate[i] + ',\n'
-        json += birthPlace[i] + ',\n'
-        json += deathDate [i] + ',\n'
-        json += deathPlace[i] + ',\n'
-        json += personId[i] + ',\n'
+        try:
+            json += firstName[i] + ',\n'
+            json += lastName[i] + ',\n'
+            json += sexAtBirth[i] + ',\n'
+            json += birthDate[i] + ',\n'
+            json += birthPlace[i] + ',\n'
+            json += deathDate[i] + ',\n'
+            json += deathPlace[i] + ',\n'
+            json += personId[i] + ',\n'
+        except IndexError:
+            pass
         json += '"user_id" : "' + userId + '"\n'
         if i == (length - 1):
             json += '}\n'

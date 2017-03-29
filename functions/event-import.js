@@ -9,12 +9,12 @@ var logLevel = 'debug';
 var date = new Date();
 
 // passing in the ancestry_id and genie_id makes this function smaller and more universal for importing events based on a single person. No need to search through the tables too many times.
-module.exports = function(ancestry_id, genie_id, EventsModel, StagedEventsModel, functionCallback) {
+module.exports = function(user, ancestry_id, genie_id, EventsModel, StagedEventsModel, functionCallback) {
   // winston.log(logLevel, date + ': in events import');
 
   // find all events where the personId on the event matches the ancestry_id passed in from above.
   StagedEventsModel.find(
-    { personId : ancestry_id },
+    { personId : ancestry_id, user_id: user },
     function(err, stagedEvents) {
       if (err) {
         res.status(500).send(err);
@@ -26,6 +26,7 @@ module.exports = function(ancestry_id, genie_id, EventsModel, StagedEventsModel,
           person_id: genie_id,
           eventType: stagedEvent.eventType,
           eventDate: stagedEvent.eventDate,
+          eventDateUser: stagedEvent.eventDateUser,
           eventPlace: stagedEvent.eventPlace,
           approxDate: stagedEvent.approxDate,
           user_id: stagedEvent.user_id
@@ -50,8 +51,7 @@ module.exports = function(ancestry_id, genie_id, EventsModel, StagedEventsModel,
         // this function is the third argument to the async.each call, and is run once every record in the stagedEvents is processed.
       }, function(err) {
            if (err) {
-             res.status(500).send(err);
-             // TODO: Here, I think we want to call the functionCallback with the err code. Then in the code that calls this function, we can check for a non-null value, to signify an error, and do what is required there.
+             functionCallback(err);
            }
            else {
              // we get here when all the stagedEvents have been processed and no callback() was called with a error code, so call the functionCallback(), with null value passed, so the calling function can do whatever it needs to, knowing that the events for the person in the call have been imported.

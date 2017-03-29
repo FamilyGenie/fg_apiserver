@@ -61,12 +61,9 @@ def makeMarriageRecords(filename):
 
         try:
             buildRecord += '"startDate" : "' + str(parseDate(family.marriage[0].date)[0]) + '",\n'
-        except IndexError:
-            pass
-
-        try:
+            buildRecord += '"startDateUser" : "' + family.marriage[0].date + '",\n'
             buildRecord += '"approxStart": "' + str(parseDate(family.marriage[0].date)[1]) + '",\n'
-        except IndexError:
+        except:
             pass
 
         try:
@@ -75,12 +72,14 @@ def makeMarriageRecords(filename):
                 try:
                     husbId = family.husband.value
                     buildRecord += '"endDate" : "' + parseDate(individual.get_by_id(husbId).divorce[0].date)[0] + '",\n'
+                    buildRecord += '"endDateUser" : "' + individual.get_by_id(husbId).divorce[0].date + '", \n'
                     buildRecord += '"approxEnd" : "' + parseDate(individual.get_by_id(husbId).divorce[0].date)[1] + '",\n'
                     break
                 except AttributeError:
                     try:
                         wifeId = family.wife.value
-                        buildRecord += '"endDate" : "' + parseDate(individual.get_by_id(wifeId).divorce[0].date)[0]
+                        buildRecord += '"endDate" : "' + parseDate(individual.get_by_id(wifeId).divorce[0].date)[0] + '",\n'
+                        buildRecord += '"endDateUser" : "' + individual.get_by_id(wifeId).divorce[0].date + '", \n'
                         buildRecord += '"approxEnd" : "' + parseDate(individual.get_by_id(wifeId).divorce[0].date)[1] + '",\n'
                         break
                     except AttributeError:
@@ -106,17 +105,20 @@ def makeJSONobject(filename):
 
     mRecords = makeMarriageRecords(filename)
 
-    json = ''
-    json += '[ \n'
-    for i in range(len(mRecords)):
-        json += '{ \n'
-        json += mRecords[i]
-        if i == (len(mRecords) -1):
-            json += '}\n'
-        else:
-            json += '},\n'
-    json += ']'
-    return json
+    if mRecords:
+        json = ''
+        json += '[ \n'
+        for i in range(len(mRecords)):
+            json += '{ \n'
+            json += mRecords[i]
+            if i == (len(mRecords) -1):
+                json += '}\n'
+            else:
+                json += '},\n'
+        json += ']'
+        return json
+    else: 
+        return '[{}]'
 
 def writeToJSONfile(filename):
     json = makeJSONobject(filename)

@@ -8,21 +8,21 @@ var logLevel = 'debug';
 // var logLevel = 'info';
 var date = new Date();
 
-module.exports = function(res, StagedPersonModel, PairBondRelModel, StagedPairBondRelModel) {
+module.exports = function(res, user, StagedPersonModel, PairBondRelModel, StagedPairBondRelModel) {
   winston.log(logLevel, date + ': in pairBondRel import');
 
-  StagedPairBondRelModel.find({},
+  StagedPairBondRelModel.find({ 'user_id' : user },
     function(err, stagedPairBondRels) {
       if (err) {
-        callback(err)
+        res.status(500).send(err)
       }
 
-      async.each(stagedPairBondRels, function(stagedPairBondRel, callback) {
+      async.forEach(stagedPairBondRels, function(stagedPairBondRel, callback) {
 
         // start by searching through the existing genie records, trying to find any that match the gedcom records according to the criteria. 
         PairBondRelModel.findOne(
-          // we can also try implementing comparison based on ancestry_id. We want to make sure that the same two people in this record match the genie record.
-          { $and: [ { relationshipType: stagedPairBondRel.relationshipType }, { startDate: stagedPairBondRel.startDate }, { endDate: stagedPairBondRel.endDate } ] },
+          // TODO: find a sweet spot for search function
+          { $and: [ /* relationshipType will always be 'Marriage' */ { startDate: stagedPairBondRel.startDate }, { endDate: stagedPairBondRel.endDate }, { user_id: user } ] },
           function(err, pairBondRel) {
             if (err) { 
               callback(err)
@@ -37,6 +37,8 @@ module.exports = function(res, StagedPersonModel, PairBondRelModel, StagedPairBo
                   if (err) {
                     callback(err)
                   }
+                  // we found a matching pairBondRel, so we updated the staged record with the genie_id, and we are done processing the record, so callback.
+                  callback();
                 })
             }
             // otherwise we want to create a new genie record for the new pairbond.
@@ -45,7 +47,7 @@ module.exports = function(res, StagedPersonModel, PairBondRelModel, StagedPairBo
 
               // find the first person and save their _id to append to the new genie pairbond record
               StagedPersonModel.findOne(
-                { personId : stagedPairBondRel.personOne_id },
+                { personId : stagedPairBondRel.personOne_id, user_id : user },
                 function(err, person) {
                   if(err) {
                     callback(err)
@@ -53,10 +55,10 @@ module.exports = function(res, StagedPersonModel, PairBondRelModel, StagedPairBo
                   try {
                     person_one_id = person.genie_id;
                   }
-                  catch (TypeError) {}
+                  catch (TypeError) {} // the catch will happen if person object is empty, and we still want to continue, so do nothing
                   
                   StagedPersonModel.findOne(
-                    { personId : stagedPairBondRel.personTwo_id },
+                    { personId : stagedPairBondRel.personTwo_id, user_id : user },
                     function(err, person) {
                       if(err) {
                         callback(err)
@@ -64,7 +66,7 @@ module.exports = function(res, StagedPersonModel, PairBondRelModel, StagedPairBo
                       try {
                         person_two_id = person.genie_id;
                       }
-                      catch (TypeError) {}
+                      catch (TypeError) {} // the catch will happen if person object is empty, and we still want to continue, so do nothing
 
                       if (person_one_id || person_two_id) {
                         // create a new record to save to the DB.
@@ -73,7 +75,9 @@ module.exports = function(res, StagedPersonModel, PairBondRelModel, StagedPairBo
                           personTwo_id: person_two_id || null,
                           relationshipType: stagedPairBondRel.relationshipType,
                           startDate: stagedPairBondRel.startDate,
+                          startDateUser: stagedPairBondRel.startDateUser,
                           endDate: stagedPairBondRel.endDate,
+                          endDateUser: stagedPairBondRel.endDateUser,
                           user_id: stagedPairBondRel.user_id,
                         }
 
@@ -92,21 +96,25 @@ module.exports = function(res, StagedPersonModel, PairBondRelModel, StagedPairBo
                               if (err) {
                                 callback(err)
                               }
+                              // this is as far as we are going to go in processing this record, so callback to signify we are done.
+                              callback();
                             })
                         })
+                      } else {
+                        // we didn't find person_one or person_two, so we are done processing this record, and can callback to signal we are done processing this record.
+                        callback();
                       }
                   })
-              })
-            }
-            // call callback() once everything else has completed to send a success message back to the front end
-            callback()
+                })
+              }
+            })
           })
-      }, function(err) {
+      }, 
+      function(err) {
         if (err) {
           res.status(500).send(err);
         }
         res.status(200).send('success');
-      })
     });
 }
 
