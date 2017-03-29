@@ -92,7 +92,6 @@ def formatToISO(date):
         if j > len(dateFormat) - 1:
             print Exception, "Input Date Format Unknown: " + date
             ISODate = ('', '')
-            pass
         return ISODate
 
 
