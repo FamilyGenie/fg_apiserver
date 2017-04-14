@@ -1,3 +1,8 @@
 *.ged
 *.json
 .DS_Store
+*.pyc
+.cache
+Gedcom_To_Json.egg-info/
+build
+dist
