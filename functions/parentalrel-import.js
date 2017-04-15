@@ -10,7 +10,7 @@ var date = new Date();
 
 module.exports = function(res, user, StagedPersonModel, ParentalRelModel, StagedParentalRelModel) {
   winston.log(logLevel, date + ': in parentalRel import');
-  
+
   StagedParentalRelModel.find({ 'user_id' : user },
     function(err, stagedParentalRels) {
       if (err) {
@@ -103,7 +103,6 @@ module.exports = function(res, user, StagedPersonModel, ParentalRelModel, Staged
                         callback()
                       }
                   })
-                  
               })
             }
           })
@@ -111,7 +110,6 @@ module.exports = function(res, user, StagedPersonModel, ParentalRelModel, Staged
         if (err) {
           res.status(500).send(err);
         }
-        // return something here to update store
         res.status(200).send('success');
       })
     });
