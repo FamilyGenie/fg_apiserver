@@ -4,15 +4,21 @@
 """ See parseDate for details"""
 
 from datetime import datetime
-import re, sys, os
+import re, sys, os, time
 
 def main ():
     pass
 
 def parseDate(date):
-    """
-    This will be the most commonly used function, which takes in a single date and then returns it formatted as ISO time
-    """
+    try:
+        return _parseDate(date)
+    except DateParseError as e:
+        with open("./gedcom/log/date.log", "a") as log:
+            log.write(time.strftime("%Y-%m-%d") + " " + time.strftime("%H:%M:%S") + " | Error for Date: '" + e.args[0])
+        return ('','')
+
+
+def _parseDate(date):
     return formatToISO(formatDateString(date))
 
 def formatDateString(dateString):
@@ -54,7 +60,7 @@ def formatToISO(date):
     %m/%y/%d = 06/95/28
     %d %b %Y = 28 Jun 1995
 
-    '\xe2\x80\x93' is a dash character (all 3 hex together represents a dash -- the full string)
+    '\xe2\x80\x93' is a dash character (all 3 hex together represents a dash the full string)
     """
 
     dateFormat = ['%Y-%m-%d', '%m/%d/%Y', '%m-%d-%Y', '%d-%m-%Y', '%d/%m/%Y', '%m %d %Y', '%d, %b %Y', '%d %B %Y', '%d %b %Y', '%d %B, %Y', '%b %d, %Y', '%B %d, %Y', '%B %d %Y', '%b %d %Y', '%Y, %b %d', '%Y %m %d', '%Y-%m', '%B %Y', '%b %Y', '%m/%Y', '%b / %Y', '%b/%Y', '%Y']
@@ -64,11 +70,14 @@ def formatToISO(date):
     ISODate = ''
 
     if '\xe2\x80\x93' in date or dashyrs.match(date) or commayrs.match(date):
-        date1 = int(date[:4])
-        date2 = int(date[-4:])
-        avgDate = (date1+date2)/2
-        ISODate = (str(datetime.strptime(str(avgDate), '%Y')), 'year')
-        return ISODate
+        try:
+            date1 = int(date[:4])
+            date2 = int(date[-4:])
+            avgDate = (date1+date2)/2
+            ISODate = (str(datetime.strptime(str(avgDate), '%Y')), 'year')
+            return ISODate
+        except:
+            return ('','')
 
     elif years.match(date):
         ISODate = (str(datetime.strptime(str(rd[:4]), '%Y')), 'year')
@@ -90,11 +99,12 @@ def formatToISO(date):
                 j += 1
                 pass
         if j > len(dateFormat) - 1:
-            print Exception, "Input Date Format Unknown: " + date
+            raise DateParseError(date)
             ISODate = ('', '')
-            pass
         return ISODate
 
+class DateParseError(Exception):
+    pass
 
 if __name__ == "__main__":
     main()

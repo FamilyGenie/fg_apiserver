@@ -4,103 +4,112 @@ var exec = require('child_process').exec;
 var upload = multer({ dest: './gedcom/uploads/' });
 var type = upload.single('gedcom');
 
+/* Error Codes:
+ * sent in the form 'XX.Y', where XX is the error and Y is the location
+ * 27 : python conversion failed
+ * 34 : mongodb import failed
+ */
+
 module.exports = function(app, mongoose, bodyParser, passport) {
 
-  // I thought these lines were needed. But it now appears to be working without them. Leaving them commented out for now.
-  // app.use(bodyParser.json());
-  // app.use(bodyParser.urlencoded({ extended: true }));
-
-  // these lines not needed, as the domain of this server is the same as the domain running the Angular code. Keeping these here just in case.
-  // app.use(function(req, res, next) {
-  //   res.header("Access-Control-Allow-Origin", "*");
-  //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  //   next();
-  // });
-
-  // I couldn't figure out how to change the filename that is sent over, and saw that the action from the client side was sending the name "filename", so using that name here.
   app.post("/uploads", auth.isAuthenticated, type, function(req, res) {
     var user_id = req.decoded._doc.userName;
     console.log("inside gedcom parse and import for user: ", user_id);
-    res.status(200).send(req.file);
 
     // parse and import people
-    exec('python ./gedcom/gedcomparse.py ./gedcom/uploads/' + req.file.filename + ' ./gedcom/jsonfiles/' + req.file.filename + 'indi.json ' + user_id,  
+    exec('python ./gedcom/parse/indiparse.py ./gedcom/uploads/' + req.file.filename + ' ./gedcom/jsonfiles/' + req.file.filename + 'indi.json ' + user_id,  
       // run the python program on the info
       function(err) {
         if(err) {
-          console.log('python parse failed', err);
+          console.log('something bad happened', err)
+          // res.status(500).send({err, 'code': 27.1})
         }
       else {
         // this call imports the file that was just uploaded into mongoDB
         exec('mongoimport --db test --collection gedcom_people --type json --file ./gedcom/jsonfiles/' + req.file.filename + 'indi.json --jsonArray', 
           function(err) {
           if(err) {
-            console.log('mongo import failed', err);
+            console.log('something bad happened', err)
+            // res.status(500).send({err, 'code': 34.1})
           }
           else {
-            console.log('people json file imported to mongo');
+            // write a simple response to the front end, for progress
+            console.log('imported Individual data to mongodb')
+            // res.write({step:01});
           }
         });
       }
     });
 
     // parse and import parents
-    exec('python ./gedcom/gedcomparent.py ./gedcom/uploads/' + req.file.filename + ' ./gedcom/jsonfiles/' + req.file.filename + 'parent.json ' + user_id,  
+    exec('python ./gedcom/parse/parentparse.py ./gedcom/uploads/' + req.file.filename + ' ./gedcom/jsonfiles/' + req.file.filename + 'parent.json ' + user_id,  
       // run the python program on the info
       function(err) {
       if(err) {
-        console.log('python parse failed', err);
+        console.log('something bad happened', err)
+        // res.status(500).send({err, 'code': 27.2})
       }
       else {
         exec('mongoimport --db test --collection gedcom_parents --type json --file ./gedcom/jsonfiles/' + req.file.filename + 'parent.json --jsonArray',
           function(err) { // imports the file that was just uploaded into mongoDB
             if(err) {
-              console.log('mongo import failed', err);
+              console.log('something bad happened', err)
+              // res.status(500).send({err, 'code': 34.2})
             }
             else {
-              console.log('parent json file imported to mongo');
+              console.log('imported ParentalRel data to mongodb')
+              // res.write({step:02});
             }
         });
       }
     });
 
     // parse and import pair bonds
-    exec('python ./gedcom/gedcompairbonds.py ./gedcom/uploads/' + req.file.filename + ' ./gedcom/jsonfiles/' + req.file.filename + 'pairbond.json ' + user_id,  
+    exec('python ./gedcom/parse/pairbondparse.py ./gedcom/uploads/' + req.file.filename + ' ./gedcom/jsonfiles/' + req.file.filename + 'pairbond.json ' + user_id,  
       // run the python program on the info
       function(err) {
       if(err) {
-        console.log('python parse failed', err);
+        console.log('something bad happened', err)
+        // res.status(500).send({err, 'code': 27.3})
       }
       else {
         exec('mongoimport --db test --collection gedcom_pairbonds --type json --file ./gedcom/jsonfiles/' + req.file.filename + 'pairbond.json --jsonArray',
           function(err) { // imports the file that was just uploaded into mongoDB
             if(err) {
-              console.log('mongo import failed', err);
+              console.log('something bad happened', err)
+              // res.status(500).send({err, 'code': 34.3})
             }
             else {
-              console.log('pairbond json file imported to mongo');
+              console.log('imported PairBondRel data to mongodb')
+              // res.write({step:03});
             }
         });
       }
     });
 
-  exec('python ./gedcom/gedcomevents.py ./gedcom/uploads/' + req.file.filename + ' ./gedcom/jsonfiles/' + req.file.filename + 'event.json ' + user_id,
+  exec('python ./gedcom/parse/eventparse.py ./gedcom/uploads/' + req.file.filename + ' ./gedcom/jsonfiles/' + req.file.filename + 'event.json ' + user_id,
     function(err) {
       if (err) {
-        console.log('python parse failed', err)
+        console.log('something bad happened', err)
+        // res.status(500).send({err, 'code': 27.4})
       }
       else {
         exec('mongoimport --db test --collection gedcom_events --type json --file ./gedcom/jsonfiles/' + req.file.filename + 'event.json --jsonArray',
           function(err) {
             if (err) {
-              console.log('mongo import failed events' + err)
+              console.log('something bad happened', err)
+              // res.status(500).send({err, 'code': 34.4})
             }
             else {
-              console.log('events json imported to mongo');
+              console.log('imported Event data to mongodb')
+              // res.write({step:04});
             }
         });
       }
     });
+
+    // indicate completion
+    res.status(200).send('success');
 
   });
 
