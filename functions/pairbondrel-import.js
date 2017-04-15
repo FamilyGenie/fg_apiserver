@@ -110,7 +110,6 @@ module.exports = function(res, user, StagedPersonModel, PairBondRelModel, Staged
 						} // end of if-else(pairBondRel)
 					}
 				)
-//					})
 			},
 			function(err) {
 				if (err) {
