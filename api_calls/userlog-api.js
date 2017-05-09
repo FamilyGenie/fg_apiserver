@@ -1,14 +1,13 @@
 var auth = require('../authentication');
 var mongoose = require('mongoose');
 var winston = require('winston');
-var moment = require('moment');
 
 winston.level = 'debug'; // uncomment for development debugging
 var logLevel = 'debug';
 // var logLevel = 'info';
 
 var date = new Date();
-// var vDate = new moment();
+mongoose.Promise = global.Promise;;
 
 
 module.exports = function(app, UserLogModel) {
