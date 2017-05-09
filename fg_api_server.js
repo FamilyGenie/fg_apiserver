@@ -27,6 +27,8 @@ var StagedPersonModel = require('./models/staged-person.model.js')(mongoose, Per
 var StagedEventsModel = require('./models/staged-events.model.js')(mongoose, PersonModel);
 var StagedPairBondRelModel = require('./models/staged-pairbond-relationship.model.js')(mongoose, PersonModel);
 var StagedParentalRelModel = require('./models/staged-parental-relationship.model.js')(mongoose, PersonModel);
+
+var UserLogModel = require('./models/user-log.model.js')(mongoose);
 // END Mongoose Models
 
 var app = express();
@@ -66,6 +68,8 @@ require('./api_calls/stagedpairbondrels-api.js')(app, StagedPairBondRelModel);
 require('./api_calls/stagedparentalrels-api.js')(app, StagedParentalRelModel);
 
 require('./functions/import-script.js')(app, PersonModel, StagedPersonModel, EventsModel, StagedEventsModel, ParentalRelModel, StagedParentalRelModel, PairBondRelModel, StagedPairBondRelModel);
+
+require('./api_calls/userlog-api.js')(app, UserLogModel);
 
 app.use(function(req, res, next) {
 	res.status(404);

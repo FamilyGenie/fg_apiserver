@@ -17,7 +17,7 @@ module.exports = function(app, mongoose, bodyParser, passport) {
     console.log("inside gedcom parse and import for user: ", user_id);
 
     // parse and import people
-    exec('python ./gedcom/parse/indiparse.py ./gedcom/uploads/' + req.file.filename + ' ./gedcom/jsonfiles/' + req.file.filename + 'indi.json ' + user_id,  
+    exec('python ./gedcom/parse/indiparse.py ./gedcom/uploads/' + req.file.filename + ' ./gedcom/jsonfiles/' + req.file.filename + 'indi.json ' + user_id,
       // run the python program on the info
       function(err) {
         if(err) {
@@ -26,7 +26,7 @@ module.exports = function(app, mongoose, bodyParser, passport) {
         }
       else {
         // this call imports the file that was just uploaded into mongoDB
-        exec('mongoimport --db test --collection gedcom_people --type json --file ./gedcom/jsonfiles/' + req.file.filename + 'indi.json --jsonArray', 
+        exec("mongoimport --db test --username 'appadmin' --password 'familygenie' --authenticationDatabase test --collection gedcom_people --type json --file ./gedcom/jsonfiles/" + req.file.filename + "indi.json --jsonArray",
           function(err) {
           if(err) {
             console.log('something bad happened', err)
@@ -34,15 +34,14 @@ module.exports = function(app, mongoose, bodyParser, passport) {
           }
           else {
             // write a simple response to the front end, for progress
-            console.log('imported Individual data to mongodb')
-            // res.write({step:01});
+            console.log('imported Individual data to mongodb');
           }
         });
       }
     });
 
     // parse and import parents
-    exec('python ./gedcom/parse/parentparse.py ./gedcom/uploads/' + req.file.filename + ' ./gedcom/jsonfiles/' + req.file.filename + 'parent.json ' + user_id,  
+    exec('python ./gedcom/parse/parentparse.py ./gedcom/uploads/' + req.file.filename + ' ./gedcom/jsonfiles/' + req.file.filename + 'parent.json ' + user_id,
       // run the python program on the info
       function(err) {
       if(err) {
@@ -50,7 +49,7 @@ module.exports = function(app, mongoose, bodyParser, passport) {
         // res.status(500).send({err, 'code': 27.2})
       }
       else {
-        exec('mongoimport --db test --collection gedcom_parents --type json --file ./gedcom/jsonfiles/' + req.file.filename + 'parent.json --jsonArray',
+        exec("mongoimport --db test --username 'appadmin' --password 'familygenie' --authenticationDatabase test --collection gedcom_parents --type json --file ./gedcom/jsonfiles/" + req.file.filename + "parent.json --jsonArray",
           function(err) { // imports the file that was just uploaded into mongoDB
             if(err) {
               console.log('something bad happened', err)
@@ -65,7 +64,7 @@ module.exports = function(app, mongoose, bodyParser, passport) {
     });
 
     // parse and import pair bonds
-    exec('python ./gedcom/parse/pairbondparse.py ./gedcom/uploads/' + req.file.filename + ' ./gedcom/jsonfiles/' + req.file.filename + 'pairbond.json ' + user_id,  
+    exec('python ./gedcom/parse/pairbondparse.py ./gedcom/uploads/' + req.file.filename + ' ./gedcom/jsonfiles/' + req.file.filename + 'pairbond.json ' + user_id,
       // run the python program on the info
       function(err) {
       if(err) {
@@ -73,7 +72,7 @@ module.exports = function(app, mongoose, bodyParser, passport) {
         // res.status(500).send({err, 'code': 27.3})
       }
       else {
-        exec('mongoimport --db test --collection gedcom_pairbonds --type json --file ./gedcom/jsonfiles/' + req.file.filename + 'pairbond.json --jsonArray',
+        exec("mongoimport --db test --username 'appadmin' --password 'familygenie' --authenticationDatabase test --collection gedcom_pairbonds --type json --file ./gedcom/jsonfiles/" + req.file.filename + "pairbond.json --jsonArray",
           function(err) { // imports the file that was just uploaded into mongoDB
             if(err) {
               console.log('something bad happened', err)
@@ -94,7 +93,7 @@ module.exports = function(app, mongoose, bodyParser, passport) {
         // res.status(500).send({err, 'code': 27.4})
       }
       else {
-        exec('mongoimport --db test --collection gedcom_events --type json --file ./gedcom/jsonfiles/' + req.file.filename + 'event.json --jsonArray',
+        exec("mongoimport --db test --username 'appadmin' --password 'familygenie' --authenticationDatabase test --collection gedcom_events --type json --file ./gedcom/jsonfiles/" + req.file.filename + "event.json --jsonArray",
           function(err) {
             if (err) {
               console.log('something bad happened', err)
