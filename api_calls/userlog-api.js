@@ -1,14 +1,13 @@
-let auth = require('../authentication');
-let mongoose = require('mongoose');
-let winston = require('winston');
-let moment = require('moment');
+var auth = require('../authentication');
+var mongoose = require('mongoose');
+var winston = require('winston');
 
 winston.level = 'debug'; // uncomment for development debugging
-let logLevel = 'debug';
+var logLevel = 'debug';
 // var logLevel = 'info';
 
-let date = new Date();
-// let vDate = new moment();
+var date = new Date();
+mongoose.Promise = global.Promise;;
 
 
 module.exports = function(app, UserLogModel) {
@@ -16,8 +15,8 @@ module.exports = function(app, UserLogModel) {
   // changed this so that you need to pass an object in the body. That object needs a 'field' and a 'value'. Made this mostly so that when we delete a person, we can remove all the pairbonds related to them
   app.post('/api/v2/logevent', auth.isAuthenticated, function(req, res) {
     winston.log(logLevel, date + ": In log people get");
-    let user = req.decoded._doc.userName;
-    let object = {
+    var user = req.decoded._doc.userName;
+    var object = {
       action: req.body.object.action,
       logDate: date,
       user_id: user
