@@ -55,7 +55,7 @@ module.exports = function(app, EventsModel) {
 
   // changed this so that you need to pass an object in the body. That object needs a 'field' and a 'value'. Made this mostly so that when we delete a person, we can remove all the pairbonds related to them
   app.post('/api/v2/event/delete', auth.isAuthenticated, function(req, res) {
-    winston.log(logLevel, date + ": In event delete with: " + req.body.object.field + " " + req.body.object.value);
+    winston.log(logLevel, date + ": In event delete.");
     var user = req.decoded._doc.userName;
     EventsModel.remove(
       {
