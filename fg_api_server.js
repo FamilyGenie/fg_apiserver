@@ -71,10 +71,21 @@ require('./functions/import-script.js')(app, PersonModel, StagedPersonModel, Eve
 
 require('./api_calls/userlog-api.js')(app, UserLogModel);
 
-app.use(function(req, res, next) {
-	res.status(404);
-	res.send("Not found here, try somewhere else maybe?");
+
+app.use(function(err, req, res, next) {
+  if (err.code === 'LIMIT_FILE_SIZE'){
+    console.log('Error: LIMIT_FILE_SIZE')
+    res.status(500).send('LIMIT_FILE_SIZE');
+  } 
+  console.log(err, req, res, next);
 });
+
+/*
+ * app.use(function(req, res, next) {
+ *   console.log('Error: 404')
+ *   res.status(404).send("Not found here, try somewhere else maybe?");
+ * });
+ */
 
 app.listen(3500, function() {
 	console.log("Ready to go: 3500");

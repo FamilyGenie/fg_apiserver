@@ -1,14 +1,20 @@
 var auth = require('../authentication');
 var multer = require('multer');
 var exec = require('child_process').exec;
-var upload = multer({ dest: './gedcom/uploads/' });
-var type = upload.single('gedcom');
+
+var maxSize = 1024 * 1024;
+var upload = multer({ 
+  dest: './gedcom/uploads/', 
+  limits: { fileSize : maxSize } 
+});
 
 /* Error Codes:
  * sent in the form 'XX.Y', where XX is the error and Y is the location
  * 27 : python conversion failed
  * 34 : mongodb import failed
  */
+
+var type = upload.single('gedcom');
 
 module.exports = function(app, mongoose, bodyParser, passport) {
 
