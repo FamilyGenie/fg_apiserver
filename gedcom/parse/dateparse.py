@@ -26,7 +26,7 @@ def formatDateString(dateString):
     """
     Format the input dateString from wildly varying user input softly into paresable formats
     """
-    approx = re.compile('abt\.? |bet\.? |bef\.? |before |about |early |(?<=\d)s|\?|\.', re.IGNORECASE) # common approxomation strings to be entirely removed
+    approx = re.compile('aft\.? |abt\.? |bet\.? |bef\.? |after |before |about |early |(?<=\d)s|\?|\.', re.IGNORECASE) # common approxomation strings to be entirely removed
     sept = re.compile('sept', re.IGNORECASE) # 'sept' is commonly used as a abbrev for the month, datetime only handles 'sep'
     split = re.compile('([A-Za-z]+)(\d+)', re.IGNORECASE) # not enough spacing between numbers and letters
     spacing = re.compile('\s+|([A-Za-z]+)(\d+)') # extra spacing causes problems in formatting ex '28     June1995' -> '28 June 1995'
