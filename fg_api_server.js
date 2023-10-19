@@ -13,7 +13,7 @@ var session = require('express-session');
 // var cookieParser = require('cookie-parser');
 var user;
 
-mongoose.connect('mongodb://appadmin:familygenie@localhost/test');
+mongoose.connect('${_self.HOSTNAME}/test');
 
 // BEGIN Mongoose Models
 var PersonModel = require('./models/person.model.js')(mongoose);
