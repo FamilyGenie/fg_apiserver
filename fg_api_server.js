@@ -13,7 +13,10 @@ var session = require('express-session');
 // var cookieParser = require('cookie-parser');
 var user;
 
-mongoose.connect('mongodb://appadmin:familygenie@localhost/test');
+//mongoose.connect('mongodb://appadmin:familygenie@localhost/test');
+//mongoose.connect('mongodb://127.0.0.1:27017/test');
+//mongoose.connect(process.env.MONGODB_URL)
+mongoose.connect('mongodb://mongodb:27017/test');
 
 // BEGIN Mongoose Models
 var PersonModel = require('./models/person.model.js')(mongoose);
@@ -70,6 +73,11 @@ require('./api_calls/stagedparentalrels-api.js')(app, StagedParentalRelModel);
 require('./functions/import-script.js')(app, PersonModel, StagedPersonModel, EventsModel, StagedEventsModel, ParentalRelModel, StagedParentalRelModel, PairBondRelModel, StagedPairBondRelModel);
 
 require('./api_calls/userlog-api.js')(app, UserLogModel);
+
+app.use(function(req, res, next) {
+	res.status(404);
+	res.send("Not found here, try somewhere else maybe?");
+});
 
 app.use(function(req, res, next) {
 	res.status(404);

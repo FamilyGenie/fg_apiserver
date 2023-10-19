@@ -5,18 +5,19 @@
   "main": "fg_api_server.js",
   "dependencies": {
     "async": "^2.1.4",
-    "bcrypt": "^0.8.7",
+    "bcrypt": "^5.1.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
     "child-process": "^1.0.2",
     "connect-flash": "^0.1.1",
     "cors": "^2.8.0",
+    "docker": "^1.0.0",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
     "file-system": "^2.2.1",
     "jsonwebtoken": "^7.1.9",
     "moment": "^2.17.1",
-    "mongoose": "^4.5.8",
+    "mongoose": "^5.0.0",
     "multer": "^1.0.2",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
@@ -30,6 +31,8 @@
     "supertest": "^2.0.1"
   },
   "scripts": {
+    "start": "node fg_api_server.js",
+    "d1": "docker build -t fg_api . && docker run -p 3500:3500 --network host fg_api",
     "pretest": "mongod --dbpath test/data-test --fork --syslog",
     "test": "mocha",
     "posttest": "killall mongod"
